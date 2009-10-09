@@ -1,0 +1,135 @@
+// !$*UTF8*$!
+{
+	1D3623240D0F684500981E51 /* ClassroomAppDelegate.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {924, 322}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 277}";
+		};
+	};
+	1D6058900D05DD3D006BFB54 /* Classroom */ = {
+		activeExec = 0;
+		executables = (
+			A88FBB86107F9C6C00537063 /* Classroom */,
+		);
+	};
+	28D7ACF60DDB3853001CB0EB /* ClassroomViewController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {924, 238}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 237}";
+		};
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = A88FBB86107F9C6C00537063 /* Classroom */;
+		activeTarget = 1D6058900D05DD3D006BFB54 /* Classroom */;
+		codeSenseManager = A88FBB97107F9C8200537063 /* Code sense */;
+		executables = (
+			A88FBB86107F9C6C00537063 /* Classroom */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					746,
+					20,
+					48.16259765625,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 276798572;
+			PBXWorkspaceStateSaveDate = 276798572;
+		};
+		perUserProjectItems = {
+			A88FBBB5107F9E3400537063 /* PBXTextBookmark */ = A88FBBB5107F9E3400537063 /* PBXTextBookmark */;
+			A88FBBB6107F9E3400537063 /* PBXBookmark */ = A88FBBB6107F9E3400537063 /* PBXBookmark */;
+			A88FBBB7107F9E3400537063 /* PBXTextBookmark */ = A88FBBB7107F9E3400537063 /* PBXTextBookmark */;
+			A88FBBB8107F9E3400537063 /* PBXTextBookmark */ = A88FBBB8107F9E3400537063 /* PBXTextBookmark */;
+		};
+		sourceControlManager = A88FBB96107F9C8200537063 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	A88FBB86107F9C6C00537063 /* Classroom */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = Classroom;
+		sourceDirectories = (
+		);
+	};
+	A88FBB96107F9C8200537063 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	A88FBB97107F9C8200537063 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	A88FBBB5107F9E3400537063 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* ClassroomViewController.h */;
+		name = "ClassroomViewController.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 237;
+		vrLoc = 0;
+	};
+	A88FBBB6107F9E3400537063 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 1D3623240D0F684500981E51 /* ClassroomAppDelegate.h */;
+	};
+	A88FBBB7107F9E3400537063 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 28D7ACF60DDB3853001CB0EB /* ClassroomViewController.h */;
+		name = "ClassroomViewController.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 237;
+		vrLoc = 0;
+	};
+	A88FBBB8107F9E3400537063 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1D3623240D0F684500981E51 /* ClassroomAppDelegate.h */;
+		name = "ClassroomAppDelegate.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 277;
+		vrLoc = 0;
+	};
+}

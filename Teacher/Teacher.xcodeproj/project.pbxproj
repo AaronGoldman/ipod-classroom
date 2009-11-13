@@ -14,6 +14,32 @@
 		2899E5220DE3E06400AC0155 /* TeacherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* TeacherViewController.xib */; };
 		28AD733F0D9D9553002E5188 /* TeacherMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* TeacherMainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* TeacherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* TeacherViewController.m */; };
+		54BDD17110ADEB4D00F44A84 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD15A10ADEB4D00F44A84 /* AsyncSocket.m */; };
+		54BDD17210ADEB4D00F44A84 /* DatabaseConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD15C10ADEB4D00F44A84 /* DatabaseConnection.m */; };
+		54BDD17310ADEB4D00F44A84 /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD15E10ADEB4D00F44A84 /* DDData.m */; };
+		54BDD17410ADEB4D00F44A84 /* DDNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD16010ADEB4D00F44A84 /* DDNumber.m */; };
+		54BDD17510ADEB4D00F44A84 /* DDRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD16210ADEB4D00F44A84 /* DDRange.m */; };
+		54BDD17610ADEB4D00F44A84 /* HTTPAuthenticationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD16410ADEB4D00F44A84 /* HTTPAuthenticationRequest.m */; };
+		54BDD17710ADEB4D00F44A84 /* HTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD16610ADEB4D00F44A84 /* HTTPConnection.m */; };
+		54BDD17810ADEB4D00F44A84 /* HTTPResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD16810ADEB4D00F44A84 /* HTTPResponse.m */; };
+		54BDD17910ADEB4D00F44A84 /* HTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD16A10ADEB4D00F44A84 /* HTTPServer.m */; };
+		54BDD17A10ADEB4D00F44A84 /* iPhoneHTTPServerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD16C10ADEB4D00F44A84 /* iPhoneHTTPServerAppDelegate.m */; };
+		54BDD17B10ADEB4D00F44A84 /* localhostAddresses.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD16E10ADEB4D00F44A84 /* localhostAddresses.m */; };
+		54BDD17C10ADEB4D00F44A84 /* MyHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD17010ADEB4D00F44A84 /* MyHTTPConnection.m */; };
+		54BDD17D10ADEB4D00F44A84 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD15A10ADEB4D00F44A84 /* AsyncSocket.m */; };
+		54BDD17E10ADEB4D00F44A84 /* DatabaseConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD15C10ADEB4D00F44A84 /* DatabaseConnection.m */; };
+		54BDD17F10ADEB4D00F44A84 /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD15E10ADEB4D00F44A84 /* DDData.m */; };
+		54BDD18010ADEB4D00F44A84 /* DDNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD16010ADEB4D00F44A84 /* DDNumber.m */; };
+		54BDD18110ADEB4D00F44A84 /* DDRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD16210ADEB4D00F44A84 /* DDRange.m */; };
+		54BDD18210ADEB4D00F44A84 /* HTTPAuthenticationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD16410ADEB4D00F44A84 /* HTTPAuthenticationRequest.m */; };
+		54BDD18310ADEB4D00F44A84 /* HTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD16610ADEB4D00F44A84 /* HTTPConnection.m */; };
+		54BDD18410ADEB4D00F44A84 /* HTTPResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD16810ADEB4D00F44A84 /* HTTPResponse.m */; };
+		54BDD18510ADEB4D00F44A84 /* HTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD16A10ADEB4D00F44A84 /* HTTPServer.m */; };
+		54BDD18610ADEB4D00F44A84 /* iPhoneHTTPServerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD16C10ADEB4D00F44A84 /* iPhoneHTTPServerAppDelegate.m */; };
+		54BDD18710ADEB4D00F44A84 /* localhostAddresses.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD16E10ADEB4D00F44A84 /* localhostAddresses.m */; };
+		54BDD18810ADEB4D00F44A84 /* MyHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD17010ADEB4D00F44A84 /* MyHTTPConnection.m */; };
+		54BDD19510ADEB6200F44A84 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54BDD19410ADEB6200F44A84 /* CFNetwork.framework */; };
+		54BDD19610ADEB6200F44A84 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54BDD19410ADEB6200F44A84 /* CFNetwork.framework */; };
 		A829658D10A2224500D6F261 /* GKObjectSession.m in Sources */ = {isa = PBXBuildFile; fileRef = A829658C10A2224500D6F261 /* GKObjectSession.m */; };
 		A829658E10A2224500D6F261 /* GKObjectSession.m in Sources */ = {isa = PBXBuildFile; fileRef = A829658C10A2224500D6F261 /* GKObjectSession.m */; };
 		A82965F210A2301600D6F261 /* TextQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A82965F010A2301600D6F261 /* TextQuestionViewController.m */; };
@@ -124,6 +150,31 @@
 		28D7ACF70DDB3853001CB0EB /* TeacherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Teacher_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Teacher_Prefix.pch; sourceTree = "<group>"; };
+		54BDD15910ADEB4D00F44A84 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncSocket.h; path = Project/AsyncSocket.h; sourceTree = "<group>"; };
+		54BDD15A10ADEB4D00F44A84 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncSocket.m; path = Project/AsyncSocket.m; sourceTree = "<group>"; };
+		54BDD15B10ADEB4D00F44A84 /* DatabaseConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatabaseConnection.h; path = Project/DatabaseConnection.h; sourceTree = "<group>"; };
+		54BDD15C10ADEB4D00F44A84 /* DatabaseConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatabaseConnection.m; path = Project/DatabaseConnection.m; sourceTree = "<group>"; };
+		54BDD15D10ADEB4D00F44A84 /* DDData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDData.h; path = Project/DDData.h; sourceTree = "<group>"; };
+		54BDD15E10ADEB4D00F44A84 /* DDData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDData.m; path = Project/DDData.m; sourceTree = "<group>"; };
+		54BDD15F10ADEB4D00F44A84 /* DDNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDNumber.h; path = Project/DDNumber.h; sourceTree = "<group>"; };
+		54BDD16010ADEB4D00F44A84 /* DDNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDNumber.m; path = Project/DDNumber.m; sourceTree = "<group>"; };
+		54BDD16110ADEB4D00F44A84 /* DDRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDRange.h; path = Project/DDRange.h; sourceTree = "<group>"; };
+		54BDD16210ADEB4D00F44A84 /* DDRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDRange.m; path = Project/DDRange.m; sourceTree = "<group>"; };
+		54BDD16310ADEB4D00F44A84 /* HTTPAuthenticationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPAuthenticationRequest.h; path = Project/HTTPAuthenticationRequest.h; sourceTree = "<group>"; };
+		54BDD16410ADEB4D00F44A84 /* HTTPAuthenticationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPAuthenticationRequest.m; path = Project/HTTPAuthenticationRequest.m; sourceTree = "<group>"; };
+		54BDD16510ADEB4D00F44A84 /* HTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPConnection.h; path = Project/HTTPConnection.h; sourceTree = "<group>"; };
+		54BDD16610ADEB4D00F44A84 /* HTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPConnection.m; path = Project/HTTPConnection.m; sourceTree = "<group>"; };
+		54BDD16710ADEB4D00F44A84 /* HTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPResponse.h; path = Project/HTTPResponse.h; sourceTree = "<group>"; };
+		54BDD16810ADEB4D00F44A84 /* HTTPResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPResponse.m; path = Project/HTTPResponse.m; sourceTree = "<group>"; };
+		54BDD16910ADEB4D00F44A84 /* HTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPServer.h; path = Project/HTTPServer.h; sourceTree = "<group>"; };
+		54BDD16A10ADEB4D00F44A84 /* HTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPServer.m; path = Project/HTTPServer.m; sourceTree = "<group>"; };
+		54BDD16B10ADEB4D00F44A84 /* iPhoneHTTPServerAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhoneHTTPServerAppDelegate.h; path = Project/iPhoneHTTPServerAppDelegate.h; sourceTree = "<group>"; };
+		54BDD16C10ADEB4D00F44A84 /* iPhoneHTTPServerAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhoneHTTPServerAppDelegate.m; path = Project/iPhoneHTTPServerAppDelegate.m; sourceTree = "<group>"; };
+		54BDD16D10ADEB4D00F44A84 /* localhostAddresses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = localhostAddresses.h; path = Project/localhostAddresses.h; sourceTree = "<group>"; };
+		54BDD16E10ADEB4D00F44A84 /* localhostAddresses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = localhostAddresses.m; path = Project/localhostAddresses.m; sourceTree = "<group>"; };
+		54BDD16F10ADEB4D00F44A84 /* MyHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyHTTPConnection.h; path = Project/MyHTTPConnection.h; sourceTree = "<group>"; };
+		54BDD17010ADEB4D00F44A84 /* MyHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyHTTPConnection.m; path = Project/MyHTTPConnection.m; sourceTree = "<group>"; };
+		54BDD19410ADEB6200F44A84 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = ../../../Downloads/iPhoneHTTPServer3/iphoneos2.2/System/Library/Frameworks/CFNetwork.framework; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* Teacher-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Teacher-Info.plist"; path = "../Teacher-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		A829658B10A2224500D6F261 /* GKObjectSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKObjectSession.h; sourceTree = "<group>"; };
 		A829658C10A2224500D6F261 /* GKObjectSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKObjectSession.m; sourceTree = "<group>"; };
@@ -213,6 +264,7 @@
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
 				A86EF2CD1099291F007DF5DF /* GameKit.framework in Frameworks */,
+				54BDD19510ADEB6200F44A84 /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +276,7 @@
 				A86EF3A810992A3C007DF5DF /* Foundation.framework in Frameworks */,
 				A86EF3A910992A3C007DF5DF /* GameKit.framework in Frameworks */,
 				A86EF3AA10992A3C007DF5DF /* UIKit.framework in Frameworks */,
+				54BDD19610ADEB6200F44A84 /* CFNetwork.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +307,30 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				54BDD15910ADEB4D00F44A84 /* AsyncSocket.h */,
+				54BDD15A10ADEB4D00F44A84 /* AsyncSocket.m */,
+				54BDD15B10ADEB4D00F44A84 /* DatabaseConnection.h */,
+				54BDD15C10ADEB4D00F44A84 /* DatabaseConnection.m */,
+				54BDD15D10ADEB4D00F44A84 /* DDData.h */,
+				54BDD15E10ADEB4D00F44A84 /* DDData.m */,
+				54BDD15F10ADEB4D00F44A84 /* DDNumber.h */,
+				54BDD16010ADEB4D00F44A84 /* DDNumber.m */,
+				54BDD16110ADEB4D00F44A84 /* DDRange.h */,
+				54BDD16210ADEB4D00F44A84 /* DDRange.m */,
+				54BDD16310ADEB4D00F44A84 /* HTTPAuthenticationRequest.h */,
+				54BDD16410ADEB4D00F44A84 /* HTTPAuthenticationRequest.m */,
+				54BDD16510ADEB4D00F44A84 /* HTTPConnection.h */,
+				54BDD16610ADEB4D00F44A84 /* HTTPConnection.m */,
+				54BDD16710ADEB4D00F44A84 /* HTTPResponse.h */,
+				54BDD16810ADEB4D00F44A84 /* HTTPResponse.m */,
+				54BDD16910ADEB4D00F44A84 /* HTTPServer.h */,
+				54BDD16A10ADEB4D00F44A84 /* HTTPServer.m */,
+				54BDD16B10ADEB4D00F44A84 /* iPhoneHTTPServerAppDelegate.h */,
+				54BDD16C10ADEB4D00F44A84 /* iPhoneHTTPServerAppDelegate.m */,
+				54BDD16D10ADEB4D00F44A84 /* localhostAddresses.h */,
+				54BDD16E10ADEB4D00F44A84 /* localhostAddresses.m */,
+				54BDD16F10ADEB4D00F44A84 /* MyHTTPConnection.h */,
+				54BDD17010ADEB4D00F44A84 /* MyHTTPConnection.m */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -292,6 +369,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				54BDD19410ADEB6200F44A84 /* CFNetwork.framework */,
 				A86EF2CC1099291F007DF5DF /* GameKit.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
@@ -572,6 +650,18 @@
 				A8D2FB9410ADE02D008F8516 /* BooleanQuestionViewController.m in Sources */,
 				A8D2FB9C10ADE244008F8516 /* MultipleChoiceQuestionViewController.m in Sources */,
 				A8D2FBA110ADE2F1008F8516 /* MultipleChoiceQuestion.m in Sources */,
+				54BDD17110ADEB4D00F44A84 /* AsyncSocket.m in Sources */,
+				54BDD17210ADEB4D00F44A84 /* DatabaseConnection.m in Sources */,
+				54BDD17310ADEB4D00F44A84 /* DDData.m in Sources */,
+				54BDD17410ADEB4D00F44A84 /* DDNumber.m in Sources */,
+				54BDD17510ADEB4D00F44A84 /* DDRange.m in Sources */,
+				54BDD17610ADEB4D00F44A84 /* HTTPAuthenticationRequest.m in Sources */,
+				54BDD17710ADEB4D00F44A84 /* HTTPConnection.m in Sources */,
+				54BDD17810ADEB4D00F44A84 /* HTTPResponse.m in Sources */,
+				54BDD17910ADEB4D00F44A84 /* HTTPServer.m in Sources */,
+				54BDD17A10ADEB4D00F44A84 /* iPhoneHTTPServerAppDelegate.m in Sources */,
+				54BDD17B10ADEB4D00F44A84 /* localhostAddresses.m in Sources */,
+				54BDD17C10ADEB4D00F44A84 /* MyHTTPConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,6 +699,18 @@
 				A8D2FB9210ADE02D008F8516 /* BooleanQuestionViewController.m in Sources */,
 				A8D2FB9A10ADE244008F8516 /* MultipleChoiceQuestionViewController.m in Sources */,
 				A8D2FBA010ADE2F1008F8516 /* MultipleChoiceQuestion.m in Sources */,
+				54BDD17D10ADEB4D00F44A84 /* AsyncSocket.m in Sources */,
+				54BDD17E10ADEB4D00F44A84 /* DatabaseConnection.m in Sources */,
+				54BDD17F10ADEB4D00F44A84 /* DDData.m in Sources */,
+				54BDD18010ADEB4D00F44A84 /* DDNumber.m in Sources */,
+				54BDD18110ADEB4D00F44A84 /* DDRange.m in Sources */,
+				54BDD18210ADEB4D00F44A84 /* HTTPAuthenticationRequest.m in Sources */,
+				54BDD18310ADEB4D00F44A84 /* HTTPConnection.m in Sources */,
+				54BDD18410ADEB4D00F44A84 /* HTTPResponse.m in Sources */,
+				54BDD18510ADEB4D00F44A84 /* HTTPServer.m in Sources */,
+				54BDD18610ADEB4D00F44A84 /* iPhoneHTTPServerAppDelegate.m in Sources */,
+				54BDD18710ADEB4D00F44A84 /* localhostAddresses.m in Sources */,
+				54BDD18810ADEB4D00F44A84 /* MyHTTPConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,6 +722,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Downloads/iPhoneHTTPServer3/iphoneos2.2/System/Library/Frameworks\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -634,6 +740,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Downloads/iPhoneHTTPServer3/iphoneos2.2/System/Library/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Teacher_Prefix.pch;
 				INFOPLIST_FILE = "Teacher-Info.plist";
@@ -647,6 +757,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Downloads/iPhoneHTTPServer3/iphoneos2.2/System/Library/Frameworks\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -672,6 +786,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Downloads/iPhoneHTTPServer3/iphoneos2.2/System/Library/Frameworks\"",
+				);
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";

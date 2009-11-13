@@ -19,6 +19,11 @@
     // Override point for customization after app launch    
     [window addSubview:viewController.view];
     [window makeKeyAndVisible];
+	
+	
+	
+	//id object;
+	//NSLog(@"object name: %@",object);
 }
 
 

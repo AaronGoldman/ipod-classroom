@@ -10,12 +10,10 @@
 #import "Client.h"
 #import "ConnectingViewController.h"
 
-@interface TestNavigationController : UIViewController <GKSessionDelegate,ClientDelegate>{
-	Client* client;
+@interface TestNavigationController : UIViewController <ClientDelegate>{
 	ConnectingViewController* connectingViewController;
 }
 
-@property (nonatomic , retain) Client* client;
 @property (nonatomic , retain) ConnectingViewController* connectingViewController;
 
 @end

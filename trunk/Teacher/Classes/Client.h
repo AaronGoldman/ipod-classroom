@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <GameKit/GameKit.h>
 #import "Question.h"
+#import "LoginRequestReply.h"
+#import "GKObjectSession.h"
 
 @class Client;
 @protocol ClientDelegate
@@ -18,20 +19,27 @@
 @end
 
 
-@interface Client : NSObject {
+@interface Client : NSObject <GKSessionDelegate> {
 
 	NSString* userName;
 	NSString* passwordHash;
-	GKSession* gkSession;
+	GKObjectSession* gkSession;
+	BOOL authenticated;
 	NSObject <GKSessionDelegate, ClientDelegate> *delegate;
+	BOOL loginOnConnect;
 }
 
-- (void) loginWithUserName:(NSString*)username passwordHash:(NSString*)passwordHash;
++ (Client*)getInstance;
+- (void) login;
 - (void) start;
+
+- (void) receivedLoginRequestReply:(LoginRequestReply*)reply;
 
 @property (nonatomic , retain) NSString* userName;
 @property (nonatomic , retain) NSString* passwordHash;
-@property (nonatomic , retain) GKSession* gkSession;
-@property (nonatomic , retain) NSObject <GKSessionDelegate,ClientDelegate> *delegate;
+@property (nonatomic , retain) GKObjectSession* gkSession;
+@property (nonatomic , retain) NSObject <ClientDelegate> *delegate;
+@property (nonatomic , assign) BOOL authenticated;
+@property (nonatomic , assign) BOOL loginOnConnect;
 
 @end

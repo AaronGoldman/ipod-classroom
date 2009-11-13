@@ -1,17 +1,17 @@
 //
-//  TestNavigationController.m
+//  QuestionViewController.m
 //  Teacher
 //
-//  Created by Adrian Smith on 10/29/09.
+//  Created by Adrian Smith on 11/9/09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-#import "TestNavigationController.h"
+#import "QuestionViewController.h"
 
 
-@implementation TestNavigationController
-
-@synthesize connectingViewController;
+@implementation QuestionViewController
+@synthesize question;
+@synthesize delegate;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -28,24 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-}
-
-- (void) viewDidAppear:(BOOL)animated{
-	[super viewDidAppear:YES];
-	if( ![Client getInstance].authenticated){
-		self.connectingViewController = [[ConnectingViewController alloc] init];
-		
-		
-		[UIView beginAnimations:nil context:nil];
-		[UIView setAnimationDuration:1.5];
-		[UIView setAnimationTransition:UIViewAnimationTransitionCurlDown forView:self.view cache:YES];
-		[self.view addSubview:connectingViewController.view];
-		[UIView commitAnimations];
-		[connectingViewController release];
-		
-		[Client getInstance].delegate = self;
-		[[Client getInstance] login];
-	}
+	questionText.text = question.text;
 }
 
 
@@ -69,13 +52,26 @@
 	// e.g. self.myOutlet = nil;
 }
 
-- (void) client:(Client*)_client didReceiveQuestions:(NSArray*)questions{
-	NSLog(@"recieved questions: %@" , questions);
+// Overide me
+- (QuestionResponseType) questionResponseType{
+	return 0;
+}
+
+- (NSData*) responseData{
+	return nil;
+}
+
+- (IBAction) next{
+	[self.delegate next];
+}
+
+- (IBAction) previous{
+	[self.delegate previous];
 }
 
 - (void)dealloc {
-	[connectingViewController release];
-
+	[delegate release];
+	[question release];
     [super dealloc];
 }
 

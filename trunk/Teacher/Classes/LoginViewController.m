@@ -8,7 +8,7 @@
 
 #import "LoginViewController.h"
 #import "TestNavigationController.h"
-
+#import "Client.h"
 
 @implementation LoginViewController
 @synthesize tableView;
@@ -26,6 +26,7 @@
     [super viewDidLoad];
 	self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
 	tableView.backgroundColor = [UIColor clearColor];
+	[Client getInstance];
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -106,7 +107,7 @@
 			textField.placeholder = @"Username";
 			[textField becomeFirstResponder];
 		}else if ( indexPath.row == 1){
-			textField.tag = 2;
+			textField.tag = 1;
 			textField.secureTextEntry = YES;
 			textField.placeholder = @"Password";
 		}else{
@@ -131,6 +132,15 @@
 }
 
 - (IBAction) connect{
+	NSString* userName = [(UITextField*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]] viewWithTag:1] text];
+	NSString* password = [(UITextField*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]] viewWithTag:1] text];
+	
+	NSLog(@"userName: %@" , userName);
+	NSLog(@"password: %@" , password);
+	[Client getInstance].userName = userName;
+	[Client getInstance].passwordHash = password;
+
+	
 	TestNavigationController* vc = [[TestNavigationController alloc] init];
 	[self presentModalViewController:vc animated:YES];
 	[vc release];

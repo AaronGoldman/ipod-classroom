@@ -17,7 +17,7 @@ typedef enum
 } QuestionResponseType;
 
 
-@interface Question : NSObject {
+@interface Question : NSObject <NSCoding>{
 	NSString* text;
 	QuestionResponseType responseType;
 	NSDate* date;

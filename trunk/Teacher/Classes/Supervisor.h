@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <GameKit/GameKit.h>
+#import "GKObjectSession.h"
 #import "Response.h"
+#import "LoginRequest.h"
+#import "Test.h"
+
 
 @class Supervisor;
 @protocol SupervisorDelegate
@@ -19,15 +22,16 @@
 
 
 @interface Supervisor : NSObject {
-	GKSession* gkSession;
-	NSArray* questions;
+	GKObjectSession* gkSession;
+	Test* test;
 	NSObject <GKSessionDelegate, SupervisorDelegate> *delegate;
 }
 
 - (void) start;
+- (void) receivedLoginRequest:(LoginRequest*)loginRequest fromPeer:(NSString*)peer;
 
-@property (nonatomic , retain) GKSession* gkSession;
-@property (nonatomic , retain) NSArray* questions;
+@property (nonatomic , retain) GKObjectSession* gkSession;
+@property (nonatomic , retain) Test* test;
 @property (nonatomic , retain) NSObject <GKSessionDelegate, SupervisorDelegate> *delegate;
 
 @end

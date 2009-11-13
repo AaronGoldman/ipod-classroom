@@ -93,6 +93,24 @@
 		A895B27410867D5A006DE1E6 /* graph_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A895B27110867D5A006DE1E6 /* graph_icon.png */; };
 		A895B27510867D5A006DE1E6 /* import_export_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A895B27210867D5A006DE1E6 /* import_export_icon.png */; };
 		A895B27610867D5A006DE1E6 /* test_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A895B27310867D5A006DE1E6 /* test_icon.png */; };
+		A8D2FB7B10ADDCBD008F8516 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D2FB7A10ADDCBD008F8516 /* Util.m */; };
+		A8D2FB7C10ADDCBD008F8516 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D2FB7A10ADDCBD008F8516 /* Util.m */; };
+		A8D2FB8410ADDCCA008F8516 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D2FB7F10ADDCCA008F8516 /* NSObject+SBJSON.m */; };
+		A8D2FB8510ADDCCA008F8516 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D2FB8110ADDCCA008F8516 /* NSString+SBJSON.m */; };
+		A8D2FB8610ADDCCA008F8516 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D2FB8310ADDCCA008F8516 /* SBJSON.m */; };
+		A8D2FB8710ADDCCA008F8516 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D2FB7F10ADDCCA008F8516 /* NSObject+SBJSON.m */; };
+		A8D2FB8810ADDCCA008F8516 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D2FB8110ADDCCA008F8516 /* NSString+SBJSON.m */; };
+		A8D2FB8910ADDCCA008F8516 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D2FB8310ADDCCA008F8516 /* SBJSON.m */; };
+		A8D2FB9210ADE02D008F8516 /* BooleanQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D2FB9010ADE02D008F8516 /* BooleanQuestionViewController.m */; };
+		A8D2FB9310ADE02D008F8516 /* BooleanQuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8D2FB9110ADE02D008F8516 /* BooleanQuestionViewController.xib */; };
+		A8D2FB9410ADE02D008F8516 /* BooleanQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D2FB9010ADE02D008F8516 /* BooleanQuestionViewController.m */; };
+		A8D2FB9510ADE02D008F8516 /* BooleanQuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8D2FB9110ADE02D008F8516 /* BooleanQuestionViewController.xib */; };
+		A8D2FB9A10ADE244008F8516 /* MultipleChoiceQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D2FB9810ADE244008F8516 /* MultipleChoiceQuestionViewController.m */; };
+		A8D2FB9B10ADE244008F8516 /* MultipleChoiceQuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8D2FB9910ADE244008F8516 /* MultipleChoiceQuestionViewController.xib */; };
+		A8D2FB9C10ADE244008F8516 /* MultipleChoiceQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D2FB9810ADE244008F8516 /* MultipleChoiceQuestionViewController.m */; };
+		A8D2FB9D10ADE244008F8516 /* MultipleChoiceQuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8D2FB9910ADE244008F8516 /* MultipleChoiceQuestionViewController.xib */; };
+		A8D2FBA010ADE2F1008F8516 /* MultipleChoiceQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D2FB9F10ADE2F1008F8516 /* MultipleChoiceQuestion.m */; };
+		A8D2FBA110ADE2F1008F8516 /* MultipleChoiceQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D2FB9F10ADE2F1008F8516 /* MultipleChoiceQuestion.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -167,6 +185,23 @@
 		A895B27110867D5A006DE1E6 /* graph_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graph_icon.png; sourceTree = "<group>"; };
 		A895B27210867D5A006DE1E6 /* import_export_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = import_export_icon.png; sourceTree = "<group>"; };
 		A895B27310867D5A006DE1E6 /* test_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_icon.png; sourceTree = "<group>"; };
+		A8D2FB7910ADDCBD008F8516 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Util.h; path = Classes/Util.h; sourceTree = "<group>"; };
+		A8D2FB7A10ADDCBD008F8516 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Util.m; path = Classes/Util.m; sourceTree = "<group>"; };
+		A8D2FB7D10ADDCCA008F8516 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		A8D2FB7E10ADDCCA008F8516 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		A8D2FB7F10ADDCCA008F8516 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		A8D2FB8010ADDCCA008F8516 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		A8D2FB8110ADDCCA008F8516 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		A8D2FB8210ADDCCA008F8516 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		A8D2FB8310ADDCCA008F8516 /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
+		A8D2FB8F10ADE02D008F8516 /* BooleanQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BooleanQuestionViewController.h; sourceTree = "<group>"; };
+		A8D2FB9010ADE02D008F8516 /* BooleanQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BooleanQuestionViewController.m; sourceTree = "<group>"; };
+		A8D2FB9110ADE02D008F8516 /* BooleanQuestionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BooleanQuestionViewController.xib; sourceTree = "<group>"; };
+		A8D2FB9710ADE244008F8516 /* MultipleChoiceQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipleChoiceQuestionViewController.h; sourceTree = "<group>"; };
+		A8D2FB9810ADE244008F8516 /* MultipleChoiceQuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipleChoiceQuestionViewController.m; sourceTree = "<group>"; };
+		A8D2FB9910ADE244008F8516 /* MultipleChoiceQuestionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MultipleChoiceQuestionViewController.xib; sourceTree = "<group>"; };
+		A8D2FB9E10ADE2F1008F8516 /* MultipleChoiceQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipleChoiceQuestion.h; sourceTree = "<group>"; };
+		A8D2FB9F10ADE2F1008F8516 /* MultipleChoiceQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipleChoiceQuestion.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +233,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A8D2FB7610ADDC2B008F8516 /* JSON */,
 				A8732219109F7CE40066F806 /* CommunicationObjects */,
 				A87DAC3D1098E86100F93F02 /* Model */,
 				A87DAC391098E61600F93F02 /* Supervisor */,
@@ -230,6 +266,8 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				A8D2FB7910ADDCBD008F8516 /* Util.h */,
+				A8D2FB7A10ADDCBD008F8516 /* Util.m */,
 				32CA4F630368D1EE00C91783 /* Teacher_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 				A86EF294109927F7007DF5DF /* Config.h */,
@@ -273,6 +311,12 @@
 				A848EE8110A8C3D400FEABF0 /* NumericQuestionViewController.xib */,
 				A848EE8710A8CA1100FEABF0 /* QuestionViewController.h */,
 				A848EE8810A8CA1100FEABF0 /* QuestionViewController.m */,
+				A8D2FB8F10ADE02D008F8516 /* BooleanQuestionViewController.h */,
+				A8D2FB9010ADE02D008F8516 /* BooleanQuestionViewController.m */,
+				A8D2FB9110ADE02D008F8516 /* BooleanQuestionViewController.xib */,
+				A8D2FB9710ADE244008F8516 /* MultipleChoiceQuestionViewController.h */,
+				A8D2FB9810ADE244008F8516 /* MultipleChoiceQuestionViewController.m */,
+				A8D2FB9910ADE244008F8516 /* MultipleChoiceQuestionViewController.xib */,
 			);
 			name = "Question UIs";
 			sourceTree = "<group>";
@@ -349,6 +393,8 @@
 				A87DAC451098EEE000F93F02 /* Test.m */,
 				A86EF3FC10992AFF007DF5DF /* Student.h */,
 				A86EF3FD10992AFF007DF5DF /* Student.m */,
+				A8D2FB9E10ADE2F1008F8516 /* MultipleChoiceQuestion.h */,
+				A8D2FB9F10ADE2F1008F8516 /* MultipleChoiceQuestion.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -367,6 +413,20 @@
 				2899E5210DE3E06400AC0155 /* TeacherViewController.xib */,
 			);
 			name = UI;
+			sourceTree = "<group>";
+		};
+		A8D2FB7610ADDC2B008F8516 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				A8D2FB7D10ADDCCA008F8516 /* JSON.h */,
+				A8D2FB7E10ADDCCA008F8516 /* NSObject+SBJSON.h */,
+				A8D2FB7F10ADDCCA008F8516 /* NSObject+SBJSON.m */,
+				A8D2FB8010ADDCCA008F8516 /* NSString+SBJSON.h */,
+				A8D2FB8110ADDCCA008F8516 /* NSString+SBJSON.m */,
+				A8D2FB8210ADDCCA008F8516 /* SBJSON.h */,
+				A8D2FB8310ADDCCA008F8516 /* SBJSON.m */,
+			);
+			name = JSON;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -445,6 +505,8 @@
 				A86EF50210994BDB007DF5DF /* TestNavigationController.xib in Resources */,
 				A82965F310A2301600D6F261 /* TextQuestionViewController.xib in Resources */,
 				A848EE8310A8C3D400FEABF0 /* NumericQuestionViewController.xib in Resources */,
+				A8D2FB9510ADE02D008F8516 /* BooleanQuestionViewController.xib in Resources */,
+				A8D2FB9D10ADE244008F8516 /* MultipleChoiceQuestionViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +530,8 @@
 				A86EF50410994BDB007DF5DF /* TestNavigationController.xib in Resources */,
 				A82965F510A2301600D6F261 /* TextQuestionViewController.xib in Resources */,
 				A848EE8510A8C3D400FEABF0 /* NumericQuestionViewController.xib in Resources */,
+				A8D2FB9310ADE02D008F8516 /* BooleanQuestionViewController.xib in Resources */,
+				A8D2FB9B10ADE244008F8516 /* MultipleChoiceQuestionViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -501,6 +565,13 @@
 				A82965F210A2301600D6F261 /* TextQuestionViewController.m in Sources */,
 				A848EE8210A8C3D400FEABF0 /* NumericQuestionViewController.m in Sources */,
 				A848EE8A10A8CA1100FEABF0 /* QuestionViewController.m in Sources */,
+				A8D2FB7B10ADDCBD008F8516 /* Util.m in Sources */,
+				A8D2FB8410ADDCCA008F8516 /* NSObject+SBJSON.m in Sources */,
+				A8D2FB8510ADDCCA008F8516 /* NSString+SBJSON.m in Sources */,
+				A8D2FB8610ADDCCA008F8516 /* SBJSON.m in Sources */,
+				A8D2FB9410ADE02D008F8516 /* BooleanQuestionViewController.m in Sources */,
+				A8D2FB9C10ADE244008F8516 /* MultipleChoiceQuestionViewController.m in Sources */,
+				A8D2FBA110ADE2F1008F8516 /* MultipleChoiceQuestion.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,6 +602,13 @@
 				A82965F410A2301600D6F261 /* TextQuestionViewController.m in Sources */,
 				A848EE8410A8C3D400FEABF0 /* NumericQuestionViewController.m in Sources */,
 				A848EE8C10A8CA1100FEABF0 /* QuestionViewController.m in Sources */,
+				A8D2FB7C10ADDCBD008F8516 /* Util.m in Sources */,
+				A8D2FB8710ADDCCA008F8516 /* NSObject+SBJSON.m in Sources */,
+				A8D2FB8810ADDCCA008F8516 /* NSString+SBJSON.m in Sources */,
+				A8D2FB8910ADDCCA008F8516 /* SBJSON.m in Sources */,
+				A8D2FB9210ADE02D008F8516 /* BooleanQuestionViewController.m in Sources */,
+				A8D2FB9A10ADE244008F8516 /* MultipleChoiceQuestionViewController.m in Sources */,
+				A8D2FBA010ADE2F1008F8516 /* MultipleChoiceQuestion.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

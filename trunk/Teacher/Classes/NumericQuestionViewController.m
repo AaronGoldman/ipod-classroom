@@ -52,6 +52,12 @@
 	return QuestionResponseTypeNumeric;
 }
 
+- (NSData*) responseData{
+	float answer = [numericField.text floatValue];
+	NSValue* response = [NSNumber numberWithFloat:answer];
+	return [NSKeyedArchiver archivedDataWithRootObject:response];
+}
+
 - (void)dealloc {
     [super dealloc];
 }

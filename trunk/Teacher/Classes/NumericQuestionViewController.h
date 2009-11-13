@@ -10,7 +10,7 @@
 #import "QuestionViewController.h"
 
 @interface NumericQuestionViewController : QuestionViewController {
-
+	IBOutlet UITextField* numericField;
 }
 
 @end

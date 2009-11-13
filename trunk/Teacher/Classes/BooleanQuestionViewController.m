@@ -1,15 +1,15 @@
 //
-//  TextQuestionViewController.m
+//  BooleanQuestionViewController.m
 //  Teacher
 //
-//  Created by Adrian Smith on 11/4/09.
+//  Created by Adrian Smith on 11/13/09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-#import "TextQuestionViewController.h"
+#import "BooleanQuestionViewController.h"
 
 
-@implementation TextQuestionViewController
+@implementation BooleanQuestionViewController
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -49,13 +49,12 @@
 }
 
 - (QuestionResponseType) questionResponseType{
-	return QuestionResponseTypeText;
+	return QuestionResponseTypeBoolean;
 }
 
 - (NSData*) responseData{
-	return [NSKeyedArchiver archivedDataWithRootObject:responseField.text];
+	return [NSKeyedArchiver archivedDataWithRootObject:[NSNumber numberWithBool:responseSwitch.on]];
 }
-
 
 - (void)dealloc {
     [super dealloc];

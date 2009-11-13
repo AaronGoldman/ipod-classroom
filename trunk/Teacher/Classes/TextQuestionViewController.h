@@ -10,7 +10,7 @@
 #import "QuestionViewController.h"
 
 @interface TextQuestionViewController : QuestionViewController {
-
+	IBOutlet UITextView* responseField;
 }
 
 @end

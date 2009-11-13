@@ -1,17 +1,15 @@
 //
-//  TestNavigationController.m
+//  TextQuestionViewController.m
 //  Teacher
 //
-//  Created by Adrian Smith on 10/29/09.
+//  Created by Adrian Smith on 11/4/09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-#import "TestNavigationController.h"
+#import "TextQuestionViewController.h"
 
 
-@implementation TestNavigationController
-
-@synthesize connectingViewController;
+@implementation TextQuestionViewController
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -23,31 +21,12 @@
 }
 */
 
-
+/*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-	
 }
-
-- (void) viewDidAppear:(BOOL)animated{
-	[super viewDidAppear:YES];
-	if( ![Client getInstance].authenticated){
-		self.connectingViewController = [[ConnectingViewController alloc] init];
-		
-		
-		[UIView beginAnimations:nil context:nil];
-		[UIView setAnimationDuration:1.5];
-		[UIView setAnimationTransition:UIViewAnimationTransitionCurlDown forView:self.view cache:YES];
-		[self.view addSubview:connectingViewController.view];
-		[UIView commitAnimations];
-		[connectingViewController release];
-		
-		[Client getInstance].delegate = self;
-		[[Client getInstance] login];
-	}
-}
-
+*/
 
 /*
 // Override to allow orientations other than the default portrait orientation.
@@ -69,13 +48,12 @@
 	// e.g. self.myOutlet = nil;
 }
 
-- (void) client:(Client*)_client didReceiveQuestions:(NSArray*)questions{
-	NSLog(@"recieved questions: %@" , questions);
+- (QuestionResponseType) questionResponseType{
+	return QuestionResponseTypeText;
 }
 
-- (void)dealloc {
-	[connectingViewController release];
 
+- (void)dealloc {
     [super dealloc];
 }
 

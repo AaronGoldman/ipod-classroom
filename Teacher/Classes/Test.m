@@ -14,6 +14,8 @@
 @synthesize date;
 @synthesize tid;
 
+
+
 - (void) dealloc{
 	[name release];
 	[date release];

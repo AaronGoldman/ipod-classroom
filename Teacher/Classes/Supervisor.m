@@ -7,13 +7,15 @@
 //
 
 #import "Supervisor.h"
+#import "LoginRequestReply.h"
+#import "Question.h"
 
 #define kSessionID @"iResponse"
 #define kDisplayName @"iResponse"
 
 @implementation Supervisor
 @synthesize gkSession;
-@synthesize questions;
+@synthesize test;
 @synthesize delegate;
 
 - (id) init{
@@ -24,7 +26,7 @@
 }
 
 - (void) start{
-	self.gkSession = [[GKSession alloc] initWithSessionID:kSessionID displayName:kDisplayName sessionMode:GKSessionModeServer];
+	self.gkSession = [[GKObjectSession alloc] initWithSessionID:kSessionID displayName:kDisplayName sessionMode:GKSessionModeServer];
 	gkSession.available = YES;
 	gkSession.delegate = delegate;
 	[gkSession setDataReceiveHandler:self withContext:nil];
@@ -32,26 +34,53 @@
 	[gkSession release];
 	NSLog(@"starting supervisor");
 }
-//- (IBAction) ping{
-//	NSLog(@"pinging");
-//	NSData* pingData = [[[UIDevice currentDevice] uniqueIdentifier] dataUsingEncoding:NSUTF8StringEncoding];
-//	[session sendDataToAllPeers:pingData withDataMode:GKSendDataReliable error:nil];
-//}
 
 
 - (void) receiveData:(NSData *)data fromPeer:(NSString *)peer inSession: (GKSession *)session context:(void *)context{
-	NSString* dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-	NSLog(@"received data: %@", dataString);
+	id receivedObject = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+	NSLog(@"received object: %@", receivedObject);
+
+	if( [receivedObject isKindOfClass:[LoginRequest class]]){
+		[self receivedLoginRequest:receivedObject fromPeer:peer];
+	}
 	
-	[dataString release];
+}
+
+- (void) receivedLoginRequest:(LoginRequest*)loginRequest fromPeer:(NSString*)peer{
 	
+	NSLog(@"processing login");
+
+	LoginRequestReply* reply = [[LoginRequestReply alloc] init];
+
+	//check password and hash, and then set authenticated	
+	reply.authenticated = YES;
+	
+	if( reply.authenticated){
+		NSMutableArray* questions = [NSMutableArray arrayWithCapacity:10];
+		
+		Question* question = [[Question alloc] init];
+		question.text = @"What's up?";
+		question.responseType = QuestionResponseTypeText;
+		[questions addObject:question];
+		[question release];
+		
+		question = [[Question alloc] init];
+		question.text = @"How are you?";
+		question.responseType = QuestionResponseTypeNumeric;
+		[questions addObject:question];
+		[question release];
+		
+		reply.questions = questions;
+	}
+	
+	[gkSession sendObject:reply toPeer:peer];
 }
 
 
 - (void) dealloc{
 	[delegate release];
 	[gkSession release];
-	[questions release];
+	[test release];
 	[super dealloc];
 }
 @end

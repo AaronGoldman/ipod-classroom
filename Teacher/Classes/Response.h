@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface Response : NSObject {
+@interface Response : NSObject <NSCoding>{
 	NSString* udid;
 	NSData* data;
 	NSDate* date;

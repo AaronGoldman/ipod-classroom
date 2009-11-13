@@ -1,16 +1,16 @@
 //
-//  TextQuestionViewController.m
+//  MultipleChoiceQuestionViewController.m
 //  Teacher
 //
-//  Created by Adrian Smith on 11/4/09.
+//  Created by Adrian Smith on 11/13/09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-#import "TextQuestionViewController.h"
+#import "MultipleChoiceQuestionViewController.h"
 
 
-@implementation TextQuestionViewController
-
+@implementation MultipleChoiceQuestionViewController
+@synthesize mquestion;
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -46,14 +46,6 @@
 - (void)viewDidUnload {
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
-}
-
-- (QuestionResponseType) questionResponseType{
-	return QuestionResponseTypeText;
-}
-
-- (NSData*) responseData{
-	return [NSKeyedArchiver archivedDataWithRootObject:responseField.text];
 }
 
 

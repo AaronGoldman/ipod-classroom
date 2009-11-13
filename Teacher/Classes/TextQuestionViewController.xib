@@ -189,6 +189,14 @@
 					</object>
 					<int key="connectionID">13</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">responseField</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="792769848"/>
+					</object>
+					<int key="connectionID">14</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -299,7 +307,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">13</int>
+			<int key="maxID">14</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -332,6 +340,10 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">TextQuestionViewController</string>
 					<string key="superclassName">QuestionViewController</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">responseField</string>
+						<string key="NS.object.0">UITextView</string>
+					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">Classes/TextQuestionViewController.h</string>

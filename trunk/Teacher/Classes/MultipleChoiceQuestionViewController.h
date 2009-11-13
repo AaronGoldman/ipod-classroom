@@ -13,6 +13,5 @@
 
 }
 
-@property (nonatomic , readonly, getter=question) MultipleChoiceQuestion* mquestion;
 
 @end

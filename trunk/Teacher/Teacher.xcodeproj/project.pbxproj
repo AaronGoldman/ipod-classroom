@@ -14,6 +14,18 @@
 		2899E5220DE3E06400AC0155 /* TeacherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* TeacherViewController.xib */; };
 		28AD733F0D9D9553002E5188 /* TeacherMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* TeacherMainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* TeacherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* TeacherViewController.m */; };
+		5463FE3D10B1F8BE00914064 /* database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 5463FE3C10B1F8BE00914064 /* database.sqlite */; };
+		5463FE3E10B1F8BE00914064 /* database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 5463FE3C10B1F8BE00914064 /* database.sqlite */; };
+		5463FF3310B3387E00914064 /* HTTPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5463FF3110B3387E00914064 /* HTTPViewController.m */; };
+		5463FF3410B3387E00914064 /* HTTPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5463FF3210B3387E00914064 /* HTTPViewController.xib */; };
+		5463FF3510B3387E00914064 /* HTTPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5463FF3110B3387E00914064 /* HTTPViewController.m */; };
+		5463FF3610B3387E00914064 /* HTTPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5463FF3210B3387E00914064 /* HTTPViewController.xib */; };
+		5463FF8310B33C5A00914064 /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = 5463FF8210B33C5A00914064 /* test.html */; };
+		5463FF8410B33C5A00914064 /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = 5463FF8210B33C5A00914064 /* test.html */; };
+		5463FFBC10B3415B00914064 /* test.js in Sources */ = {isa = PBXBuildFile; fileRef = 5463FFBA10B3415B00914064 /* test.js */; };
+		5463FFBE10B3416E00914064 /* test2.html in Resources */ = {isa = PBXBuildFile; fileRef = 5463FFBD10B3416E00914064 /* test2.html */; };
+		5463FFBF10B3416E00914064 /* test2.html in Resources */ = {isa = PBXBuildFile; fileRef = 5463FFBD10B3416E00914064 /* test2.html */; };
+		5463FFE410B342EA00914064 /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = 5463FFBA10B3415B00914064 /* test.js */; };
 		54BDD17110ADEB4D00F44A84 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD15A10ADEB4D00F44A84 /* AsyncSocket.m */; };
 		54BDD17210ADEB4D00F44A84 /* DatabaseConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD15C10ADEB4D00F44A84 /* DatabaseConnection.m */; };
 		54BDD17310ADEB4D00F44A84 /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD15E10ADEB4D00F44A84 /* DDData.m */; };
@@ -152,30 +164,37 @@
 		28D7ACF70DDB3853001CB0EB /* TeacherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Teacher_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Teacher_Prefix.pch; sourceTree = "<group>"; };
-		54BDD15910ADEB4D00F44A84 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncSocket.h; path = Project/AsyncSocket.h; sourceTree = "<group>"; };
-		54BDD15A10ADEB4D00F44A84 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncSocket.m; path = Project/AsyncSocket.m; sourceTree = "<group>"; };
-		54BDD15B10ADEB4D00F44A84 /* DatabaseConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatabaseConnection.h; path = Project/DatabaseConnection.h; sourceTree = "<group>"; };
-		54BDD15C10ADEB4D00F44A84 /* DatabaseConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatabaseConnection.m; path = Project/DatabaseConnection.m; sourceTree = "<group>"; };
-		54BDD15D10ADEB4D00F44A84 /* DDData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDData.h; path = Project/DDData.h; sourceTree = "<group>"; };
-		54BDD15E10ADEB4D00F44A84 /* DDData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDData.m; path = Project/DDData.m; sourceTree = "<group>"; };
-		54BDD15F10ADEB4D00F44A84 /* DDNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDNumber.h; path = Project/DDNumber.h; sourceTree = "<group>"; };
-		54BDD16010ADEB4D00F44A84 /* DDNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDNumber.m; path = Project/DDNumber.m; sourceTree = "<group>"; };
-		54BDD16110ADEB4D00F44A84 /* DDRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDRange.h; path = Project/DDRange.h; sourceTree = "<group>"; };
-		54BDD16210ADEB4D00F44A84 /* DDRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDRange.m; path = Project/DDRange.m; sourceTree = "<group>"; };
-		54BDD16310ADEB4D00F44A84 /* HTTPAuthenticationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPAuthenticationRequest.h; path = Project/HTTPAuthenticationRequest.h; sourceTree = "<group>"; };
-		54BDD16410ADEB4D00F44A84 /* HTTPAuthenticationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPAuthenticationRequest.m; path = Project/HTTPAuthenticationRequest.m; sourceTree = "<group>"; };
-		54BDD16510ADEB4D00F44A84 /* HTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPConnection.h; path = Project/HTTPConnection.h; sourceTree = "<group>"; };
-		54BDD16610ADEB4D00F44A84 /* HTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPConnection.m; path = Project/HTTPConnection.m; sourceTree = "<group>"; };
-		54BDD16710ADEB4D00F44A84 /* HTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPResponse.h; path = Project/HTTPResponse.h; sourceTree = "<group>"; };
-		54BDD16810ADEB4D00F44A84 /* HTTPResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPResponse.m; path = Project/HTTPResponse.m; sourceTree = "<group>"; };
-		54BDD16910ADEB4D00F44A84 /* HTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPServer.h; path = Project/HTTPServer.h; sourceTree = "<group>"; };
-		54BDD16A10ADEB4D00F44A84 /* HTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPServer.m; path = Project/HTTPServer.m; sourceTree = "<group>"; };
-		54BDD16B10ADEB4D00F44A84 /* iPhoneHTTPServerAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhoneHTTPServerAppDelegate.h; path = Project/iPhoneHTTPServerAppDelegate.h; sourceTree = "<group>"; };
-		54BDD16C10ADEB4D00F44A84 /* iPhoneHTTPServerAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhoneHTTPServerAppDelegate.m; path = Project/iPhoneHTTPServerAppDelegate.m; sourceTree = "<group>"; };
-		54BDD16D10ADEB4D00F44A84 /* localhostAddresses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = localhostAddresses.h; path = Project/localhostAddresses.h; sourceTree = "<group>"; };
-		54BDD16E10ADEB4D00F44A84 /* localhostAddresses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = localhostAddresses.m; path = Project/localhostAddresses.m; sourceTree = "<group>"; };
-		54BDD16F10ADEB4D00F44A84 /* MyHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyHTTPConnection.h; path = Project/MyHTTPConnection.h; sourceTree = "<group>"; };
-		54BDD17010ADEB4D00F44A84 /* MyHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyHTTPConnection.m; path = Project/MyHTTPConnection.m; sourceTree = "<group>"; };
+		5463FE3C10B1F8BE00914064 /* database.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = database.sqlite; path = ../../../database.sqlite; sourceTree = SOURCE_ROOT; };
+		5463FF3010B3387E00914064 /* HTTPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPViewController.h; sourceTree = "<group>"; };
+		5463FF3110B3387E00914064 /* HTTPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPViewController.m; sourceTree = "<group>"; };
+		5463FF3210B3387E00914064 /* HTTPViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HTTPViewController.xib; sourceTree = "<group>"; };
+		5463FF8210B33C5A00914064 /* test.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
+		5463FFBA10B3415B00914064 /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
+		5463FFBD10B3416E00914064 /* test2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test2.html; sourceTree = "<group>"; };
+		54BDD15910ADEB4D00F44A84 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncSocket.h; path = ../Project/AsyncSocket.h; sourceTree = "<group>"; };
+		54BDD15A10ADEB4D00F44A84 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncSocket.m; path = ../Project/AsyncSocket.m; sourceTree = "<group>"; };
+		54BDD15B10ADEB4D00F44A84 /* DatabaseConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatabaseConnection.h; path = ../Project/DatabaseConnection.h; sourceTree = "<group>"; };
+		54BDD15C10ADEB4D00F44A84 /* DatabaseConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DatabaseConnection.m; path = ../Project/DatabaseConnection.m; sourceTree = "<group>"; };
+		54BDD15D10ADEB4D00F44A84 /* DDData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDData.h; path = ../Project/DDData.h; sourceTree = "<group>"; };
+		54BDD15E10ADEB4D00F44A84 /* DDData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDData.m; path = ../Project/DDData.m; sourceTree = "<group>"; };
+		54BDD15F10ADEB4D00F44A84 /* DDNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDNumber.h; path = ../Project/DDNumber.h; sourceTree = "<group>"; };
+		54BDD16010ADEB4D00F44A84 /* DDNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDNumber.m; path = ../Project/DDNumber.m; sourceTree = "<group>"; };
+		54BDD16110ADEB4D00F44A84 /* DDRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DDRange.h; path = ../Project/DDRange.h; sourceTree = "<group>"; };
+		54BDD16210ADEB4D00F44A84 /* DDRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DDRange.m; path = ../Project/DDRange.m; sourceTree = "<group>"; };
+		54BDD16310ADEB4D00F44A84 /* HTTPAuthenticationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPAuthenticationRequest.h; path = ../Project/HTTPAuthenticationRequest.h; sourceTree = "<group>"; };
+		54BDD16410ADEB4D00F44A84 /* HTTPAuthenticationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPAuthenticationRequest.m; path = ../Project/HTTPAuthenticationRequest.m; sourceTree = "<group>"; };
+		54BDD16510ADEB4D00F44A84 /* HTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPConnection.h; path = ../Project/HTTPConnection.h; sourceTree = "<group>"; };
+		54BDD16610ADEB4D00F44A84 /* HTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPConnection.m; path = ../Project/HTTPConnection.m; sourceTree = "<group>"; };
+		54BDD16710ADEB4D00F44A84 /* HTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPResponse.h; path = ../Project/HTTPResponse.h; sourceTree = "<group>"; };
+		54BDD16810ADEB4D00F44A84 /* HTTPResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPResponse.m; path = ../Project/HTTPResponse.m; sourceTree = "<group>"; };
+		54BDD16910ADEB4D00F44A84 /* HTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTTPServer.h; path = ../Project/HTTPServer.h; sourceTree = "<group>"; };
+		54BDD16A10ADEB4D00F44A84 /* HTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTTPServer.m; path = ../Project/HTTPServer.m; sourceTree = "<group>"; };
+		54BDD16B10ADEB4D00F44A84 /* iPhoneHTTPServerAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = iPhoneHTTPServerAppDelegate.h; path = ../Project/iPhoneHTTPServerAppDelegate.h; sourceTree = "<group>"; };
+		54BDD16C10ADEB4D00F44A84 /* iPhoneHTTPServerAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = iPhoneHTTPServerAppDelegate.m; path = ../Project/iPhoneHTTPServerAppDelegate.m; sourceTree = "<group>"; };
+		54BDD16D10ADEB4D00F44A84 /* localhostAddresses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = localhostAddresses.h; path = ../Project/localhostAddresses.h; sourceTree = "<group>"; };
+		54BDD16E10ADEB4D00F44A84 /* localhostAddresses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = localhostAddresses.m; path = ../Project/localhostAddresses.m; sourceTree = "<group>"; };
+		54BDD16F10ADEB4D00F44A84 /* MyHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyHTTPConnection.h; path = ../Project/MyHTTPConnection.h; sourceTree = "<group>"; };
+		54BDD17010ADEB4D00F44A84 /* MyHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyHTTPConnection.m; path = ../Project/MyHTTPConnection.m; sourceTree = "<group>"; };
 		54BDD19410ADEB6200F44A84 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = ../../../Downloads/iPhoneHTTPServer3/iphoneos2.2/System/Library/Frameworks/CFNetwork.framework; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* Teacher-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Teacher-Info.plist"; path = "../Teacher-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		A829658B10A2224500D6F261 /* GKObjectSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKObjectSession.h; sourceTree = "<group>"; };
@@ -291,6 +310,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5463FF2E10B3383100914064 /* HTTP Server */,
+				5463FF2D10B3381B00914064 /* Database */,
 				A8D2FB7610ADDC2B008F8516 /* JSON */,
 				A8732219109F7CE40066F806 /* CommunicationObjects */,
 				A87DAC3D1098E86100F93F02 /* Model */,
@@ -312,30 +333,6 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				54BDD15910ADEB4D00F44A84 /* AsyncSocket.h */,
-				54BDD15A10ADEB4D00F44A84 /* AsyncSocket.m */,
-				54BDD15B10ADEB4D00F44A84 /* DatabaseConnection.h */,
-				54BDD15C10ADEB4D00F44A84 /* DatabaseConnection.m */,
-				54BDD15D10ADEB4D00F44A84 /* DDData.h */,
-				54BDD15E10ADEB4D00F44A84 /* DDData.m */,
-				54BDD15F10ADEB4D00F44A84 /* DDNumber.h */,
-				54BDD16010ADEB4D00F44A84 /* DDNumber.m */,
-				54BDD16110ADEB4D00F44A84 /* DDRange.h */,
-				54BDD16210ADEB4D00F44A84 /* DDRange.m */,
-				54BDD16310ADEB4D00F44A84 /* HTTPAuthenticationRequest.h */,
-				54BDD16410ADEB4D00F44A84 /* HTTPAuthenticationRequest.m */,
-				54BDD16510ADEB4D00F44A84 /* HTTPConnection.h */,
-				54BDD16610ADEB4D00F44A84 /* HTTPConnection.m */,
-				54BDD16710ADEB4D00F44A84 /* HTTPResponse.h */,
-				54BDD16810ADEB4D00F44A84 /* HTTPResponse.m */,
-				54BDD16910ADEB4D00F44A84 /* HTTPServer.h */,
-				54BDD16A10ADEB4D00F44A84 /* HTTPServer.m */,
-				54BDD16B10ADEB4D00F44A84 /* iPhoneHTTPServerAppDelegate.h */,
-				54BDD16C10ADEB4D00F44A84 /* iPhoneHTTPServerAppDelegate.m */,
-				54BDD16D10ADEB4D00F44A84 /* localhostAddresses.h */,
-				54BDD16E10ADEB4D00F44A84 /* localhostAddresses.m */,
-				54BDD16F10ADEB4D00F44A84 /* MyHTTPConnection.h */,
-				54BDD17010ADEB4D00F44A84 /* MyHTTPConnection.m */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -351,10 +348,14 @@
 				A8D2FB7910ADDCBD008F8516 /* Util.h */,
 				A8D2FB7A10ADDCBD008F8516 /* Util.m */,
 				32CA4F630368D1EE00C91783 /* Teacher_Prefix.pch */,
+				5463FE3C10B1F8BE00914064 /* database.sqlite */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 				A86EF294109927F7007DF5DF /* Config.h */,
 				A86EF4AE10994703007DF5DF /* AppDelegate.h */,
 				A86EF4AF10994703007DF5DF /* AppDelegate.m */,
+				5463FF8210B33C5A00914064 /* test.html */,
+				5463FFBA10B3415B00914064 /* test.js */,
+				5463FFBD10B3416E00914064 /* test2.html */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -382,6 +383,64 @@
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5463FF2D10B3381B00914064 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				54BDD15B10ADEB4D00F44A84 /* DatabaseConnection.h */,
+				54BDD15C10ADEB4D00F44A84 /* DatabaseConnection.m */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
+		5463FF2E10B3383100914064 /* HTTP Server */ = {
+			isa = PBXGroup;
+			children = (
+				5463FF2F10B3385600914064 /* UI */,
+				54BDD1E310ADED8800F44A84 /* Http */,
+				54BDD16910ADEB4D00F44A84 /* HTTPServer.h */,
+				54BDD16810ADEB4D00F44A84 /* HTTPResponse.m */,
+				54BDD16710ADEB4D00F44A84 /* HTTPResponse.h */,
+				54BDD16310ADEB4D00F44A84 /* HTTPAuthenticationRequest.h */,
+				54BDD16F10ADEB4D00F44A84 /* MyHTTPConnection.h */,
+				54BDD16510ADEB4D00F44A84 /* HTTPConnection.h */,
+				54BDD17010ADEB4D00F44A84 /* MyHTTPConnection.m */,
+				54BDD16610ADEB4D00F44A84 /* HTTPConnection.m */,
+				54BDD16410ADEB4D00F44A84 /* HTTPAuthenticationRequest.m */,
+				54BDD16A10ADEB4D00F44A84 /* HTTPServer.m */,
+				54BDD15910ADEB4D00F44A84 /* AsyncSocket.h */,
+				54BDD15A10ADEB4D00F44A84 /* AsyncSocket.m */,
+				54BDD15D10ADEB4D00F44A84 /* DDData.h */,
+				54BDD15E10ADEB4D00F44A84 /* DDData.m */,
+				54BDD15F10ADEB4D00F44A84 /* DDNumber.h */,
+				54BDD16010ADEB4D00F44A84 /* DDNumber.m */,
+				54BDD16110ADEB4D00F44A84 /* DDRange.h */,
+				54BDD16210ADEB4D00F44A84 /* DDRange.m */,
+				54BDD16B10ADEB4D00F44A84 /* iPhoneHTTPServerAppDelegate.h */,
+				54BDD16C10ADEB4D00F44A84 /* iPhoneHTTPServerAppDelegate.m */,
+				54BDD16D10ADEB4D00F44A84 /* localhostAddresses.h */,
+				54BDD16E10ADEB4D00F44A84 /* localhostAddresses.m */,
+			);
+			name = "HTTP Server";
+			sourceTree = "<group>";
+		};
+		5463FF2F10B3385600914064 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				5463FF3010B3387E00914064 /* HTTPViewController.h */,
+				5463FF3110B3387E00914064 /* HTTPViewController.m */,
+				5463FF3210B3387E00914064 /* HTTPViewController.xib */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		54BDD1E310ADED8800F44A84 /* Http */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Http;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		A82965F610A2302600D6F261 /* Question UIs */ = {
@@ -573,6 +632,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5463FFE410B342EA00914064 /* test.js in Resources */,
 				28AD733F0D9D9553002E5188 /* TeacherMainWindow.xib in Resources */,
 				2899E5220DE3E06400AC0155 /* TeacherViewController.xib in Resources */,
 				A895B23B1086763F006DE1E6 /* TestViewController.xib in Resources */,
@@ -591,6 +651,10 @@
 				A848EE8310A8C3D400FEABF0 /* NumericQuestionViewController.xib in Resources */,
 				A8D2FB9510ADE02D008F8516 /* BooleanQuestionViewController.xib in Resources */,
 				A8D2FB9D10ADE244008F8516 /* MultipleChoiceQuestionViewController.xib in Resources */,
+				5463FE3D10B1F8BE00914064 /* database.sqlite in Resources */,
+				5463FF3410B3387E00914064 /* HTTPViewController.xib in Resources */,
+				5463FF8310B33C5A00914064 /* test.html in Resources */,
+				5463FFBE10B3416E00914064 /* test2.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,6 +680,10 @@
 				A848EE8510A8C3D400FEABF0 /* NumericQuestionViewController.xib in Resources */,
 				A8D2FB9310ADE02D008F8516 /* BooleanQuestionViewController.xib in Resources */,
 				A8D2FB9B10ADE244008F8516 /* MultipleChoiceQuestionViewController.xib in Resources */,
+				5463FE3E10B1F8BE00914064 /* database.sqlite in Resources */,
+				5463FF3610B3387E00914064 /* HTTPViewController.xib in Resources */,
+				5463FF8410B33C5A00914064 /* test.html in Resources */,
+				5463FFBF10B3416E00914064 /* test2.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,6 +736,7 @@
 				54BDD17A10ADEB4D00F44A84 /* iPhoneHTTPServerAppDelegate.m in Sources */,
 				54BDD17B10ADEB4D00F44A84 /* localhostAddresses.m in Sources */,
 				54BDD17C10ADEB4D00F44A84 /* MyHTTPConnection.m in Sources */,
+				5463FF3310B3387E00914064 /* HTTPViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -717,6 +786,8 @@
 				54BDD18610ADEB4D00F44A84 /* iPhoneHTTPServerAppDelegate.m in Sources */,
 				54BDD18710ADEB4D00F44A84 /* localhostAddresses.m in Sources */,
 				54BDD18810ADEB4D00F44A84 /* MyHTTPConnection.m in Sources */,
+				5463FF3510B3387E00914064 /* HTTPViewController.m in Sources */,
+				5463FFBC10B3415B00914064 /* test.js in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

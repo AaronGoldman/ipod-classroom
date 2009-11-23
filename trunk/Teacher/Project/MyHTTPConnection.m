@@ -7,6 +7,8 @@
 #import "HTTPServer.h"
 #import "HTTPResponse.h"
 #import "AsyncSocket.h"
+#import "Util.h"
+#import "DatabaseConnection.h"
 
 @implementation MyHTTPConnection
 
@@ -203,6 +205,140 @@
 	// Therefore, this method may be called multiple times for the same POST request.
 	
 	//NSLog(@"processPostDataChunk");
+	
+	NSString* postDataChunkString = [[[NSString alloc] initWithData:postDataChunk encoding:NSUTF8StringEncoding] autorelease];
+
+	NSLog(@"post data string: %@" , postDataChunkString);
+	
+	NSArray* params = [postDataChunkString componentsSeparatedByString:@"&"];
+	
+	NSString* formtype = @" ";
+	
+	for(int i = 0; i < [params count]; i ++){
+		NSArray* parts = [[params objectAtIndex:i] componentsSeparatedByString:@"="];
+		//(NSString*) urlunEncode:(NSString*)str;
+		//NSString* field = [urlunEncode:[parts objectAtIndex:0]];
+		//NSString* value = [urlunEncode:[parts objectAtIndex:1]];
+		
+		NSString* field = [[Util urlunEncode:[parts objectAtIndex:0]] lowercaseString];
+		//lowercase=[original lowercaseString];
+
+		NSLog(@"Field is: %@" , field);
+		NSString* value = [Util urlunEncode:[parts objectAtIndex:1]];
+		NSLog(@"Value is: %@" , value);
+		
+		
+		if([formtype isEqualToString:@"test"]){
+			//multqtext
+			if([field isEqualToString:@"multqtext"]){
+				NSString* sqlstatement = [NSString stringWithFormat: @"INSERT INTO question (qid, text, time, type, tid) VALUES (NULL, '%@', 1234567, 3, );", value];
+				[DatabaseConnection executeSelect: sqlstatement];
+			}
+			//option
+			if([field isEqualToString:@"option"]){
+			}
+			//tfqtext
+			if([field isEqualToString:@"tfqtext"]){
+				NSString* sqlstatement = [NSString stringWithFormat: @"INSERT INTO question (qid, text, time, type, tid) VALUES (NULL, '%@', 1234567, 4, );", value];
+				[DatabaseConnection executeSelect: sqlstatement];
+			}
+			//numqtext
+			if([field isEqualToString:@"numqtext"]){
+				NSString* sqlstatement = [NSString stringWithFormat: @"INSERT INTO question (qid, text, time, type, tid) VALUES (NULL, '%@', 1234567, 2, );", value];
+				[DatabaseConnection executeSelect: sqlstatement];
+				
+			}
+			//textqtext
+			if([field isEqualToString:@"textqtext"]){
+				NSString* sqlstatement = [NSString stringWithFormat: @"INSERT INTO question (qid, text, time, type, tid) VALUES (NULL, '%@', 1234567, 1, );", value];
+				[DatabaseConnection executeSelect: sqlstatement];
+			}
+		}
+		if([formtype isEqualToString:@"class"]){
+			//sudentname
+			if([field isEqualToString:@"sudentname"]){
+			}
+			//devise
+			if([field isEqualToString:@"devise"]){
+			}
+			//password
+			if([field isEqualToString:@"password"]){
+			}
+		}
+		
+		if([formtype isEqualToString:@" "]){
+			if([field isEqualToString:@"testname"]){
+				formtype = @"test";
+				//create test with name value
+				
+				//message = [NSString stringWithFormat: @"Your age is %d", age];
+
+				
+				NSString* sqlstatement = [NSString stringWithFormat: @"INSERT INTO test (name, time, tid) VALUES ('%@', 1234567, NULL);", value];
+				//NSString* sqlstatement =  @"INSERT INTO test (name, time, tid) VALUES ('BoB', 1234567, NULL);";
+				
+				
+				[DatabaseConnection executeSelect: sqlstatement];
+				
+				NSArray* testvals = [DatabaseConnection executeSelect:@"SELECT * FROM test WHERE tid>0"];
+				
+				//NSArray* tid = [DatabaseConnection executeSelect:@"SELECT tid FROM test WHERE tid = last_insert_rowid()"];
+				
+				int tid = sqlite3_last_insert_rowid([DatabaseConnection getConnection]);
+				
+				NSLog(@"tid: %d", tid);
+				NSLog(@"testvals: %@", testvals);
+				
+				//[outdata appendFormat:@"<h1>Files from %@</h1>", server.name];
+
+				//select class_id from class where class_id = last_insert_rowid();	
+				
+			}
+			if([field isEqualToString:@"classname"]){
+				formtype = @"class";
+				//cerate class with name value
+			}
+		}
+		
+	
+		//int thirdRowVal = [[[vals objectAtIndex:1] objectForKey:@"class_id"] intValue];
+	}
+	
+	
+	
+	
+	//[DatabaseConnection executeSelect:@"INSERT INTO class (name, class_id) VALUES ('Tim', NULL);"];
+	//	[DatabaseConnection executeSelect:@"INSERT INTO manswer (qid) VALUES (5);"];
+	//	[DatabaseConnection executeSelect:@"DELETE FROM class WHERE class_id>3;"];
+	//NSArray* vals = [DatabaseConnection executeSelect:@"SELECT * FROM manswer WHERE qid>0"];
+	
+	
+	
+	//NSLog(@"val: %@" , [vals objectAtIndex:1]);
+	//int thirdRowVal = [[[vals objectAtIndex:1] objectForKey:@"class_id"] intValue];
+	
+	//id object;
+	//NSLog(@"object name: %@",vals);
+	//NSLog(@"Row: %d",thirdRowVal);
+	
+	
+	
+	/*+ (NSDictionary*) queryParameters:(NSURL*)url{
+		NSArray* params = [[url query] componentsSeparatedByString:@"&"];
+		NSMutableDictionary* queryDict = [NSMutableDictionary dictionaryWithCapacity:[params count]];
+		
+		for(int i = 0; i < [params count]; i ++){
+			NSArray* parts = [[params objectAtIndex:i] componentsSeparatedByString:@"="];
+			[queryDict setObject:[parts objectAtIndex:1] forKey:[parts objectAtIndex:0]];
+		}
+		
+		for( NSString* key in queryDict){
+			NSLog(@"%@: %@" , key , [queryDict objectForKey:key]);
+		}
+		
+		return queryDict;*/
+	
+	
 	
 	if (!postHeaderOK)
 	{

@@ -137,6 +137,35 @@
 	return str;
 }
 
++ (NSString*) urlunEncode:(NSString*)str{
+	str = [str stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
+	str = [str stringByReplacingOccurrencesOfString:@"%23" withString:@"#"];
+	str = [str stringByReplacingOccurrencesOfString:@"%24" withString:@"$"];
+	str = [str stringByReplacingOccurrencesOfString:@"%26" withString:@"&"];
+	str = [str stringByReplacingOccurrencesOfString:@"%2B" withString:@"+"];
+	str = [str stringByReplacingOccurrencesOfString:@"%2C" withString:@","];
+	str = [str stringByReplacingOccurrencesOfString:@"%2F" withString:@"/"];
+	str = [str stringByReplacingOccurrencesOfString:@"%3A" withString:@":"];
+	str = [str stringByReplacingOccurrencesOfString:@"%3B" withString:@";"];
+	str = [str stringByReplacingOccurrencesOfString:@"%3C" withString:@"<"];
+	str = [str stringByReplacingOccurrencesOfString:@"%3D" withString:@"="];
+	str = [str stringByReplacingOccurrencesOfString:@"%3E" withString:@">"];
+	str = [str stringByReplacingOccurrencesOfString:@"%3F" withString:@"?"];
+	str = [str stringByReplacingOccurrencesOfString:@"%40" withString:@"@"];
+	str = [str stringByReplacingOccurrencesOfString:@"%5B" withString:@"["];
+	str = [str stringByReplacingOccurrencesOfString:@"%5D" withString:@"]"];
+	str = [str stringByReplacingOccurrencesOfString:@"%5E" withString:@"^"];
+	str = [str stringByReplacingOccurrencesOfString:@"%60" withString:@"`"];
+	str = [str stringByReplacingOccurrencesOfString:@"%7B" withString:@"{"];
+	str = [str stringByReplacingOccurrencesOfString:@"%7C" withString:@"|"];
+	str = [str stringByReplacingOccurrencesOfString:@"%7D" withString:@"}"];
+	str = [str stringByReplacingOccurrencesOfString:@"%7E" withString:@"~"];
+	str = [str stringByReplacingOccurrencesOfString:@"%5C" withString:@"\\"];
+	
+	return str;
+}
+
+
 + (void) showAlertWithTitle:(NSString*)title message:(NSString*)message{
 	UIAlertView* av = [[UIAlertView alloc] initWithTitle:title
 												 message:message

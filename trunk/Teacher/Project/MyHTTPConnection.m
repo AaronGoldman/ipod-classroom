@@ -11,6 +11,7 @@
 #import "DatabaseConnection.h"
 
 @implementation MyHTTPConnection
+@synthesize postDataParams;
 
 /**
  * Returns whether or not the requested resource is browseable.
@@ -116,8 +117,9 @@
 	
 	NSString *requestStr = [[[NSString alloc] initWithData:requestData encoding:NSASCIIStringEncoding] autorelease];
 	NSLog(@"\n=== Request ====================\n%@\n================================", requestStr);
+
 	
-	if (requestContentLength > 0)  // Process POST data
+	if (requestContentLength > 0 && [multipartData count] >= 2)  // Process POST data
 	{
 		NSLog(@"processing post data: %i", requestContentLength);
 		
@@ -165,6 +167,10 @@
 		[multipartData release];
 		requestContentLength = 0;
 		
+	}else if ( [postDataParams count] > 0){
+		NSString* responseString = [self processPostData:postDataParams forFile:[path lastPathComponent]];
+		NSData* responseData = [responseString dataUsingEncoding:NSUTF8StringEncoding];
+		return [[[HTTPDataResponse alloc] initWithData:responseData] autorelease];
 	}
 	
 	NSString *filePath = [self filePathForURI:path];
@@ -184,7 +190,7 @@
 			return [[[HTTPDataResponse alloc] initWithData:browseData] autorelease];
 		}
 	}
-	
+
 	return nil;
 }
 
@@ -212,8 +218,9 @@
 	
 	NSArray* params = [postDataChunkString componentsSeparatedByString:@"&"];
 	
-	NSString* formtype = @" ";
+//	NSString* formtype = @" ";
 	
+	self.postDataParams = [NSMutableDictionary dictionaryWithCapacity:25];
 	for(int i = 0; i < [params count]; i ++){
 		NSArray* parts = [[params objectAtIndex:i] componentsSeparatedByString:@"="];
 		//(NSString*) urlunEncode:(NSString*)str;
@@ -227,83 +234,22 @@
 		NSString* value = [Util urlunEncode:[parts objectAtIndex:1]];
 		NSLog(@"Value is: %@" , value);
 		
-		
-		if([formtype isEqualToString:@"test"]){
-			//multqtext
-			if([field isEqualToString:@"multqtext"]){
-				NSString* sqlstatement = [NSString stringWithFormat: @"INSERT INTO question (qid, text, time, type, tid) VALUES (NULL, '%@', 1234567, 3, );", value];
-				[DatabaseConnection executeSelect: sqlstatement];
+		if( [field hasSuffix:@"[]"]){
+			
+			if ( [postDataParams objectForKey:field] == nil ){
+				[postDataParams setObject:[NSMutableArray arrayWithCapacity:10] forKey:field];
 			}
-			//option
-			if([field isEqualToString:@"option"]){
-			}
-			//tfqtext
-			if([field isEqualToString:@"tfqtext"]){
-				NSString* sqlstatement = [NSString stringWithFormat: @"INSERT INTO question (qid, text, time, type, tid) VALUES (NULL, '%@', 1234567, 4, );", value];
-				[DatabaseConnection executeSelect: sqlstatement];
-			}
-			//numqtext
-			if([field isEqualToString:@"numqtext"]){
-				NSString* sqlstatement = [NSString stringWithFormat: @"INSERT INTO question (qid, text, time, type, tid) VALUES (NULL, '%@', 1234567, 2, );", value];
-				[DatabaseConnection executeSelect: sqlstatement];
-				
-			}
-			//textqtext
-			if([field isEqualToString:@"textqtext"]){
-				NSString* sqlstatement = [NSString stringWithFormat: @"INSERT INTO question (qid, text, time, type, tid) VALUES (NULL, '%@', 1234567, 1, );", value];
-				[DatabaseConnection executeSelect: sqlstatement];
-			}
+			[[postDataParams objectForKey:field] addObject:value];
+		}else{
+			[postDataParams setObject:value forKey:field];
 		}
-		if([formtype isEqualToString:@"class"]){
-			//sudentname
-			if([field isEqualToString:@"sudentname"]){
-			}
-			//devise
-			if([field isEqualToString:@"devise"]){
-			}
-			//password
-			if([field isEqualToString:@"password"]){
-			}
-		}
-		
-		if([formtype isEqualToString:@" "]){
-			if([field isEqualToString:@"testname"]){
-				formtype = @"test";
-				//create test with name value
-				
-				//message = [NSString stringWithFormat: @"Your age is %d", age];
 
-				
-				NSString* sqlstatement = [NSString stringWithFormat: @"INSERT INTO test (name, time, tid) VALUES ('%@', 1234567, NULL);", value];
-				//NSString* sqlstatement =  @"INSERT INTO test (name, time, tid) VALUES ('BoB', 1234567, NULL);";
-				
-				
-				[DatabaseConnection executeSelect: sqlstatement];
-				
-				NSArray* testvals = [DatabaseConnection executeSelect:@"SELECT * FROM test WHERE tid>0"];
-				
-				//NSArray* tid = [DatabaseConnection executeSelect:@"SELECT tid FROM test WHERE tid = last_insert_rowid()"];
-				
-				int tid = sqlite3_last_insert_rowid([DatabaseConnection getConnection]);
-				
-				NSLog(@"tid: %d", tid);
-				NSLog(@"testvals: %@", testvals);
-				
-				//[outdata appendFormat:@"<h1>Files from %@</h1>", server.name];
+		
 
-				//select class_id from class where class_id = last_insert_rowid();	
-				
-			}
-			if([field isEqualToString:@"classname"]){
-				formtype = @"class";
-				//cerate class with name value
-			}
-		}
 		
 	
 		//int thirdRowVal = [[[vals objectAtIndex:1] objectForKey:@"class_id"] intValue];
 	}
-	
 	
 	
 	
@@ -394,5 +340,118 @@
 		[(NSFileHandle*)[multipartData lastObject] writeData:postDataChunk];
 	}
 }
+
+- (NSString*) processPostData:(NSDictionary*)data forFile:(NSString*)fileName{
+	NSString* response = nil;
+	if( [fileName isEqual:@"classSubmit.html"]){
+		response = [self handleClassSubmit:data];
+	}if( [fileName isEqual:@"testSubmit.html"]){
+		response = [self handleTestSubtmit:data];
+	}
+	
+	return response;
+}
+
+- (NSString*) handleTestSubtmit:(NSDictionary*)data{
+	NSLog(@"handling test submit with data: %@" , data);
+	return @"test submitted";
+}
+
+- (NSString*) handleClassSubmit:(NSDictionary*)data{
+	NSLog(@"handling class submit with data: %@" , data);
+//	if([formtype isEqualToString:@"test"]){
+//		//multqtext
+//		if([field isEqualToString:@"multqtext"]){
+//			//Add multipal choise qwestion text to qwestion table
+//			NSString* sqlstatement = [NSString stringWithFormat: @"INSERT INTO question (qid, text, time, type, tid) VALUES (NULL, '%@', 1234567, 3, );", value];
+//			[DatabaseConnection executeSelect: sqlstatement];
+//		}
+//		//option
+//		if([field isEqualToString:@"option"]){
+//			//add a option for the last created multipal choise qwestion
+//		}
+//		//tfqtext
+//		if([field isEqualToString:@"tfqtext"]){
+//			//Add true false qwestion text to qwestion table
+//			NSString* sqlstatement = [NSString stringWithFormat: @"INSERT INTO question (qid, text, time, type, tid) VALUES (NULL, '%@', 1234567, 4, );", value];
+//			[DatabaseConnection executeSelect: sqlstatement];
+//		}
+//		//numqtext
+//		if([field isEqualToString:@"numqtext"]){
+//			//Add numeric responce qwestion text to qwestion table
+//			NSString* sqlstatement = [NSString stringWithFormat: @"INSERT INTO question (qid, text, time, type, tid) VALUES (NULL, '%@', 1234567, 2, );", value];
+//			[DatabaseConnection executeSelect: sqlstatement];
+//			
+//		}
+//		//textqtext
+//		if([field isEqualToString:@"textqtext"]){
+//			//Add text responce qwestion text to qwestion table
+//			NSString* sqlstatement = [NSString stringWithFormat: @"INSERT INTO question (qid, text, time, type, tid) VALUES (NULL, '%@', 1234567, 1, );", value];
+//			[DatabaseConnection executeSelect: sqlstatement];
+//		}
+//	}
+//	if([formtype isEqualToString:@"class"]){
+//		//sudentname
+//		if([field isEqualToString:@"sudentname"]){
+//			//add student to most resently created class 
+//		}
+//		//devise
+//		if([field isEqualToString:@"devise"]){
+//			//add device id to most recently created student
+//		}
+//		//password
+//		if([field isEqualToString:@"password"]){
+//			//add password to most recently created student
+//		}
+//	}
+//	//form type identivifation
+//	if([formtype isEqualToString:@" "]){
+//		if([field isEqualToString:@"testname"]){
+//			formtype = @"test";
+//			//create test with name value
+//			
+//			//message = [NSString stringWithFormat: @"Your age is %d", age];
+//			
+//			
+//			NSString* sqlstatement = [NSString stringWithFormat: @"INSERT INTO test (name, time, tid) VALUES ('%@', 1234567, NULL);", value];
+//			//NSString* sqlstatement =  @"INSERT INTO test (name, time, tid) VALUES ('BoB', 1234567, NULL);";
+//			
+//			
+//			[DatabaseConnection executeSelect: sqlstatement];
+//			
+//			NSArray* testvals = [DatabaseConnection executeSelect:@"SELECT * FROM test WHERE tid>0"];
+//			
+//			//NSArray* tid = [DatabaseConnection executeSelect:@"SELECT tid FROM test WHERE tid = last_insert_rowid()"];
+//			
+//			int tid = sqlite3_last_insert_rowid([DatabaseConnection getConnection]);
+//			
+//			NSLog(@"tid: %d", tid);
+//			NSLog(@"testvals: %@", testvals);
+//			
+//			//[outdata appendFormat:@"<h1>Files from %@</h1>", server.name];
+//			
+//			//select class_id from class where class_id = last_insert_rowid();	
+//			
+//		}
+//		if([field isEqualToString:@"classname"]){
+//			formtype = @"class";
+//			//cerate class with name value
+//		}
+//		
+//		//form from client
+//		/*if([field isEqualToString:@"client"]){
+//		 formtype = @"client";
+//		 //code for client comunication
+//		 }*/
+//	}
+	
+	return @"Helllow reaponst world!";
+}
+
+- (void) dealloc{
+	[postDataParams release];
+	[super dealloc];
+}
+
 
 @end

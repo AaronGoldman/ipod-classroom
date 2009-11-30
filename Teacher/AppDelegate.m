@@ -44,20 +44,21 @@
 
 	
 //[DatabaseConnection executeSelect:@"INSERT INTO class (name, class_id) VALUES ('Tim', NULL);"];
-	[DatabaseConnection executeSelect:@"DELETE FROM class WHERE class_id>3;"];
-		NSArray* vals = [DatabaseConnection executeSelect:@"SELECT * FROM class WHERE class_id>0"];
+//	[DatabaseConnection executeSelect:@"INSERT INTO manswer (qid) VALUES (5);"];
+//	[DatabaseConnection executeSelect:@"DELETE FROM class WHERE class_id>3;"];
+		NSArray* vals = [DatabaseConnection executeSelect:@"SELECT * FROM manswer WHERE qid>0"];
 	
 	NSLog(@"vals: %@", vals);
 	NSLog(@"val: %@" , [vals objectAtIndex:1]);
-	int thirdRowVal = [[[vals objectAtIndex:1] objectForKey:@"class_id"] intValue];
+	//int thirdRowVal = [[[vals objectAtIndex:1] objectForKey:@"class_id"] intValue];
 	
-	id object;
+	//id object;
 	NSLog(@"object name: %@",vals);
-	NSLog(@"Row: %d",thirdRowVal);
+	//NSLog(@"Row: %d",thirdRowVal);
 }
 
 
-- (void)dealloc {
+- (void)dealloc {file://localhost/Users/ece/Downloads/student.htm
     [viewController release];
     [window release];
     [super dealloc];

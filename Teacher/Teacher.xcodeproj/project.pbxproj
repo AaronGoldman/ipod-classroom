@@ -14,18 +14,20 @@
 		2899E5220DE3E06400AC0155 /* TeacherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* TeacherViewController.xib */; };
 		28AD733F0D9D9553002E5188 /* TeacherMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* TeacherMainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* TeacherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* TeacherViewController.m */; };
-		5463FE3D10B1F8BE00914064 /* database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 5463FE3C10B1F8BE00914064 /* database.sqlite */; };
-		5463FE3E10B1F8BE00914064 /* database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 5463FE3C10B1F8BE00914064 /* database.sqlite */; };
+		5463018210B5FAE500914064 /* jquery.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 5463017F10B5FAE500914064 /* jquery.min.js */; };
+		5463018510B5FAE500914064 /* jquery.min.js in Sources */ = {isa = PBXBuildFile; fileRef = 5463017F10B5FAE500914064 /* jquery.min.js */; };
+		5463022110BB3E1C00914064 /* database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 5463022010BB3E1C00914064 /* database.sqlite */; };
+		5463022210BB3E1C00914064 /* database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 5463022010BB3E1C00914064 /* database.sqlite */; };
+		5463027110BC566800914064 /* student.htm in Resources */ = {isa = PBXBuildFile; fileRef = 5463027010BC566800914064 /* student.htm */; };
+		5463027210BC566800914064 /* student.htm in Resources */ = {isa = PBXBuildFile; fileRef = 5463027010BC566800914064 /* student.htm */; };
+		5463027410BC56B300914064 /* submitted.htm in Resources */ = {isa = PBXBuildFile; fileRef = 5463027310BC56B300914064 /* submitted.htm */; };
+		5463027510BC56B300914064 /* submitted.htm in Resources */ = {isa = PBXBuildFile; fileRef = 5463027310BC56B300914064 /* submitted.htm */; };
+		5463027710BC56D400914064 /* makeTest.htm in Resources */ = {isa = PBXBuildFile; fileRef = 5463027610BC56D400914064 /* makeTest.htm */; };
+		5463027810BC56D400914064 /* makeTest.htm in Resources */ = {isa = PBXBuildFile; fileRef = 5463027610BC56D400914064 /* makeTest.htm */; };
 		5463FF3310B3387E00914064 /* HTTPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5463FF3110B3387E00914064 /* HTTPViewController.m */; };
 		5463FF3410B3387E00914064 /* HTTPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5463FF3210B3387E00914064 /* HTTPViewController.xib */; };
 		5463FF3510B3387E00914064 /* HTTPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5463FF3110B3387E00914064 /* HTTPViewController.m */; };
 		5463FF3610B3387E00914064 /* HTTPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5463FF3210B3387E00914064 /* HTTPViewController.xib */; };
-		5463FF8310B33C5A00914064 /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = 5463FF8210B33C5A00914064 /* test.html */; };
-		5463FF8410B33C5A00914064 /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = 5463FF8210B33C5A00914064 /* test.html */; };
-		5463FFBC10B3415B00914064 /* test.js in Sources */ = {isa = PBXBuildFile; fileRef = 5463FFBA10B3415B00914064 /* test.js */; };
-		5463FFBE10B3416E00914064 /* test2.html in Resources */ = {isa = PBXBuildFile; fileRef = 5463FFBD10B3416E00914064 /* test2.html */; };
-		5463FFBF10B3416E00914064 /* test2.html in Resources */ = {isa = PBXBuildFile; fileRef = 5463FFBD10B3416E00914064 /* test2.html */; };
-		5463FFE410B342EA00914064 /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = 5463FFBA10B3415B00914064 /* test.js */; };
 		54BDD17110ADEB4D00F44A84 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD15A10ADEB4D00F44A84 /* AsyncSocket.m */; };
 		54BDD17210ADEB4D00F44A84 /* DatabaseConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD15C10ADEB4D00F44A84 /* DatabaseConnection.m */; };
 		54BDD17310ADEB4D00F44A84 /* DDData.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD15E10ADEB4D00F44A84 /* DDData.m */; };
@@ -164,13 +166,14 @@
 		28D7ACF70DDB3853001CB0EB /* TeacherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* Teacher_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Teacher_Prefix.pch; sourceTree = "<group>"; };
-		5463FE3C10B1F8BE00914064 /* database.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = database.sqlite; path = ../../../database.sqlite; sourceTree = SOURCE_ROOT; };
+		5463017F10B5FAE500914064 /* jquery.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = jquery.min.js; path = Project/jquery.min.js; sourceTree = "<group>"; };
+		5463022010BB3E1C00914064 /* database.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.sqlite; sourceTree = "<group>"; };
+		5463027010BC566800914064 /* student.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = student.htm; sourceTree = "<group>"; };
+		5463027310BC56B300914064 /* submitted.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = submitted.htm; sourceTree = "<group>"; };
+		5463027610BC56D400914064 /* makeTest.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = makeTest.htm; sourceTree = "<group>"; };
 		5463FF3010B3387E00914064 /* HTTPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPViewController.h; sourceTree = "<group>"; };
 		5463FF3110B3387E00914064 /* HTTPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPViewController.m; sourceTree = "<group>"; };
 		5463FF3210B3387E00914064 /* HTTPViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HTTPViewController.xib; sourceTree = "<group>"; };
-		5463FF8210B33C5A00914064 /* test.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
-		5463FFBA10B3415B00914064 /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
-		5463FFBD10B3416E00914064 /* test2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test2.html; sourceTree = "<group>"; };
 		54BDD15910ADEB4D00F44A84 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncSocket.h; path = ../Project/AsyncSocket.h; sourceTree = "<group>"; };
 		54BDD15A10ADEB4D00F44A84 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncSocket.m; path = ../Project/AsyncSocket.m; sourceTree = "<group>"; };
 		54BDD15B10ADEB4D00F44A84 /* DatabaseConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DatabaseConnection.h; path = ../Project/DatabaseConnection.h; sourceTree = "<group>"; };
@@ -347,15 +350,16 @@
 			children = (
 				A8D2FB7910ADDCBD008F8516 /* Util.h */,
 				A8D2FB7A10ADDCBD008F8516 /* Util.m */,
+				5463022010BB3E1C00914064 /* database.sqlite */,
 				32CA4F630368D1EE00C91783 /* Teacher_Prefix.pch */,
-				5463FE3C10B1F8BE00914064 /* database.sqlite */,
+				5463027010BC566800914064 /* student.htm */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
+				5463017F10B5FAE500914064 /* jquery.min.js */,
 				A86EF294109927F7007DF5DF /* Config.h */,
+				5463027310BC56B300914064 /* submitted.htm */,
+				5463027610BC56D400914064 /* makeTest.htm */,
 				A86EF4AE10994703007DF5DF /* AppDelegate.h */,
 				A86EF4AF10994703007DF5DF /* AppDelegate.m */,
-				5463FF8210B33C5A00914064 /* test.html */,
-				5463FFBA10B3415B00914064 /* test.js */,
-				5463FFBD10B3416E00914064 /* test2.html */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -632,7 +636,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5463FFE410B342EA00914064 /* test.js in Resources */,
 				28AD733F0D9D9553002E5188 /* TeacherMainWindow.xib in Resources */,
 				2899E5220DE3E06400AC0155 /* TeacherViewController.xib in Resources */,
 				A895B23B1086763F006DE1E6 /* TestViewController.xib in Resources */,
@@ -651,10 +654,12 @@
 				A848EE8310A8C3D400FEABF0 /* NumericQuestionViewController.xib in Resources */,
 				A8D2FB9510ADE02D008F8516 /* BooleanQuestionViewController.xib in Resources */,
 				A8D2FB9D10ADE244008F8516 /* MultipleChoiceQuestionViewController.xib in Resources */,
-				5463FE3D10B1F8BE00914064 /* database.sqlite in Resources */,
 				5463FF3410B3387E00914064 /* HTTPViewController.xib in Resources */,
-				5463FF8310B33C5A00914064 /* test.html in Resources */,
-				5463FFBE10B3416E00914064 /* test2.html in Resources */,
+				5463022110BB3E1C00914064 /* database.sqlite in Resources */,
+				5463027110BC566800914064 /* student.htm in Resources */,
+				5463027410BC56B300914064 /* submitted.htm in Resources */,
+				5463027710BC56D400914064 /* makeTest.htm in Resources */,
+				5463018210B5FAE500914064 /* jquery.min.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,10 +685,11 @@
 				A848EE8510A8C3D400FEABF0 /* NumericQuestionViewController.xib in Resources */,
 				A8D2FB9310ADE02D008F8516 /* BooleanQuestionViewController.xib in Resources */,
 				A8D2FB9B10ADE244008F8516 /* MultipleChoiceQuestionViewController.xib in Resources */,
-				5463FE3E10B1F8BE00914064 /* database.sqlite in Resources */,
 				5463FF3610B3387E00914064 /* HTTPViewController.xib in Resources */,
-				5463FF8410B33C5A00914064 /* test.html in Resources */,
-				5463FFBF10B3416E00914064 /* test2.html in Resources */,
+				5463022210BB3E1C00914064 /* database.sqlite in Resources */,
+				5463027210BC566800914064 /* student.htm in Resources */,
+				5463027510BC56B300914064 /* submitted.htm in Resources */,
+				5463027810BC56D400914064 /* makeTest.htm in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -787,7 +793,7 @@
 				54BDD18710ADEB4D00F44A84 /* localhostAddresses.m in Sources */,
 				54BDD18810ADEB4D00F44A84 /* MyHTTPConnection.m in Sources */,
 				5463FF3510B3387E00914064 /* HTTPViewController.m in Sources */,
-				5463FFBC10B3415B00914064 /* test.js in Sources */,
+				5463018510B5FAE500914064 /* jquery.min.js in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

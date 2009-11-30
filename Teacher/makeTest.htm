@@ -1,0 +1,105 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+    <title>Make a test</title>
+    <script src="jquery.min.js" type="text/javascript"></script>
+    <script language="JavaScript">
+		function addOption( node){
+			node.append("<input type='TEXT' name='option"+node.data("multiQNum")+"[]' size='20' style='width: 5.75in; height: 0.25in'><br />");
+		}
+		
+        $(document).ready(function () {
+            document.bgColor = '#FFF68F';
+            var Qnum = 0;
+			var multiQNum = 0;
+
+            $("span").hide();
+            $("input#addmult").click(function () {
+                Qnum = Qnum + 1;
+				multiQNum += 1;
+                //$('span#Qhere').before(Qnum + ")Mult<br/>");
+                //$("span#Qhere").before("Question Text:<input type='TEXT' name='multQtext' size='20' style='width: 6.0in; height: 0.25in'><br>Question options:<input type='button' id='addChoice' value='Add Option' size='20' style='width: 1.2in; height: 0.25in'><br />")
+                //$("span#Qhere").before("<input type='TEXT' name='option' size='20' style='width: 5.75in; height: 0.25in'><br />")
+                //$("span#Qhere").before("<input type='TEXT' name='option' size='20' style='width: 5.75in; height: 0.25in'><br />")
+                //$("span#Qhere").before("<span id='optionhere'></span>")
+				var newNode = $('#template span#mult').clone(true);
+                newNode.insertBefore('span#Qhere');
+                newNode.show("fast");
+				newNode.data("multiQNum",multiQNum);
+				addOption(newNode);
+				addOption(newNode);
+            });
+            $("input#addTF").click(function () {
+                Qnum = Qnum + 1
+                $('span#Qhere').before(Qnum + ")T/F");
+                $('span#TF:last').clone().insertBefore('span#Qhere');
+                $('span#TF:first').show("fast");
+            });
+            $("input#addnum").click(function () {
+                Qnum = Qnum + 1
+                $('span#Qhere').before(Qnum + ")Num");
+                $('span#num:last').clone().insertBefore('span#Qhere');
+                $('span#num:first').show("fast");
+            });
+            $("input#addtext").click(function () {
+                Qnum = Qnum + 1
+                $('span#Qhere').before(Qnum + ")Text");
+                $('span#text:last').clone().insertBefore('span#Qhere');
+                $('span#text:first').show("fast");
+            });
+            $("input#addChoice").click(function (event) {
+            	//$("span#optionhere").before("test")
+				addOption($(event.target).parent());
+            	
+            });
+        });
+    </script>
+</head>
+<body lang="en-US" dir="LTR">
+    <form id="sform" action="testSubmit.html" method="post">
+    Test name:
+    <input type="TEXT" name="testname" size="20" style="width: 1.71in; height: 0.25in">
+    <br>
+    Add question:
+    <input type="button" id="addmult" value="mult" size="20" style="width: .75in; height: 0.25in">
+    <input type="button" id="addTF" value="T/F" size="20" style="width: .75in; height: 0.25in">
+    <input type="button" id="addnum" value="num" size="20" style="width: .75in; height: 0.25in">
+    <input type="button" id="addtext" value="text" size="20" style="width: .75in; height: 0.25in">
+    <br />
+    <span id="Qhere">Qhere</span>
+    <br>
+    <br>
+    <input type="SUBMIT" value="Submit" style="width: 0.71in; height: 0.37in">
+    </form>
+    <form id="template">
+	   <span id="mult">
+    	    Question Text:
+    	    <input type="TEXT" name="multQtext[]" size="20" style="width: 6.0in; height: 0.25in">
+	        <br>
+	        Question options:<input type="button" id="addChoice" value="Add Option" size="20" style="width: 1.2in; height: 0.25in"><br />
+<!--	        <input type="TEXT" name="option[]" size="20" style="width: 5.75in; height: 0.25in"><br />
+	        <input type="TEXT" name="option[]" size="20" style="width: 5.75in; height: 0.25in"><br /> -->
+	        <span id="optionhere">optionhere</span>
+	        <br>
+	    </span><span id="TF">
+	        Question Text:
+	        <input type="TEXT" name="TFQtext[]" size="20" style="width: 6.0in; height: 0.25in">
+	        <br>
+	        <br>
+	    </span><span id="num">
+	        Question Text:
+	        <input type="TEXT" name="numQtext[]" size="20" style="width: 6.0in; height: 0.25in">
+	        <br>
+	        <br>
+	    </span><span id="text">
+	        Question Text:
+	        <input type="TEXT" name="textQtext[]" size="20" style="width: 6.0in; height: 0.25in">
+	        <br>
+	        <br>
+	    </span>
+    </form>
+    <script language="JavaScript">
+    </script>
+</body>
+</html>

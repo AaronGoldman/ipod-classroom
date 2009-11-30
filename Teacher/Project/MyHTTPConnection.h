@@ -12,11 +12,18 @@
 	int dataStartIndex;
 	NSMutableArray* multipartData;
 	BOOL postHeaderOK;
+	NSMutableDictionary* postDataParams;
 }
 
 - (BOOL)isBrowseable:(NSString *)path;
 - (NSString *)createBrowseableIndex:(NSString *)path;
 
 - (BOOL)supportsPOST:(NSString *)path withSize:(UInt64)contentLength;
+
+- (NSString*) processPostData:(NSDictionary*)data forFile:(NSString*)fileName;
+- (NSString*) handleClassSubmit:(NSDictionary*)data;
+- (NSString*) handleTestSubtmit:(NSDictionary*)data;
+
+@property (nonatomic , retain) NSMutableDictionary* postDataParams;
 
 @end

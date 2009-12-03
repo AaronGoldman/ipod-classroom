@@ -12,6 +12,8 @@
 @implementation QuestionViewController
 @synthesize question;
 @synthesize delegate;
+@synthesize nextButton;
+@synthesize prevButton;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -28,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	questionText.text = question.text;
+	questionText.text = [question objectForKey:@"text"];
 }
 
 
@@ -57,16 +59,16 @@
 	return 0;
 }
 
-- (NSData*) responseData{
+- (id) responseValue{
 	return nil;
 }
 
 - (IBAction) next{
-	[self.delegate next];
+	[self.delegate nextQuestion];
 }
 
 - (IBAction) previous{
-	[self.delegate previous];
+	[self.delegate previousQuestion];
 }
 
 - (void)dealloc {

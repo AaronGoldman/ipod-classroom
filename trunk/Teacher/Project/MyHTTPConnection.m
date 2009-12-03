@@ -9,6 +9,7 @@
 #import "AsyncSocket.h"
 #import "Util.h"
 #import "DatabaseConnection.h"
+#import "JSON.h"
 
 @implementation MyHTTPConnection
 @synthesize postDataParams;
@@ -211,6 +212,8 @@
 	// Therefore, this method may be called multiple times for the same POST request.
 	
 	//NSLog(@"processPostDataChunk");
+//	NSString* postDataString = [[NSString alloc] initWithData:postDataChunk encoding:NSUTF8StringEncoding];
+//	NSLog(@"postDatastring: %@" , postDataString);
 	
 	NSString* postDataChunkString = [[[NSString alloc] initWithData:postDataChunk encoding:NSUTF8StringEncoding] autorelease];
 
@@ -223,28 +226,29 @@
 	self.postDataParams = [NSMutableDictionary dictionaryWithCapacity:25];
 	for(int i = 0; i < [params count]; i ++){
 		NSArray* parts = [[params objectAtIndex:i] componentsSeparatedByString:@"="];
-		//(NSString*) urlunEncode:(NSString*)str;
-		//NSString* field = [urlunEncode:[parts objectAtIndex:0]];
-		//NSString* value = [urlunEncode:[parts objectAtIndex:1]];
-		
-		NSString* field = [[Util urlunEncode:[parts objectAtIndex:0]] lowercaseString];
-		//lowercase=[original lowercaseString];
-
-		NSLog(@"Field is: %@" , field);
-		NSString* value = [Util urlunEncode:[parts objectAtIndex:1]];
-		NSLog(@"Value is: %@" , value);
-		
-		if( [field hasSuffix:@"[]"]){
+		if ( [parts count] == 2){
+			//(NSString*) urlunEncode:(NSString*)str;
+			//NSString* field = [urlunEncode:[parts objectAtIndex:0]];
+			//NSString* value = [urlunEncode:[parts objectAtIndex:1]];
 			
-			if ( [postDataParams objectForKey:field] == nil ){
-				[postDataParams setObject:[NSMutableArray arrayWithCapacity:10] forKey:field];
-			}
-			[[postDataParams objectForKey:field] addObject:value];
-		}else{
-			[postDataParams setObject:value forKey:field];
-		}
+			NSString* field = [[Util urlunEncode:[parts objectAtIndex:0]] lowercaseString];
+			//lowercase=[original lowercaseString];
 
-		
+			NSLog(@"Field is: %@" , field);
+			NSString* value = [Util urlunEncode:[parts objectAtIndex:1]];
+			NSLog(@"Value is: %@" , value);
+			
+			if( [field hasSuffix:@"[]"]){
+				
+				if ( [postDataParams objectForKey:field] == nil ){
+					[postDataParams setObject:[NSMutableArray arrayWithCapacity:10] forKey:field];
+				}
+				[[postDataParams objectForKey:field] addObject:value];
+			}else{
+				[postDataParams setObject:value forKey:field];
+			}
+
+		}
 
 		
 	
@@ -313,9 +317,13 @@
 					postHeaderOK = TRUE;
 					
 					NSString* postInfo = [[NSString alloc] initWithBytes:[[multipartData objectAtIndex:1] bytes] length:[[multipartData objectAtIndex:1] length] encoding:NSUTF8StringEncoding];
+					NSLog(@"postInfo: %@" , postInfo);
 					NSArray* postInfoComponents = [postInfo componentsSeparatedByString:@"; filename="];
+					NSLog(@"postInfoComponents1: %@" , postInfoComponents);
 					postInfoComponents = [[postInfoComponents lastObject] componentsSeparatedByString:@"\""];
+					NSLog(@"postInfoComponents2: %@" , postInfoComponents);
 					postInfoComponents = [[postInfoComponents objectAtIndex:1] componentsSeparatedByString:@"\\"];
+					NSLog(@"postInfoComponents3: %@" , postInfoComponents);
 					NSString* filename = [[[server documentRoot] path] stringByAppendingPathComponent:[postInfoComponents lastObject]];
 					NSRange fileDataRange = {dataStartIndex, [postDataChunk length] - dataStartIndex};
 					
@@ -345,12 +353,14 @@
 	NSString* response = nil;
 	if( [fileName isEqual:@"classSubmit.html"]){
 		response = [self handleClassSubmit:data];
-	}if( [fileName isEqual:@"testSubmit.html"]){
+	}else if( [fileName isEqual:@"testSubmit.html"]){
 		response = [self handleTestSubtmit:data];
 	}
 	
 	return response;
 }
+
+
 
 - (NSString*) handleTestSubtmit:(NSDictionary*)data{
 	NSLog(@"handling test submit with data: %@" , data);

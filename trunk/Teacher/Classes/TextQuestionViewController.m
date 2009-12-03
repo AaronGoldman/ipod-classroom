@@ -52,8 +52,8 @@
 	return QuestionResponseTypeText;
 }
 
-- (NSData*) responseData{
-	return [NSKeyedArchiver archivedDataWithRootObject:responseField.text];
+- (id) responseValue{
+	return responseField.text;
 }
 
 

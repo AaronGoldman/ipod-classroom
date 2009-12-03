@@ -10,7 +10,7 @@
 
 
 @implementation iPhoneHTTPServerAppDelegate
-
+@synthesize netService;
 @synthesize window;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application 
@@ -98,8 +98,11 @@
 	}
 }
 
+
+
 - (void)dealloc 
 {
+	[netService release];
 	[httpServer release];
     [window release];
     [super dealloc];

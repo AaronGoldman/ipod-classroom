@@ -10,7 +10,7 @@
 
 #import "Supervisor.h"
 
-@interface ConnectedDevicesViewController : UITableViewController <SupervisorDelegate,GKSessionDelegate>{
+@interface ConnectedDevicesViewController : UITableViewController <SupervisorDelegate>{
 	NSMutableArray* devices;
 	Supervisor* supervisor;
 }

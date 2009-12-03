@@ -11,10 +11,8 @@
 
 @interface LoginRequestReply : NSObject <NSCoding> {
 	BOOL authenticated;
-	NSArray* questions;
 }
 
 @property (nonatomic, assign) BOOL authenticated;
-@property (nonatomic, retain) NSArray* questions;
 
 @end

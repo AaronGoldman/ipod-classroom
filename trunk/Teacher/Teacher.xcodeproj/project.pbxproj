@@ -15,7 +15,7 @@
 		28AD733F0D9D9553002E5188 /* TeacherMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* TeacherMainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* TeacherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* TeacherViewController.m */; };
 		5463018210B5FAE500914064 /* jquery.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 5463017F10B5FAE500914064 /* jquery.min.js */; };
-		5463018510B5FAE500914064 /* jquery.min.js in Sources */ = {isa = PBXBuildFile; fileRef = 5463017F10B5FAE500914064 /* jquery.min.js */; };
+		5463018510B5FAE500914064 /* jquery.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 5463017F10B5FAE500914064 /* jquery.min.js */; };
 		5463022110BB3E1C00914064 /* database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 5463022010BB3E1C00914064 /* database.sqlite */; };
 		5463022210BB3E1C00914064 /* database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 5463022010BB3E1C00914064 /* database.sqlite */; };
 		5463027110BC566800914064 /* student.htm in Resources */ = {isa = PBXBuildFile; fileRef = 5463027010BC566800914064 /* student.htm */; };
@@ -153,6 +153,46 @@
 		A8D2FBA110ADE2F1008F8516 /* MultipleChoiceQuestion.m in Sources */ = {isa = PBXBuildFile; fileRef = A8D2FB9F10ADE2F1008F8516 /* MultipleChoiceQuestion.m */; };
 		A8D2FC3210ADEBC4008F8516 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A8D2FC3110ADEBC4008F8516 /* libsqlite3.0.dylib */; };
 		A8D2FC3310ADEBC4008F8516 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A8D2FC3110ADEBC4008F8516 /* libsqlite3.0.dylib */; };
+		A8DFA38010C7155C00FE8587 /* DoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA37810C7155C00FE8587 /* DoneViewController.m */; };
+		A8DFA38110C7155C00FE8587 /* DoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8DFA37910C7155C00FE8587 /* DoneViewController.xib */; };
+		A8DFA38210C7155C00FE8587 /* FinishedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA37B10C7155C00FE8587 /* FinishedViewController.m */; };
+		A8DFA38310C7155C00FE8587 /* FinishedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8DFA37C10C7155C00FE8587 /* FinishedViewController.xib */; };
+		A8DFA38410C7155C00FE8587 /* SupervisorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA37E10C7155C00FE8587 /* SupervisorViewController.m */; };
+		A8DFA38510C7155C00FE8587 /* SupervisorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8DFA37F10C7155C00FE8587 /* SupervisorViewController.xib */; };
+		A8DFA38610C7155C00FE8587 /* DoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA37810C7155C00FE8587 /* DoneViewController.m */; };
+		A8DFA38710C7155C00FE8587 /* DoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8DFA37910C7155C00FE8587 /* DoneViewController.xib */; };
+		A8DFA38810C7155C00FE8587 /* FinishedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA37B10C7155C00FE8587 /* FinishedViewController.m */; };
+		A8DFA38910C7155C00FE8587 /* FinishedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8DFA37C10C7155C00FE8587 /* FinishedViewController.xib */; };
+		A8DFA38A10C7155C00FE8587 /* SupervisorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA37E10C7155C00FE8587 /* SupervisorViewController.m */; };
+		A8DFA38B10C7155C00FE8587 /* SupervisorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8DFA37F10C7155C00FE8587 /* SupervisorViewController.xib */; };
+		A8DFA39010C7159400FE8587 /* QuestionsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA38D10C7159400FE8587 /* QuestionsRequest.m */; };
+		A8DFA39110C7159400FE8587 /* TestResponsesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA38F10C7159400FE8587 /* TestResponsesRequest.m */; };
+		A8DFA39210C7159400FE8587 /* QuestionsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA38D10C7159400FE8587 /* QuestionsRequest.m */; };
+		A8DFA39310C7159400FE8587 /* TestResponsesRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA38F10C7159400FE8587 /* TestResponsesRequest.m */; };
+		A8DFA39810C715B000FE8587 /* CommTestMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA39610C715B000FE8587 /* CommTestMainWindow.m */; };
+		A8DFA39910C715B000FE8587 /* CommTestMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8DFA39710C715B000FE8587 /* CommTestMainWindow.xib */; };
+		A8DFA39A10C715B000FE8587 /* CommTestMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA39610C715B000FE8587 /* CommTestMainWindow.m */; };
+		A8DFA39B10C715B000FE8587 /* CommTestMainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8DFA39710C715B000FE8587 /* CommTestMainWindow.xib */; };
+		A8DFA3A610C715C500FE8587 /* ClientStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA39D10C715C500FE8587 /* ClientStatus.m */; };
+		A8DFA3A710C715C500FE8587 /* DeviceInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA39F10C715C500FE8587 /* DeviceInfoRequest.m */; };
+		A8DFA3A810C715C500FE8587 /* GKObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA3A110C715C500FE8587 /* GKObjectRequest.m */; };
+		A8DFA3A910C715C500FE8587 /* GKPeerNetworkSession.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA3A310C715C500FE8587 /* GKPeerNetworkSession.m */; };
+		A8DFA3AA10C715C500FE8587 /* HopRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA3A510C715C500FE8587 /* HopRequest.m */; };
+		A8DFA3AB10C715C500FE8587 /* ClientStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA39D10C715C500FE8587 /* ClientStatus.m */; };
+		A8DFA3AC10C715C500FE8587 /* DeviceInfoRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA39F10C715C500FE8587 /* DeviceInfoRequest.m */; };
+		A8DFA3AD10C715C500FE8587 /* GKObjectRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA3A110C715C500FE8587 /* GKObjectRequest.m */; };
+		A8DFA3AE10C715C500FE8587 /* GKPeerNetworkSession.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA3A310C715C500FE8587 /* GKPeerNetworkSession.m */; };
+		A8DFA3AF10C715C500FE8587 /* HopRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA3A510C715C500FE8587 /* HopRequest.m */; };
+		A8DFA3B310C7188600FE8587 /* QuizServiceHttpConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA3B210C7188600FE8587 /* QuizServiceHttpConnection.m */; };
+		A8DFA3B410C7188600FE8587 /* QuizServiceHttpConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA3B210C7188600FE8587 /* QuizServiceHttpConnection.m */; };
+		A8DFA3C210C71E3600FE8587 /* GetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA3BF10C71E3600FE8587 /* GetRequest.m */; };
+		A8DFA3C310C71E3600FE8587 /* PostRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA3C110C71E3600FE8587 /* PostRequest.m */; };
+		A8DFA3C410C71E3600FE8587 /* GetRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA3BF10C71E3600FE8587 /* GetRequest.m */; };
+		A8DFA3C510C71E3600FE8587 /* PostRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA3C110C71E3600FE8587 /* PostRequest.m */; };
+		A8DFA3C810C7208A00FE8587 /* WifiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA3C710C7208A00FE8587 /* WifiClient.m */; };
+		A8DFA3C910C7208A00FE8587 /* WifiClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA3C710C7208A00FE8587 /* WifiClient.m */; };
+		A8DFA57C10C7563800FE8587 /* QuizServiceHttpServer.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA57B10C7563800FE8587 /* QuizServiceHttpServer.m */; };
+		A8DFA57D10C7563800FE8587 /* QuizServiceHttpServer.m in Sources */ = {isa = PBXBuildFile; fileRef = A8DFA57B10C7563800FE8587 /* QuizServiceHttpServer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -278,6 +318,42 @@
 		A8D2FB9E10ADE2F1008F8516 /* MultipleChoiceQuestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipleChoiceQuestion.h; sourceTree = "<group>"; };
 		A8D2FB9F10ADE2F1008F8516 /* MultipleChoiceQuestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipleChoiceQuestion.m; sourceTree = "<group>"; };
 		A8D2FC3110ADEBC4008F8516 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		A8DFA37710C7155C00FE8587 /* DoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoneViewController.h; sourceTree = "<group>"; };
+		A8DFA37810C7155C00FE8587 /* DoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoneViewController.m; sourceTree = "<group>"; };
+		A8DFA37910C7155C00FE8587 /* DoneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoneViewController.xib; sourceTree = "<group>"; };
+		A8DFA37A10C7155C00FE8587 /* FinishedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinishedViewController.h; sourceTree = "<group>"; };
+		A8DFA37B10C7155C00FE8587 /* FinishedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinishedViewController.m; sourceTree = "<group>"; };
+		A8DFA37C10C7155C00FE8587 /* FinishedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FinishedViewController.xib; sourceTree = "<group>"; };
+		A8DFA37D10C7155C00FE8587 /* SupervisorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupervisorViewController.h; sourceTree = "<group>"; };
+		A8DFA37E10C7155C00FE8587 /* SupervisorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupervisorViewController.m; sourceTree = "<group>"; };
+		A8DFA37F10C7155C00FE8587 /* SupervisorViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SupervisorViewController.xib; sourceTree = "<group>"; };
+		A8DFA38C10C7159400FE8587 /* QuestionsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionsRequest.h; sourceTree = "<group>"; };
+		A8DFA38D10C7159400FE8587 /* QuestionsRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionsRequest.m; sourceTree = "<group>"; };
+		A8DFA38E10C7159400FE8587 /* TestResponsesRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestResponsesRequest.h; sourceTree = "<group>"; };
+		A8DFA38F10C7159400FE8587 /* TestResponsesRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestResponsesRequest.m; sourceTree = "<group>"; };
+		A8DFA39510C715B000FE8587 /* CommTestMainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommTestMainWindow.h; sourceTree = "<group>"; };
+		A8DFA39610C715B000FE8587 /* CommTestMainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommTestMainWindow.m; sourceTree = "<group>"; };
+		A8DFA39710C715B000FE8587 /* CommTestMainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommTestMainWindow.xib; sourceTree = "<group>"; };
+		A8DFA39C10C715C500FE8587 /* ClientStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientStatus.h; sourceTree = "<group>"; };
+		A8DFA39D10C715C500FE8587 /* ClientStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientStatus.m; sourceTree = "<group>"; };
+		A8DFA39E10C715C500FE8587 /* DeviceInfoRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceInfoRequest.h; sourceTree = "<group>"; };
+		A8DFA39F10C715C500FE8587 /* DeviceInfoRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceInfoRequest.m; sourceTree = "<group>"; };
+		A8DFA3A010C715C500FE8587 /* GKObjectRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKObjectRequest.h; sourceTree = "<group>"; };
+		A8DFA3A110C715C500FE8587 /* GKObjectRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKObjectRequest.m; sourceTree = "<group>"; };
+		A8DFA3A210C715C500FE8587 /* GKPeerNetworkSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKPeerNetworkSession.h; sourceTree = "<group>"; };
+		A8DFA3A310C715C500FE8587 /* GKPeerNetworkSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKPeerNetworkSession.m; sourceTree = "<group>"; };
+		A8DFA3A410C715C500FE8587 /* HopRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HopRequest.h; sourceTree = "<group>"; };
+		A8DFA3A510C715C500FE8587 /* HopRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HopRequest.m; sourceTree = "<group>"; };
+		A8DFA3B110C7188600FE8587 /* QuizServiceHttpConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizServiceHttpConnection.h; sourceTree = "<group>"; };
+		A8DFA3B210C7188600FE8587 /* QuizServiceHttpConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuizServiceHttpConnection.m; sourceTree = "<group>"; };
+		A8DFA3BE10C71E3600FE8587 /* GetRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetRequest.h; sourceTree = "<group>"; };
+		A8DFA3BF10C71E3600FE8587 /* GetRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetRequest.m; sourceTree = "<group>"; };
+		A8DFA3C010C71E3600FE8587 /* PostRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostRequest.h; sourceTree = "<group>"; };
+		A8DFA3C110C71E3600FE8587 /* PostRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostRequest.m; sourceTree = "<group>"; };
+		A8DFA3C610C7208A00FE8587 /* WifiClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WifiClient.h; sourceTree = "<group>"; };
+		A8DFA3C710C7208A00FE8587 /* WifiClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WifiClient.m; sourceTree = "<group>"; };
+		A8DFA57A10C7563800FE8587 /* QuizServiceHttpServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QuizServiceHttpServer.h; path = ../QuizServiceHttpServer.h; sourceTree = "<group>"; };
+		A8DFA57B10C7563800FE8587 /* QuizServiceHttpServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QuizServiceHttpServer.m; path = ../QuizServiceHttpServer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +389,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				A8DFA39410C7159800FE8587 /* Comm Test */,
 				5463FF2E10B3383100914064 /* HTTP Server */,
 				5463FF2D10B3381B00914064 /* Database */,
 				A8D2FB7610ADDC2B008F8516 /* JSON */,
@@ -403,15 +480,15 @@
 			children = (
 				5463FF2F10B3385600914064 /* UI */,
 				54BDD1E310ADED8800F44A84 /* Http */,
-				54BDD16910ADEB4D00F44A84 /* HTTPServer.h */,
 				54BDD16810ADEB4D00F44A84 /* HTTPResponse.m */,
 				54BDD16710ADEB4D00F44A84 /* HTTPResponse.h */,
 				54BDD16310ADEB4D00F44A84 /* HTTPAuthenticationRequest.h */,
 				54BDD16F10ADEB4D00F44A84 /* MyHTTPConnection.h */,
-				54BDD16510ADEB4D00F44A84 /* HTTPConnection.h */,
 				54BDD17010ADEB4D00F44A84 /* MyHTTPConnection.m */,
+				54BDD16510ADEB4D00F44A84 /* HTTPConnection.h */,
 				54BDD16610ADEB4D00F44A84 /* HTTPConnection.m */,
 				54BDD16410ADEB4D00F44A84 /* HTTPAuthenticationRequest.m */,
+				54BDD16910ADEB4D00F44A84 /* HTTPServer.h */,
 				54BDD16A10ADEB4D00F44A84 /* HTTPServer.m */,
 				54BDD15910ADEB4D00F44A84 /* AsyncSocket.h */,
 				54BDD15A10ADEB4D00F44A84 /* AsyncSocket.m */,
@@ -425,6 +502,10 @@
 				54BDD16C10ADEB4D00F44A84 /* iPhoneHTTPServerAppDelegate.m */,
 				54BDD16D10ADEB4D00F44A84 /* localhostAddresses.h */,
 				54BDD16E10ADEB4D00F44A84 /* localhostAddresses.m */,
+				A8DFA3B110C7188600FE8587 /* QuizServiceHttpConnection.h */,
+				A8DFA3B210C7188600FE8587 /* QuizServiceHttpConnection.m */,
+				A8DFA57A10C7563800FE8587 /* QuizServiceHttpServer.h */,
+				A8DFA57B10C7563800FE8587 /* QuizServiceHttpServer.m */,
 			);
 			name = "HTTP Server";
 			sourceTree = "<group>";
@@ -476,6 +557,8 @@
 				A86EF4671099456A007DF5DF /* UI */,
 				A86EF446109933A5007DF5DF /* Client.h */,
 				A86EF447109933A5007DF5DF /* Client.m */,
+				A8DFA3C610C7208A00FE8587 /* WifiClient.h */,
+				A8DFA3C710C7208A00FE8587 /* WifiClient.m */,
 			);
 			name = Client;
 			sourceTree = "<group>";
@@ -486,6 +569,12 @@
 				A82965F610A2302600D6F261 /* Question UIs */,
 				A86EF48110994681007DF5DF /* ConnectingViewController.h */,
 				A86EF48210994681007DF5DF /* ConnectingViewController.m */,
+				A8DFA37710C7155C00FE8587 /* DoneViewController.h */,
+				A8DFA37810C7155C00FE8587 /* DoneViewController.m */,
+				A8DFA37910C7155C00FE8587 /* DoneViewController.xib */,
+				A8DFA37A10C7155C00FE8587 /* FinishedViewController.h */,
+				A8DFA37B10C7155C00FE8587 /* FinishedViewController.m */,
+				A8DFA37C10C7155C00FE8587 /* FinishedViewController.xib */,
 				A86EF48310994681007DF5DF /* ConnectingViewController.xib */,
 				A86EF48410994681007DF5DF /* LoginViewController.h */,
 				A86EF48510994681007DF5DF /* LoginViewController.m */,
@@ -505,6 +594,24 @@
 		A8732219109F7CE40066F806 /* CommunicationObjects */ = {
 			isa = PBXGroup;
 			children = (
+				A8DFA3BE10C71E3600FE8587 /* GetRequest.h */,
+				A8DFA3BF10C71E3600FE8587 /* GetRequest.m */,
+				A8DFA3C010C71E3600FE8587 /* PostRequest.h */,
+				A8DFA3C110C71E3600FE8587 /* PostRequest.m */,
+				A8DFA39C10C715C500FE8587 /* ClientStatus.h */,
+				A8DFA39D10C715C500FE8587 /* ClientStatus.m */,
+				A8DFA39E10C715C500FE8587 /* DeviceInfoRequest.h */,
+				A8DFA39F10C715C500FE8587 /* DeviceInfoRequest.m */,
+				A8DFA3A010C715C500FE8587 /* GKObjectRequest.h */,
+				A8DFA3A110C715C500FE8587 /* GKObjectRequest.m */,
+				A8DFA3A210C715C500FE8587 /* GKPeerNetworkSession.h */,
+				A8DFA3A310C715C500FE8587 /* GKPeerNetworkSession.m */,
+				A8DFA3A410C715C500FE8587 /* HopRequest.h */,
+				A8DFA3A510C715C500FE8587 /* HopRequest.m */,
+				A8DFA38C10C7159400FE8587 /* QuestionsRequest.h */,
+				A8DFA38D10C7159400FE8587 /* QuestionsRequest.m */,
+				A8DFA38E10C7159400FE8587 /* TestResponsesRequest.h */,
+				A8DFA38F10C7159400FE8587 /* TestResponsesRequest.m */,
 				A873221A109F7CFE0066F806 /* LoginRequest.h */,
 				A873221B109F7CFE0066F806 /* LoginRequest.m */,
 				A873221E109F7D130066F806 /* LoginRequestReply.h */,
@@ -549,6 +656,9 @@
 		A895B23610867632006DE1E6 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				A8DFA37D10C7155C00FE8587 /* SupervisorViewController.h */,
+				A8DFA37E10C7155C00FE8587 /* SupervisorViewController.m */,
+				A8DFA37F10C7155C00FE8587 /* SupervisorViewController.xib */,
 				A895B2371086763F006DE1E6 /* TestViewController.h */,
 				A895B2381086763F006DE1E6 /* TestViewController.m */,
 				A895B2391086763F006DE1E6 /* TestViewController.xib */,
@@ -574,6 +684,16 @@
 				A8D2FB8310ADDCCA008F8516 /* SBJSON.m */,
 			);
 			name = JSON;
+			sourceTree = "<group>";
+		};
+		A8DFA39410C7159800FE8587 /* Comm Test */ = {
+			isa = PBXGroup;
+			children = (
+				A8DFA39510C715B000FE8587 /* CommTestMainWindow.h */,
+				A8DFA39610C715B000FE8587 /* CommTestMainWindow.m */,
+				A8DFA39710C715B000FE8587 /* CommTestMainWindow.xib */,
+			);
+			name = "Comm Test";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -660,6 +780,10 @@
 				5463027410BC56B300914064 /* submitted.htm in Resources */,
 				5463027710BC56D400914064 /* makeTest.htm in Resources */,
 				5463018210B5FAE500914064 /* jquery.min.js in Resources */,
+				A8DFA38110C7155C00FE8587 /* DoneViewController.xib in Resources */,
+				A8DFA38310C7155C00FE8587 /* FinishedViewController.xib in Resources */,
+				A8DFA38510C7155C00FE8587 /* SupervisorViewController.xib in Resources */,
+				A8DFA39910C715B000FE8587 /* CommTestMainWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -667,6 +791,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5463018510B5FAE500914064 /* jquery.min.js in Resources */,
 				A86EF2F0109929E1007DF5DF /* ConnectedDevicesViewController.xib in Resources */,
 				A86EF2F2109929E2007DF5DF /* TeacherMainWindow.xib in Resources */,
 				A86EF2FA109929E6007DF5DF /* TestViewController.xib in Resources */,
@@ -690,6 +815,10 @@
 				5463027210BC566800914064 /* student.htm in Resources */,
 				5463027510BC56B300914064 /* submitted.htm in Resources */,
 				5463027810BC56D400914064 /* makeTest.htm in Resources */,
+				A8DFA38710C7155C00FE8587 /* DoneViewController.xib in Resources */,
+				A8DFA38910C7155C00FE8587 /* FinishedViewController.xib in Resources */,
+				A8DFA38B10C7155C00FE8587 /* SupervisorViewController.xib in Resources */,
+				A8DFA39B10C715B000FE8587 /* CommTestMainWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -743,6 +872,22 @@
 				54BDD17B10ADEB4D00F44A84 /* localhostAddresses.m in Sources */,
 				54BDD17C10ADEB4D00F44A84 /* MyHTTPConnection.m in Sources */,
 				5463FF3310B3387E00914064 /* HTTPViewController.m in Sources */,
+				A8DFA38010C7155C00FE8587 /* DoneViewController.m in Sources */,
+				A8DFA38210C7155C00FE8587 /* FinishedViewController.m in Sources */,
+				A8DFA38410C7155C00FE8587 /* SupervisorViewController.m in Sources */,
+				A8DFA39010C7159400FE8587 /* QuestionsRequest.m in Sources */,
+				A8DFA39110C7159400FE8587 /* TestResponsesRequest.m in Sources */,
+				A8DFA39810C715B000FE8587 /* CommTestMainWindow.m in Sources */,
+				A8DFA3A610C715C500FE8587 /* ClientStatus.m in Sources */,
+				A8DFA3A710C715C500FE8587 /* DeviceInfoRequest.m in Sources */,
+				A8DFA3A810C715C500FE8587 /* GKObjectRequest.m in Sources */,
+				A8DFA3A910C715C500FE8587 /* GKPeerNetworkSession.m in Sources */,
+				A8DFA3AA10C715C500FE8587 /* HopRequest.m in Sources */,
+				A8DFA3B410C7188600FE8587 /* QuizServiceHttpConnection.m in Sources */,
+				A8DFA3C410C71E3600FE8587 /* GetRequest.m in Sources */,
+				A8DFA3C510C71E3600FE8587 /* PostRequest.m in Sources */,
+				A8DFA3C910C7208A00FE8587 /* WifiClient.m in Sources */,
+				A8DFA57D10C7563800FE8587 /* QuizServiceHttpServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -793,7 +938,22 @@
 				54BDD18710ADEB4D00F44A84 /* localhostAddresses.m in Sources */,
 				54BDD18810ADEB4D00F44A84 /* MyHTTPConnection.m in Sources */,
 				5463FF3510B3387E00914064 /* HTTPViewController.m in Sources */,
-				5463018510B5FAE500914064 /* jquery.min.js in Sources */,
+				A8DFA38610C7155C00FE8587 /* DoneViewController.m in Sources */,
+				A8DFA38810C7155C00FE8587 /* FinishedViewController.m in Sources */,
+				A8DFA38A10C7155C00FE8587 /* SupervisorViewController.m in Sources */,
+				A8DFA39210C7159400FE8587 /* QuestionsRequest.m in Sources */,
+				A8DFA39310C7159400FE8587 /* TestResponsesRequest.m in Sources */,
+				A8DFA39A10C715B000FE8587 /* CommTestMainWindow.m in Sources */,
+				A8DFA3AB10C715C500FE8587 /* ClientStatus.m in Sources */,
+				A8DFA3AC10C715C500FE8587 /* DeviceInfoRequest.m in Sources */,
+				A8DFA3AD10C715C500FE8587 /* GKObjectRequest.m in Sources */,
+				A8DFA3AE10C715C500FE8587 /* GKPeerNetworkSession.m in Sources */,
+				A8DFA3AF10C715C500FE8587 /* HopRequest.m in Sources */,
+				A8DFA3B310C7188600FE8587 /* QuizServiceHttpConnection.m in Sources */,
+				A8DFA3C210C71E3600FE8587 /* GetRequest.m in Sources */,
+				A8DFA3C310C71E3600FE8587 /* PostRequest.m in Sources */,
+				A8DFA3C810C7208A00FE8587 /* WifiClient.m in Sources */,
+				A8DFA57C10C7563800FE8587 /* QuizServiceHttpServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

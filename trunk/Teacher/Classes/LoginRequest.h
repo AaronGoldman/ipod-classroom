@@ -10,11 +10,15 @@
 
 
 @interface LoginRequest : NSObject <NSCoding>{
-	NSString* userName;
+	NSString* firstName;
+	NSString* lastName;
 	NSString* passwordHash;
+	NSString* udid;
 }
 
-@property (nonatomic, retain) NSString* userName;
+@property (nonatomic, retain) NSString* firstName;
+@property (nonatomic, retain) NSString* lastName;
+@property (nonatomic, retain) NSString* udid;
 @property (nonatomic, retain) NSString* passwordHash;
 
 @end

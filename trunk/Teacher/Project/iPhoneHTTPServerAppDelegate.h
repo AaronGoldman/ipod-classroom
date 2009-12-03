@@ -13,9 +13,12 @@
 	NSDictionary *addresses;
 	
 	IBOutlet UILabel *displayInfo;
+	
+	NSNetService* netService;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (nonatomic, retain) NSNetService* netService;
 
 -(IBAction) startStopServer:(id)sender;
 @end

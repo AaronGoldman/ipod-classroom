@@ -10,18 +10,22 @@
 #import "Question.h"
 #import "LoginRequestReply.h"
 #import "GKObjectSession.h"
+#import "QuestionsRequest.h"
 
 @class Client;
 @protocol ClientDelegate
 
 - (void) client:(Client*)client didReceiveQuestions:(NSArray*)question;
+- (void) clientDidFailAuthentication:(Client*)client;
+- (void) clientDidAuthenticate:(Client*)client;
 
 @end
 
 
 @interface Client : NSObject <GKSessionDelegate> {
 
-	NSString* userName;
+	NSString* firstName;
+	NSString* lastName;
 	NSString* passwordHash;
 	GKObjectSession* gkSession;
 	BOOL authenticated;
@@ -31,11 +35,17 @@
 
 + (Client*)getInstance;
 - (void) login;
+- (void) sendDeviceInfo;
 - (void) start;
+- (void) sendTestResponses:(NSMutableArray*)testResponses;
 
 - (void) receivedLoginRequestReply:(LoginRequestReply*)reply;
+- (void) receivedQuestionsRequest:(QuestionsRequest*)request;
+- (void) processRequest:(id)request;
 
-@property (nonatomic , retain) NSString* userName;
+
+@property (nonatomic , retain) NSString* firstName;
+@property (nonatomic , retain) NSString* lastName;
 @property (nonatomic , retain) NSString* passwordHash;
 @property (nonatomic , retain) GKObjectSession* gkSession;
 @property (nonatomic , retain) NSObject <ClientDelegate> *delegate;

@@ -25,5 +25,6 @@
 + (void) showAlertWithTitle:(NSString*)title message:(NSString*)message;
 + (BOOL) isPhone;
 + (NSString*) appVersion;
++ (BOOL)redirectNSLog;
 
 @end

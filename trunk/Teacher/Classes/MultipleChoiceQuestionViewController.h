@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MultipleChoiceQuestion.h"
+#import "QuestionViewController.h"
 
-@interface MultipleChoiceQuestionViewController : UIViewController {
-
+@interface MultipleChoiceQuestionViewController : QuestionViewController {
+	IBOutlet UIPickerView* pickerView;
 }
 
 

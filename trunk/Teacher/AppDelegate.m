@@ -16,7 +16,8 @@
 
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
-    
+	NSLog(@"%@",[DatabaseConnection executeSelect:@"select * from response"]);
+	
     // Override point for customization after app launch    
     [window addSubview:viewController.view];
     [window makeKeyAndVisible];
@@ -42,23 +43,11 @@
 		}
 	}
 
-	
-//[DatabaseConnection executeSelect:@"INSERT INTO class (name, class_id) VALUES ('Tim', NULL);"];
-//	[DatabaseConnection executeSelect:@"INSERT INTO manswer (qid) VALUES (5);"];
-//	[DatabaseConnection executeSelect:@"DELETE FROM class WHERE class_id>3;"];
-		NSArray* vals = [DatabaseConnection executeSelect:@"SELECT * FROM manswer WHERE qid>0"];
-	
-	NSLog(@"vals: %@", vals);
-	NSLog(@"val: %@" , [vals objectAtIndex:1]);
-	//int thirdRowVal = [[[vals objectAtIndex:1] objectForKey:@"class_id"] intValue];
-	
-	//id object;
-	NSLog(@"object name: %@",vals);
-	//NSLog(@"Row: %d",thirdRowVal);
+
 }
 
 
-- (void)dealloc {file://localhost/Users/ece/Downloads/student.htm
+- (void)dealloc {
     [viewController release];
     [window release];
     [super dealloc];

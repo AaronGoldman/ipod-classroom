@@ -26,13 +26,13 @@
 		port = 0;
 		
 		// Bonjour domain. Use the local domain by default
-		domain = @"local.";
+		domain = @"local";
 		
 		// If using an empty string ("") for the service name when registering,
 		// the system will automatically use the "Computer Name".
 		// Passing in an empty string will also handle name conflicts
 		// by automatically appending a digit to the end of the name.
-		name = @"";
+		name = @"test";
 		
 		// Initialize an array to hold all the HTTP connections
 		connections = [[NSMutableArray alloc] init];
@@ -226,9 +226,10 @@
 		// We can only publish our bonjour service if a type has been set
 		if(type != nil)
 		{
+
+			
 			// Create the NSNetService with our basic parameters
 			netService = [[NSNetService alloc] initWithDomain:domain type:type name:name port:port];
-			
 			[netService setDelegate:self];
 			[netService publish];
 			
@@ -332,7 +333,7 @@
 {
 	// Override me to do something here...
 	
-	NSLog(@"Bonjour Service Published: domain(%@) type(%@) name(%@)", [ns domain], [ns type], [ns name]);
+	NSLog(@"Bonjour Service Published: domain(%@) type(%@) name(%@) hostname(%@)", [ns domain], [ns type], [ns name], [ns hostName]);
 }
 
 /**
@@ -343,7 +344,7 @@
 {
 	// Override me to do something here...
 	
-	NSLog(@"Failed to Publish Service: domain(%@) type(%@) name(%@)", [ns domain], [ns type], [ns name]);
+	NSLog(@"Failed to Publish Service: domain(%@) type(%@) name(%@) hostname(%@)", [ns domain], [ns type], [ns name], [ns hostName]);
 	NSLog(@"Error Dict: %@", errorDict);
 }
 

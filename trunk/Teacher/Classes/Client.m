@@ -7,13 +7,18 @@
 //
 
 #import "Client.h"
+#import "TestResponsesRequest.h"
+#import "LoginRequest.h"
+#import "DeviceInfoRequest.h"
+#import "Util.h"
 
 #define kSessionID @"iResponse"
 #define kDisplayName @"iResponse"
-#import "LoginRequest.h"
+
 
 @implementation Client
-@synthesize userName;
+@synthesize firstName;
+@synthesize lastName;
 @synthesize passwordHash;
 @synthesize gkSession;
 @synthesize delegate;
@@ -39,7 +44,7 @@ static Client *instance;
 
 - (id) init{
 	if ( self = [super init]){
-		loginOnConnect = YES;
+		
 	}
 	return self;
 }
@@ -55,33 +60,65 @@ static Client *instance;
 }
 
 - (void) login{
-	if( userName ){
-		LoginRequest* loginRequest = [[LoginRequest alloc] init];
-		loginRequest.userName = userName;
-		loginRequest.passwordHash = passwordHash;
-		
-		[gkSession sendObjectToAllPeers:loginRequest];
-	}
+
+	LoginRequest* loginRequest = [[LoginRequest alloc] init];
+	loginRequest.firstName = firstName;
+	loginRequest.lastName = lastName;
+	loginRequest.udid = [[UIDevice currentDevice] uniqueIdentifier];
+	loginRequest.passwordHash = passwordHash;
+	
+	[gkSession sendObjectToAllPeers:loginRequest];
+
 }
 
+- (void) sendDeviceInfo{
+	DeviceInfoRequest* deviceInfoRequest = [[DeviceInfoRequest alloc] init];
+	deviceInfoRequest.udid = [[UIDevice currentDevice] uniqueIdentifier];
+	[gkSession sendObjectToAllPeers:deviceInfoRequest];
+}
 
+- (void) sendTestResponses:(NSMutableArray*)testResponses{
+	TestResponsesRequest* request = [[TestResponsesRequest alloc] init];
+	request.responses = testResponses;
+	[self.gkSession sendObjectToAllPeers:request];
+	
+	[request release];
+}
 
 - (void) receiveData:(NSData *)data fromPeer:(NSString *)peer inSession: (GKSession *)session context:(void *)context{
 	id receivedObject = [NSKeyedUnarchiver unarchiveObjectWithData:data];
 	NSLog(@"received object: %@", receivedObject);
 
-	if( [receivedObject isKindOfClass:[LoginRequestReply class]]){
-		[self receivedLoginRequestReply:receivedObject];
+	
+	if ( [receivedObject isKindOfClass:[NSArray class]]){
+		for( id request in receivedObject){
+			[self processRequest:request];
+		}		
+	}else{
+		[self processRequest:receivedObject];
 	}
 	
 }
 
-- (void) receivedLoginRequestReply:(LoginRequestReply*)reply{
-	
-	if ( reply.authenticated){
-		self.authenticated = YES;
-		[self.delegate client:self didReceiveQuestions:reply.questions];
+- (void) processRequest:(id)request{
+	if( [request isKindOfClass:[LoginRequestReply class]]){
+		[self receivedLoginRequestReply:request];
+	}else if( [request isKindOfClass:[QuestionsRequest class]]){
+		[self receivedQuestionsRequest:request];
 	}
+}
+
+- (void) receivedLoginRequestReply:(LoginRequestReply*)reply{
+	self.authenticated = reply.authenticated;
+	if ( reply.authenticated){
+		[self.delegate clientDidAuthenticate:self];
+	}else{
+		[self.delegate clientDidFailAuthentication:self];
+	}
+}
+
+- (void) receivedQuestionsRequest:(QuestionsRequest*)request{
+	[self.delegate client:self didReceiveQuestions:request.questions];
 }
 
 - (void)session:(GKSession *)session didReceiveConnectionRequestFromPeer:(NSString *)peerID{
@@ -102,6 +139,8 @@ static Client *instance;
 	}
 	if ( state == GKPeerStateConnected){
 		NSLog(@"connected");
+		[self sendDeviceInfo];
+		
 		if( loginOnConnect){
 			[self login];
 		}
@@ -109,11 +148,14 @@ static Client *instance;
 	NSLog(@"state did change: %d" , state);
 }
 
+
+
 - (void) dealloc{
 	[delegate release];
 	[gkSession release];
 	[passwordHash release];
-	[userName release];
+	[firstName release];
+	[lastName release];
 	[super dealloc];
 }
 @end

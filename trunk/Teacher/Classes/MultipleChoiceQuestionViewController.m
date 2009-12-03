@@ -47,6 +47,26 @@
 	// e.g. self.myOutlet = nil;
 }
 
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+	return [[[self.question objectForKey:@"possibleAnswers"] objectAtIndex:row] objectForKey:@"answer"];
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+	return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
+	return [[self.question objectForKey:@"possibleAnswers"] count];
+}
+
+- (QuestionResponseType) questionResponseType{
+	return QuestionResponseTypeMutipleChoice;
+}
+
+- (id) responseValue{
+	return [NSNumber numberWithInt:[pickerView selectedRowInComponent:0]];
+
+}
 
 - (void)dealloc {
     [super dealloc];

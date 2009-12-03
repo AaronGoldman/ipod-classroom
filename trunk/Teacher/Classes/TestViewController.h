@@ -10,9 +10,9 @@
 
 
 @interface TestViewController : UITableViewController {
-	NSMutableArray* tests;
+	NSArray* tests;
 }
 
-@property (nonatomic , retain) NSMutableArray* tests;
+@property (nonatomic , retain) NSArray* tests;
 
 @end

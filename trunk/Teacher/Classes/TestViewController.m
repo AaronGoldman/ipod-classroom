@@ -8,7 +8,8 @@
 
 #import "TestViewController.h"
 #import "ConnectedDevicesViewController.h"
-
+#import "SupervisorViewController.h"
+#import "DatabaseConnection.h"
 
 @implementation TestViewController
 @synthesize tests;
@@ -26,7 +27,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	self.tests = [NSMutableArray arrayWithObjects:@"Prequiz 1" , @"Chapter 1" , @"Prequiz 2" , @"Chapters 2,3,4" , @"Midterm",nil];
+	
+	self.tests = [DatabaseConnection executeSelect:@"Select * from test"];;
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -99,7 +101,7 @@
     }
     
     // Set up the cell...
-	cell.textLabel.text = [tests objectAtIndex:indexPath.row];
+	cell.textLabel.text = [[tests objectAtIndex:indexPath.row] objectForKey:@"name"];
 	
     return cell;
 }
@@ -110,7 +112,8 @@
 	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
 	// [self.navigationController pushViewController:anotherViewController];
 	// [anotherViewController release];
-	ConnectedDevicesViewController* vc = [[ConnectedDevicesViewController alloc] initWithNibName:@"ConnectedDevicesViewController" bundle:nil];
+	SupervisorViewController* vc = [[SupervisorViewController alloc] initWithNibName:@"SupervisorViewController" bundle:nil];
+	vc.tid = [[[tests objectAtIndex:indexPath.row] objectForKey:@"tid"] intValue];
 	[self.navigationController pushViewController:vc animated:YES];
 	[vc release];
 }

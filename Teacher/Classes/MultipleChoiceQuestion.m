@@ -32,6 +32,10 @@
 	
 }
 
+- (QuestionResponseType) responseType{
+	return QuestionResponseTypeMutipleChoice;
+}
+
 - (void) dealloc{
 	[possibleAnswers release];
 	[super dealloc];

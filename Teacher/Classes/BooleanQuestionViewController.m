@@ -52,8 +52,8 @@
 	return QuestionResponseTypeBoolean;
 }
 
-- (NSData*) responseData{
-	return [NSKeyedArchiver archivedDataWithRootObject:[NSNumber numberWithBool:responseSwitch.on]];
+- (id) responseValue{
+	return [NSNumber numberWithInt:responseSwitch.on];
 }
 
 - (void)dealloc {

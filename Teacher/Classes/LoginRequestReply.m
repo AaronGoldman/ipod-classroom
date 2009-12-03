@@ -11,7 +11,6 @@
 
 @implementation LoginRequestReply
 @synthesize authenticated;
-@synthesize questions;
 
 - (id) initWithCoder:(NSCoder*)coder{
 	
@@ -20,7 +19,6 @@
 		//int version = [coder decodeIntForKey:@"version"];
 		
 		self.authenticated	= [coder decodeBoolForKey:@"authenticated"];
-		self.questions		= [coder decodeObjectForKey:@"questions"];
 	}
 	
 	return self;
@@ -30,13 +28,11 @@
 	[coder encodeInt:1 forKey:@"version"];
 	
 	[coder encodeBool:authenticated		forKey:@"authenticated"];
-	[coder encodeObject:questions		forKey:@"questions"];
 }
 
 
 - (void) dealloc{
 	
-	[questions release];
 	[super dealloc];
 }
 @end

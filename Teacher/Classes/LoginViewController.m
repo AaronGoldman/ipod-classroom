@@ -8,7 +8,8 @@
 
 #import "LoginViewController.h"
 #import "TestNavigationController.h"
-#import "Client.h"
+
+#import "Util.h"
 
 @implementation LoginViewController
 @synthesize tableView;
@@ -26,7 +27,6 @@
     [super viewDidLoad];
 	self.view.backgroundColor = [UIColor groupTableViewBackgroundColor];
 	tableView.backgroundColor = [UIColor clearColor];
-	[Client getInstance];
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -84,7 +84,7 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return 3;
 }
 
 
@@ -104,9 +104,13 @@
 		textField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 		if ( indexPath.row == 0){
 			textField.tag = 1;
-			textField.placeholder = @"Username";
+			textField.placeholder = @"First name";
 			[textField becomeFirstResponder];
 		}else if ( indexPath.row == 1){
+			textField.tag = 1;
+			textField.placeholder = @"Last name";
+			[textField becomeFirstResponder];
+		}else if ( indexPath.row == 2){
 			textField.tag = 1;
 			textField.secureTextEntry = YES;
 			textField.placeholder = @"Password";
@@ -132,18 +136,25 @@
 }
 
 - (IBAction) connect{
-	NSString* userName = [(UITextField*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]] viewWithTag:1] text];
-	NSString* password = [(UITextField*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]] viewWithTag:1] text];
+	NSString* firstName = [(UITextField*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]] viewWithTag:1] text];
+	NSString* lastName = [(UITextField*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]] viewWithTag:1] text];
+	NSString* password = [(UITextField*)[[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]] viewWithTag:1] text];
 	
-	NSLog(@"userName: %@" , userName);
-	NSLog(@"password: %@" , password);
-	[Client getInstance].userName = userName;
-	[Client getInstance].passwordHash = password;
-
-	
-	TestNavigationController* vc = [[TestNavigationController alloc] init];
-	[self presentModalViewController:vc animated:YES];
-	[vc release];
+	if ( firstName && lastName && password){
+		NSLog(@"firstName: %@" , firstName);
+		NSLog(@"lastName: %@" , lastName);
+		NSLog(@"password: %@" , password);
+		
+		
+		TestNavigationController* vc = [[TestNavigationController alloc] init];
+		vc.firstName = firstName;
+		vc.lastName = lastName;
+		vc.passWord = password;
+		[self presentModalViewController:vc animated:YES];
+		[vc release];
+	}else{
+		[Util showAlertWithTitle:@"Erroneous" message:@"Please fill in all fields."];
+	}
 }
 
 

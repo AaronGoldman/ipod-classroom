@@ -11,26 +11,29 @@
 
 @protocol QuestionViewControllerDelegate
 
-- (void) next;
-- (void) previous;
+- (void) nextQuestion;
+- (void) previousQuestion;
 
 @end
 
 
 @interface QuestionViewController : UIViewController {
-	Question* question;
+	NSDictionary* question;
 	NSObject <QuestionViewControllerDelegate> *delegate;
 	IBOutlet UITextView* questionText;
-	
+	IBOutlet UIButton* nextButton;
+	IBOutlet UIButton* prevButton;
 }
 
 - (QuestionResponseType) questionResponseType;
-- (NSData*) responseData;
+- (id) responseValue;
 
 - (IBAction) next;
 - (IBAction) previous;
 
-@property (nonatomic , retain) Question* question;
+@property (nonatomic , retain) NSDictionary* question;
 @property (nonatomic , retain) NSObject <QuestionViewControllerDelegate> *delegate;
+@property (nonatomic , readonly) UIButton* nextButton;
+@property (nonatomic , readonly) UIButton* prevButton;
 
 @end

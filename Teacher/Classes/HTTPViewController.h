@@ -14,8 +14,12 @@
 	IBOutlet UILabel* displayInfo; 
 	HTTPServer *httpServer;
 	NSDictionary *addresses;
+	NSNetService* netService;
 }
 
+@property (nonatomic , retain) NSNetService* netService;
+
 -(IBAction) startStopServer:(id)sender;
+- (BOOL) enableBonjourWithDomain:(NSString*)domain applicationProtocol:(NSString*)protocol name:(NSString*)name;
 
 @end

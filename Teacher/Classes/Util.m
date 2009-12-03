@@ -194,4 +194,19 @@
 
 }
 
++ (BOOL)redirectNSLog{
+	// Create log file
+	NSString* path = [[Util appDir] stringByAppendingPathComponent:@"NSLog.txt"];
+	[@"" writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:nil];
+	id fileHandle = [NSFileHandle fileHandleForWritingAtPath:path];
+	if (!fileHandle)	return NSLog(@"Opening log failed"), NO;
+	[fileHandle retain];
+	
+	// Redirect stderr
+	int err = dup2([fileHandle fileDescriptor], STDERR_FILENO);
+	if (!err)	return	NSLog(@"Couldn't redirect stderr"), NO;
+	
+	return	YES;
+}
+
 @end

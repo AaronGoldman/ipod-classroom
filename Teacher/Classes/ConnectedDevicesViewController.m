@@ -169,33 +169,12 @@
 //}
 
 
-- (void)session:(GKSession *)session didReceiveConnectionRequestFromPeer:(NSString *)peerID{
-	BOOL connected = [session acceptConnectionFromPeer:peerID error:nil];
-	NSLog(@"accepting peer connection: %@, %d" , peerID , connected);
-}
-
-- (void)session:(GKSession *)session connectionWithPeerFailed:(NSString *)peerID withError:(NSError *)error{
-	NSLog(@"peer connection failed: %@ , %@" , peerID , error);
-}
-
-- (void)session:(GKSession *)session didFailWithError:(NSError *)error{
-	NSLog(@"connection failed with error: %@" , error);
-}
-
-- (void)session:(GKSession *)session peer:(NSString *)peerID didChangeState:(GKPeerConnectionState)state{
-//	if ( state == 0){
-//		[session connectToPeer:peerID withTimeout:120.0];
-//	}
-	if ( state == GKPeerStateConnected){
-		NSLog(@"Student connected connected");
-		[devices addObject:peerID];
-		[self.tableView reloadData];
-	}
-	NSLog(@"state did change: %d" , state);
-}
-
 - (void) supervisor:(Supervisor*)_supervisor didReceiveResponse:(Response*)response{
 	NSLog(@"received response");
+}
+
+- (void) supervisorDidHaveClientChangeState:(Supervisor*)supervisor{
+	
 }
 
 - (void)dealloc {

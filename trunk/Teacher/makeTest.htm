@@ -6,19 +6,19 @@
     <script src="jquery.min.js" type="text/javascript"></script>
     <script language="JavaScript">
 		function addOption( node){
-			node.append("<input type='TEXT' name='option"+node.data("multiQNum")+"[]' size='20' style='width: 5.75in; height: 0.25in'><br />");
+			node.append("<input type='TEXT' name='option"+node.data("Qnum")+"[]' size='20' style='width: 5.75in; height: 0.25in'><br />");
 		}
 		
         $(document).ready(function () {
             document.bgColor = '#FFF68F';
             var Qnum = 0;
-			var multiQNum = 0;
+
 
             $("span").hide();
             $("input#addmult").click(function () {
                 Qnum = Qnum + 1;
-				multiQNum += 1;
-                //$('span#Qhere').before(Qnum + ")Mult<br/>");
+//				multiQNum += 1;
+                $('span#Qhere').before(Qnum + ")Mult<br/>");
                 //$("span#Qhere").before("Question Text:<input type='TEXT' name='multQtext' size='20' style='width: 6.0in; height: 0.25in'><br>Question options:<input type='button' id='addChoice' value='Add Option' size='20' style='width: 1.2in; height: 0.25in'><br />")
                 //$("span#Qhere").before("<input type='TEXT' name='option' size='20' style='width: 5.75in; height: 0.25in'><br />")
                 //$("span#Qhere").before("<input type='TEXT' name='option' size='20' style='width: 5.75in; height: 0.25in'><br />")
@@ -26,7 +26,7 @@
 				var newNode = $('#template span#mult').clone(true);
                 newNode.insertBefore('span#Qhere');
                 newNode.show("fast");
-				newNode.data("multiQNum",multiQNum);
+				newNode.data("Qnum",Qnum-1);
 				addOption(newNode);
 				addOption(newNode);
             });
@@ -75,7 +75,8 @@
     <form id="template">
 	   <span id="mult">
     	    Question Text:
-    	    <input type="TEXT" name="multQtext[]" size="20" style="width: 6.0in; height: 0.25in">
+    	    <input type="TEXT" name="question[]" size="20" style="width: 6.0in; height: 0.25in">
+			<input type="HIDDEN" name="questionType[]" value="3" />
 	        <br>
 	        Question options:<input type="button" id="addChoice" value="Add Option" size="20" style="width: 1.2in; height: 0.25in"><br />
 <!--	        <input type="TEXT" name="option[]" size="20" style="width: 5.75in; height: 0.25in"><br />
@@ -84,17 +85,20 @@
 	        <br>
 	    </span><span id="TF">
 	        Question Text:
-	        <input type="TEXT" name="TFQtext[]" size="20" style="width: 6.0in; height: 0.25in">
+	        <input type="TEXT" name="question[]" size="20" style="width: 6.0in; height: 0.25in">
+			<input type="HIDDEN" name="questionType[]" value="4" />
 	        <br>
 	        <br>
 	    </span><span id="num">
 	        Question Text:
-	        <input type="TEXT" name="numQtext[]" size="20" style="width: 6.0in; height: 0.25in">
+	        <input type="TEXT" name="question[]" size="20" style="width: 6.0in; height: 0.25in">
+			<input type="HIDDEN" name="questionType[]" value="2" />
 	        <br>
 	        <br>
 	    </span><span id="text">
 	        Question Text:
-	        <input type="TEXT" name="textQtext[]" size="20" style="width: 6.0in; height: 0.25in">
+	        <input type="TEXT" name="question[]" size="20" style="width: 6.0in; height: 0.25in">
+			<input type="HIDDEN" name="questionType[]" value="1" />
 	        <br>
 	        <br>
 	    </span>

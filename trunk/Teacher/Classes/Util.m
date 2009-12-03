@@ -138,6 +138,7 @@
 }
 
 + (NSString*) urlunEncode:(NSString*)str{
+	str = [str stringByReplacingOccurrencesOfString:@"+" withString:@" "];
 	str = [str stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
 	str = [str stringByReplacingOccurrencesOfString:@"%23" withString:@"#"];
 	str = [str stringByReplacingOccurrencesOfString:@"%24" withString:@"$"];

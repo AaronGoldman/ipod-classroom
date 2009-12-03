@@ -68,6 +68,19 @@
 		[outdata appendString:@"</form>"];
 	}
 	
+	//generate test list
+	//[outdata appendString:@"<a href=getresponses>getresponses.csv</a><br />\n"];
+	
+	 NSArray* testTaken = [DatabaseConnection executeSelect:@"select * from test inner join question on (test.tid=question.tid) inner join response on (question.qid=response.qid) group by test.tid;"];
+	for(NSDictionary* row in testTaken){
+		NSString* filename = [row objectForKey:@"name"];
+		NSNumber* tid = [row objectForKey:@"tid"];
+		[outdata appendFormat:@"<a href=\"%@.csv\">%@.csv</a><br />", tid, filename];
+	}
+	//[outdata appendString:testTaken];
+	 //select distinct test.tid,* from test inner join question on (test.tid=question.tid) inner join response on (question.qid=response.qid) where test.tid=1;
+	
+	
 	[outdata appendString:@"</body></html>"];
     
 	//NSLog(@"outData: %@", outdata);
@@ -179,6 +192,19 @@
 	if ([[NSFileManager defaultManager] fileExistsAtPath:filePath])
 	{
 		return [[[HTTPFileResponse alloc] initWithFilePath:filePath] autorelease];
+	}
+	//place for dinamic file cheack
+	else if([filePath hasSuffix:@".csv"]){
+		NSString* filename = [filePath lastPathComponent];
+		NSString* tid = [filename substringToIndex:[filename length]-4]; 
+		NSLog(@"Test Id %@", tid);
+		
+		
+		NSString* responsestatement = [NSString stringWithFormat: @"select * from test inner join question on (test.tid=question.tid) inner join response on (question.qid=response.qid) inner join student on (student.student_id = response.student_id) where test.tid = %@;", tid];
+		NSArray* testResponse = [DatabaseConnection executeSelect:responsestatement];
+		
+		NSLog(@"The Responses are: %@", testResponse);
+		
 	}
 	else
 	{
@@ -355,6 +381,8 @@
 		response = [self handleClassSubmit:data];
 	}else if( [fileName isEqual:@"testSubmit.html"]){
 		response = [self handleTestSubtmit:data];
+	}if( [fileName isEqual:@"getresponses"]){
+		response = [self handlegetresponsesSubtmit:data];
 	}
 	
 	return response;
@@ -364,42 +392,146 @@
 
 - (NSString*) handleTestSubtmit:(NSDictionary*)data{
 	NSLog(@"handling test submit with data: %@" , data);
-	return @"test submitted";
+
+	NSString* testName = [data objectForKey:@"testname"];
+	
+	
+	
+	NSString* sqlstatement = [NSString stringWithFormat: @"INSERT INTO test (name, time, tid) VALUES ( '%@', 1234567, NULL);", testName];
+	[DatabaseConnection executeSelect: sqlstatement];
+	int tid = sqlite3_last_insert_rowid([DatabaseConnection getConnection]);
+	
+	
+	NSArray* question = [data objectForKey:@"question[]"];
+	NSArray* questionType = [data objectForKey:@"questiontype[]"];
+	
+	[DatabaseConnection executeSelect:@"DELETE FROM manswer WHERE mqid>0;"];
+	[DatabaseConnection executeSelect:@"DELETE FROM question WHERE qid>0;"];
+	
+	for(int i = 0; i < [question count]; i++)
+	{
+		sqlstatement = [NSString stringWithFormat: @"INSERT INTO question (qid, text, time, type, tid) VALUES (NULL, '%@', 1234567, '%@', %d);", [question objectAtIndex:i], [questionType objectAtIndex:i], tid];
+		[DatabaseConnection executeSelect: sqlstatement];
+		int qid = sqlite3_last_insert_rowid([DatabaseConnection getConnection]);
+		
+	
+		
+			if([[questionType objectAtIndex:i] isEqualToString:@"3"])
+		{
+			NSString* optionString = [NSString stringWithFormat: @"option%d[]", i];
+			NSLog(@"the optionString is: %@" , optionString);
+			
+			
+			
+			NSArray* option = [data objectForKey:optionString];
+			
+			NSLog(@"the options are: %@" , option);
+			
+			NSLog(@"options length: %d", [option count]);
+			
+			for (int j = 0; j < [option count]; j++)
+			{
+			sqlstatement = [NSString stringWithFormat: @"INSERT INTO manswer (qid, mqid, answer) VALUES (%d, NULL, '%@');", qid, [option objectAtIndex:j]];
+			[DatabaseConnection executeSelect: sqlstatement];
+			}
+			
+		}
+		
+	}
+	
+	NSArray* manswervals = [DatabaseConnection executeSelect:@"SELECT * FROM manswer WHERE mqid>0"];
+	NSLog(@"manswervals: %@", manswervals);
+	
+	
+	NSArray* answervals = [DatabaseConnection executeSelect:@"SELECT * FROM question WHERE qid>0"];
+	NSLog(@"answervals: %@", answervals);
+	
+	//	if([formtype isEqualToString:@"test"]){
+	//		//multqtext
+	//		if([field isEqualToString:@"multqtext"]){
+	//			//Add multipal choise qwestion text to qwestion table
+	//			NSString* sqlstatement = [NSString stringWithFormat: @"INSERT INTO question (qid, text, time, type, tid) VALUES (NULL, '%@', 1234567, 3, );", value];
+	//			[DatabaseConnection executeSelect: sqlstatement];
+	//		}
+	//		//option
+	//		if([field isEqualToString:@"option"]){
+	//			//add a option for the last created multipal choise qwestion
+	//		}
+	//		//tfqtext
+	//		if([field isEqualToString:@"tfqtext"]){
+	//			//Add true false qwestion text to qwestion table
+	//			NSString* sqlstatement = [NSString stringWithFormat: @"INSERT INTO question (qid, text, time, type, tid) VALUES (NULL, '%@', 1234567, 4, );", value];
+	//			[DatabaseConnection executeSelect: sqlstatement];
+	//		}
+	//		//numqtext
+	//		if([field isEqualToString:@"numqtext"]){
+	//			//Add numeric responce qwestion text to qwestion table
+	//			NSString* sqlstatement = [NSString stringWithFormat: @"INSERT INTO question (qid, text, time, type, tid) VALUES (NULL, '%@', 1234567, 2, );", value];
+	//			[DatabaseConnection executeSelect: sqlstatement];
+	//			
+	//		}
+	//		//textqtext
+	//		if([field isEqualToString:@"textqtext"]){
+	//			//Add text responce qwestion text to qwestion table
+	//			NSString* sqlstatement = [NSString stringWithFormat: @"INSERT INTO question (qid, text, time, type, tid) VALUES (NULL, '%@', 1234567, 1, );", value];
+	//			[DatabaseConnection executeSelect: sqlstatement];
+	//		}
+	//	}
+	
+	return @"<h3>test submitted</h3><br/><a href='./'>return to home</a>";
 }
 
 - (NSString*) handleClassSubmit:(NSDictionary*)data{
 	NSLog(@"handling class submit with data: %@" , data);
-//	if([formtype isEqualToString:@"test"]){
-//		//multqtext
-//		if([field isEqualToString:@"multqtext"]){
-//			//Add multipal choise qwestion text to qwestion table
-//			NSString* sqlstatement = [NSString stringWithFormat: @"INSERT INTO question (qid, text, time, type, tid) VALUES (NULL, '%@', 1234567, 3, );", value];
-//			[DatabaseConnection executeSelect: sqlstatement];
-//		}
-//		//option
-//		if([field isEqualToString:@"option"]){
-//			//add a option for the last created multipal choise qwestion
-//		}
-//		//tfqtext
-//		if([field isEqualToString:@"tfqtext"]){
-//			//Add true false qwestion text to qwestion table
-//			NSString* sqlstatement = [NSString stringWithFormat: @"INSERT INTO question (qid, text, time, type, tid) VALUES (NULL, '%@', 1234567, 4, );", value];
-//			[DatabaseConnection executeSelect: sqlstatement];
-//		}
-//		//numqtext
-//		if([field isEqualToString:@"numqtext"]){
-//			//Add numeric responce qwestion text to qwestion table
-//			NSString* sqlstatement = [NSString stringWithFormat: @"INSERT INTO question (qid, text, time, type, tid) VALUES (NULL, '%@', 1234567, 2, );", value];
-//			[DatabaseConnection executeSelect: sqlstatement];
-//			
-//		}
-//		//textqtext
-//		if([field isEqualToString:@"textqtext"]){
-//			//Add text responce qwestion text to qwestion table
-//			NSString* sqlstatement = [NSString stringWithFormat: @"INSERT INTO question (qid, text, time, type, tid) VALUES (NULL, '%@', 1234567, 1, );", value];
-//			[DatabaseConnection executeSelect: sqlstatement];
-//		}
-//	}
+
+	
+	//	NSArray arrayWithObjects:@"key1"
+	
+	
+	//[dict objectForKey:@"fieldName"];
+	
+	//NSLog(@"The names are: %@", [[data objectForKey:@"sudentname[]"] objectAtIndex:0]);
+	NSString* className = [data objectForKey:@"classname"];
+	
+	//int tid = sqlite3_last_insert_rowid([DatabaseConnection getConnection]);
+	
+	NSString* sqlstatement =  @"DELETE from class;";
+	[DatabaseConnection executeSelect: sqlstatement];
+	
+	 sqlstatement = [NSString stringWithFormat: @"INSERT INTO class (name, class_id) VALUES ('%@', NULL);", className];
+	[DatabaseConnection executeSelect: sqlstatement];
+	int cid = sqlite3_last_insert_rowid([DatabaseConnection getConnection]);
+	
+	NSArray* classvals = [DatabaseConnection executeSelect:@"SELECT * FROM class WHERE class_id>0"];
+	NSLog(@"classvals: %@", classvals);
+	
+	NSArray* passwords = [data objectForKey:@"password[]"];
+	NSArray* studentFirstNames = [data objectForKey:@"sudentfirstname[]"];
+	NSArray* studentLastNames = [data objectForKey:@"sudentlastname[]"];
+	NSArray* devises = [data objectForKey:@"devise[]"];
+	NSLog(@"classname: %@" , className);
+	
+	sqlstatement =  @"DELETE from student;";
+	[DatabaseConnection executeSelect: sqlstatement];
+	
+	for(int i = 0; i < [studentLastNames count]; i++)
+	{
+		NSString* fname = [studentFirstNames objectAtIndex:i];
+		NSString* lname	= [studentLastNames objectAtIndex:i];
+		NSString* password = [passwords objectAtIndex:i];
+		NSString* devise = [devises objectAtIndex:i];
+		
+		//NSLog(@"name, password, device: %@, %@, %@" , name, password, devise);
+		
+		sqlstatement = [NSString stringWithFormat: @"INSERT INTO student (udid, firstname, lastname, passhash, student_id, class_id) VALUES ('%@', '%@', '%@', '%@', NULL, %d);", devise, fname, lname, password, cid];
+		[DatabaseConnection executeSelect: sqlstatement];
+		
+		NSArray* studentvals = [DatabaseConnection executeSelect:@"SELECT * FROM student WHERE student_id>0"];
+		NSLog(@"studentvals: %@", studentvals);
+		
+	}
+	
+	
 //	if([formtype isEqualToString:@"class"]){
 //		//sudentname
 //		if([field isEqualToString:@"sudentname"]){
@@ -455,13 +587,16 @@
 //		 }*/
 //	}
 	
-	return @"Helllow reaponst world!";
+	return @"<h3>class submitted</h3><br/><a href='./'>return to home</a>";
 }
 
 - (void) dealloc{
 	[postDataParams release];
 	[super dealloc];
 }
+
+
+
 
 
 @end

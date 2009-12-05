@@ -22,6 +22,8 @@
 	NSString* lastName;
 	NSString* passWord;
 	WifiClient* client;
+	
+	UIAlertView* statusAlertView;
 }
 
 - (void) failAndClose:(NSString*)message;
@@ -39,5 +41,6 @@
 @property (nonatomic , retain) NSString* lastName;
 @property (nonatomic , retain) NSString* passWord;
 @property (nonatomic , retain) WifiClient* client;
+@property (nonatomic , retain) UIAlertView* statusAlertView;
 
 @end

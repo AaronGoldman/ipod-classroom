@@ -70,6 +70,15 @@
 		authenticated = YES;
 		query = [NSString stringWithFormat:@"insert into student (firstname,lastname,udid,passhash) values ('%@','%@','%@','%@');",firstname,lastname,udid,passhash];
 		[DatabaseConnection executeSelect:query];
+		NSNumber* student_id = [NSNumber numberWithInt:sqlite3_last_insert_rowid([DatabaseConnection getConnection])];
+		NSDictionary* studentInfo = [NSDictionary dictionaryWithObjectsAndKeys: 
+									 student_id,@"student_id",
+									 firstname,@"firstname",
+									 lastname,@"lastname",
+									 udid,@"udid",
+									 passhash,@"passhash",
+									 nil];
+		[self.quizServiceHttpServer.authenticated setObject:studentInfo forKey:udid];
 	}
 	
 	

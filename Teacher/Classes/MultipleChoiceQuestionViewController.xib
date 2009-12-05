@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="10"/>
+			<integer value="1"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -96,6 +96,7 @@
 						<bool key="IBUIDelaysContentTouches">NO</bool>
 						<bool key="IBUICanCancelContentTouches">NO</bool>
 						<bool key="IBUIBouncesZoom">NO</bool>
+						<bool key="IBUIEditable">NO</bool>
 						<string key="IBUIText">Question?</string>
 						<int key="IBUITextAlignment">1</int>
 						<object class="IBUITextInputTraits" key="IBUITextInputTraits">

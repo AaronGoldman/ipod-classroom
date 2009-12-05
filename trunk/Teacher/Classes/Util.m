@@ -133,11 +133,13 @@
 	str = [str stringByReplacingOccurrencesOfString:@"}" withString:@"%7D"];
 	str = [str stringByReplacingOccurrencesOfString:@"~" withString:@"%7E"];
 	str = [str stringByReplacingOccurrencesOfString:@"\\" withString:@"%5C"];
+	str = [str stringByReplacingOccurrencesOfString:@"'" withString:@"%27"];
+	str = [str stringByReplacingOccurrencesOfString:@"!" withString:@"%21"];
 	
 	return str;
 }
 
-+ (NSString*) urlunEncode:(NSString*)str{
++ (NSString*) urlDecode:(NSString*)str{
 	str = [str stringByReplacingOccurrencesOfString:@"+" withString:@" "];
 	str = [str stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
 	str = [str stringByReplacingOccurrencesOfString:@"%23" withString:@"#"];
@@ -162,6 +164,8 @@
 	str = [str stringByReplacingOccurrencesOfString:@"%7D" withString:@"}"];
 	str = [str stringByReplacingOccurrencesOfString:@"%7E" withString:@"~"];
 	str = [str stringByReplacingOccurrencesOfString:@"%5C" withString:@"\\"];
+	str = [str stringByReplacingOccurrencesOfString:@"%27" withString:@"'"];
+	str = [str stringByReplacingOccurrencesOfString:@"%21" withString:@"!"];
 	
 	return str;
 }

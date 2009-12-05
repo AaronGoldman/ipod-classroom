@@ -31,6 +31,7 @@
     [super viewDidLoad];
 	
 	questionText.text = [question objectForKey:@"text"];
+	questionText.font = [UIFont boldSystemFontOfSize:14];
 }
 
 

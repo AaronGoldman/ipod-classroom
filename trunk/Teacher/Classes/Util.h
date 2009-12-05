@@ -21,7 +21,7 @@
 + (UIImage*) resizeImage:(UIImage*)image newSize:(CGRect)newSize;
 + (UIColor*) appleBlueColor;
 + (NSString*) urlEncode:(NSString*)str;
-+ (NSString*) urlunEncode:(NSString*)str;
++ (NSString*) urlDecode:(NSString*)str;
 + (void) showAlertWithTitle:(NSString*)title message:(NSString*)message;
 + (BOOL) isPhone;
 + (NSString*) appVersion;

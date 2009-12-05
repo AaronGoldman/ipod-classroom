@@ -53,7 +53,11 @@
 }
 
 - (id) responseValue{
-	return [NSNumber numberWithInt:responseSwitch.on];
+	//For the segmented control
+	//index 0 is true which is represented by the int 1,
+	//index 1 is false which is represented by the int 0
+	int response = responseSegmentedControl.selectedSegmentIndex == 1 ? 0 : 1;
+	return [NSNumber numberWithInt:response];
 }
 
 - (void)dealloc {

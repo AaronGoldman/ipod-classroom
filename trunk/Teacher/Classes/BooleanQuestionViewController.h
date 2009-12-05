@@ -10,7 +10,7 @@
 #import "QuestionViewController.h"
 
 @interface BooleanQuestionViewController : QuestionViewController {
-	IBOutlet UISwitch* responseSwitch;
+	IBOutlet UISegmentedControl* responseSegmentedControl;
 }
 
 @end

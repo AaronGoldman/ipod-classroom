@@ -9,6 +9,7 @@
 #import "WifiClient.h"
 #import "JSON.h"
 #import "PostRequest.h"
+#import "Util.h"
 
 @implementation WifiClient
 @synthesize browser;
@@ -72,10 +73,11 @@
 }
 
 - (void) authenticateWithFirstName:(NSString*)firstName lastName:(NSString*)lastName password:(NSString*)password{
+	NSString* passhash = [Util md5:password];
 	NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:
 							firstName, @"firstname",
 							lastName , @"lastname",
-							password , @"passhash",
+							passhash , @"passhash",
 							[[UIDevice currentDevice] uniqueIdentifier], @"udid",
 							nil];
 	[self sendMessageWithMethod:@"authenticate" params:params];

@@ -55,9 +55,17 @@
 
 - (NSString*) handleAuthenticate:(NSDictionary*)params{
 	NSString* firstname = [params objectForKey:@"firstname"];
+	firstname = [firstname stringByReplacingOccurrencesOfString:@"'" withString:@""];
+	
 	NSString* lastname = [params objectForKey:@"lastname"];
+	lastname = [lastname stringByReplacingOccurrencesOfString:@"'" withString:@""];
+	
 	NSString* passhash = [params objectForKey:@"passhash"];
+	passhash = [passhash stringByReplacingOccurrencesOfString:@"'" withString:@""];
+	
 	NSString* udid = [params objectForKey:@"udid"];
+	udid = [udid stringByReplacingOccurrencesOfString:@"'" withString:@""];
+	
 	NSString* query = [NSString stringWithFormat:@"Select * from student where firstname='%@' collate nocase and lastname='%@' collate nocase and passhash='%@' and udid='%@'",
 					   firstname,lastname,passhash,udid];
 	NSLog(@"authentication query: %@" , query);

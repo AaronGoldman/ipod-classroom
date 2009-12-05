@@ -16,6 +16,7 @@
 
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
+	NSLog(@"app dir: %@" , [Util appDir]); 
 	NSLog(@"%@",[DatabaseConnection executeSelect:@"select * from response"]);
 	
     // Override point for customization after app launch    

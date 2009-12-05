@@ -34,7 +34,7 @@
 {
     
 	NSLog(@"browser path: %@" , path);
-	NSArray *array = [[NSFileManager defaultManager] directoryContentsAtPath:path];
+	
     
     NSMutableString *outdata = [NSMutableString new];
 	[outdata appendString:@"<html><head>"];
@@ -43,30 +43,38 @@
     [outdata appendString:@"</head><body>"];
 	[outdata appendFormat:@"<h1>Files from %@</h1>", server.name];
     [outdata appendString:@"<bq>The following files are hosted live from the iPhone.</bq>"];
-	[outdata appendString:@"<br> Hi we found the web site :)"];
+	[outdata appendString:@"<br> Hi, we found the web site :)"];
     [outdata appendString:@"<p>"];
-	[outdata appendFormat:@"<a href=\"..\">..</a><br />\n"];
-    for (NSString *fname in array)
-    {
-        NSDictionary *fileDict = [[NSFileManager defaultManager] fileAttributesAtPath:[path stringByAppendingPathComponent:fname] traverseLink:NO];
-		//NSLog(@"fileDict: %@", fileDict);
-        NSString *modDate = [[fileDict objectForKey:NSFileModificationDate] description];
-		if ([[fileDict objectForKey:NSFileType] isEqualToString: @"NSFileTypeDirectory"]) fname = [fname stringByAppendingString:@"/"];
-		[outdata appendFormat:@"<a href=\"%@\">%@</a>		(%8.1f Kb, %@)<br />\n", fname, fname, [[fileDict objectForKey:NSFileSize] floatValue] / 1024, modDate];
-    }
+	//[outdata appendFormat:@"<a href=\"..\">..</a><br />\n"];
+	
+	
+	//This prints out the files in the current folder
+//	NSArray *array = [[NSFileManager defaultManager] directoryContentsAtPath:path];
+//    for (NSString *fname in array)
+//    {
+//        NSDictionary *fileDict = [[NSFileManager defaultManager] fileAttributesAtPath:[path stringByAppendingPathComponent:fname] traverseLink:NO];
+//		//NSLog(@"fileDict: %@", fileDict);
+//        NSString *modDate = [[fileDict objectForKey:NSFileModificationDate] description];
+//		if ([[fileDict objectForKey:NSFileType] isEqualToString: @"NSFileTypeDirectory"]) fname = [fname stringByAppendingString:@"/"];
+//		[outdata appendFormat:@"<a href=\"%@\">%@</a>		(%8.1f Kb, %@)<br />\n", fname, fname, [[fileDict objectForKey:NSFileSize] floatValue] / 1024, modDate];
+//    }
+	[outdata appendFormat:@"<a href='student.htm'>Add Students</a>"];
+	[outdata appendFormat:@"<a href='makeTest.htm'>Create Test</a>"];
+	
     [outdata appendString:@"</p>"];
 	
-	if ([self supportsPOST:path withSize:0])
-	{
-		[outdata appendString:@"<form action=\"\" method=\"post\" enctype=\"multipart/form-data\" name=\"form1\" id=\"form1\">"];
-		[outdata appendString:@"<label>upload file"];
-		[outdata appendString:@"<input type=\"file\" name=\"file\" id=\"file\" />"];
-		[outdata appendString:@"</label>"];
-		[outdata appendString:@"<label>"];
-		[outdata appendString:@"<input type=\"submit\" name=\"button\" id=\"button\" value=\"Submit\" />"];
-		[outdata appendString:@"</label>"];
-		[outdata appendString:@"</form>"];
-	}
+	//Let's you upload files, don't need this.
+//	if ([self supportsPOST:path withSize:0])
+//	{
+//		[outdata appendString:@"<form action=\"\" method=\"post\" enctype=\"multipart/form-data\" name=\"form1\" id=\"form1\">"];
+//		[outdata appendString:@"<label>upload file"];
+//		[outdata appendString:@"<input type=\"file\" name=\"file\" id=\"file\" />"];
+//		[outdata appendString:@"</label>"];
+//		[outdata appendString:@"<label>"];
+//		[outdata appendString:@"<input type=\"submit\" name=\"button\" id=\"button\" value=\"Submit\" />"];
+//		[outdata appendString:@"</label>"];
+//		[outdata appendString:@"</form>"];
+//	}
 	
 	//generate test list
 	//[outdata appendString:@"<a href=getresponses>getresponses.csv</a><br />\n"];
@@ -197,6 +205,8 @@
 	else if([filePath hasSuffix:@".csv"]){
 		NSString* filename = [filePath lastPathComponent];
 		NSString* tid = [filename substringToIndex:[filename length]-4]; 
+		//sanitize
+		tid = [tid stringByReplacingOccurrencesOfString:@"'" withString:@""];
 		NSLog(@"Test Id %@", tid);
 		
 		
@@ -253,15 +263,15 @@
 	for(int i = 0; i < [params count]; i ++){
 		NSArray* parts = [[params objectAtIndex:i] componentsSeparatedByString:@"="];
 		if ( [parts count] == 2){
-			//(NSString*) urlunEncode:(NSString*)str;
-			//NSString* field = [urlunEncode:[parts objectAtIndex:0]];
-			//NSString* value = [urlunEncode:[parts objectAtIndex:1]];
+			//(NSString*) urlDecode:(NSString*)str;
+			//NSString* field = [urlDecode:[parts objectAtIndex:0]];
+			//NSString* value = [urlDecode:[parts objectAtIndex:1]];
 			
-			NSString* field = [[Util urlunEncode:[parts objectAtIndex:0]] lowercaseString];
+			NSString* field = [[Util urlDecode:[parts objectAtIndex:0]] lowercaseString];
 			//lowercase=[original lowercaseString];
 
 			NSLog(@"Field is: %@" , field);
-			NSString* value = [Util urlunEncode:[parts objectAtIndex:1]];
+			NSString* value = [Util urlDecode:[parts objectAtIndex:1]];
 			NSLog(@"Value is: %@" , value);
 			
 			if( [field hasSuffix:@"[]"]){
@@ -394,10 +404,11 @@
 	NSLog(@"handling test submit with data: %@" , data);
 
 	NSString* testName = [data objectForKey:@"testname"];
+	testName = [testName stringByReplacingOccurrencesOfString:@"'" withString:@""];
 	
+	NSNumber* time = [NSNumber numberWithDouble:[[NSDate date] timeIntervalSince1970]];
 	
-	
-	NSString* sqlstatement = [NSString stringWithFormat: @"INSERT INTO test (name, time, tid) VALUES ( '%@', 1234567, NULL);", testName];
+	NSString* sqlstatement = [NSString stringWithFormat: @"INSERT INTO test (name, time, tid) VALUES ( '%@', %@, NULL);", testName,time];
 	[DatabaseConnection executeSelect: sqlstatement];
 	int tid = sqlite3_last_insert_rowid([DatabaseConnection getConnection]);
 	
@@ -405,18 +416,24 @@
 	NSArray* question = [data objectForKey:@"question[]"];
 	NSArray* questionType = [data objectForKey:@"questiontype[]"];
 	
-	[DatabaseConnection executeSelect:@"DELETE FROM manswer WHERE mqid>0;"];
-	[DatabaseConnection executeSelect:@"DELETE FROM question WHERE qid>0;"];
+	//[DatabaseConnection executeSelect:@"DELETE FROM manswer WHERE mqid>0;"];
+	//[DatabaseConnection executeSelect:@"DELETE FROM question WHERE qid>0;"];
 	
 	for(int i = 0; i < [question count]; i++)
 	{
-		sqlstatement = [NSString stringWithFormat: @"INSERT INTO question (qid, text, time, type, tid) VALUES (NULL, '%@', 1234567, '%@', %d);", [question objectAtIndex:i], [questionType objectAtIndex:i], tid];
+		NSString* text = [question objectAtIndex:i];
+		text = [text stringByReplacingOccurrencesOfString:@"''" withString:@""];
+		
+		NSString* type = [questionType objectAtIndex:i];
+		type = [type stringByReplacingOccurrencesOfString:@"'" withString:@""];
+		
+		sqlstatement = [NSString stringWithFormat: @"INSERT INTO question (qid, text, time, type, tid) VALUES (NULL, '%@', %@, '%@', %d);", text, time, type , tid];
 		[DatabaseConnection executeSelect: sqlstatement];
 		int qid = sqlite3_last_insert_rowid([DatabaseConnection getConnection]);
 		
 	
 		
-			if([[questionType objectAtIndex:i] isEqualToString:@"3"])
+		if([[questionType objectAtIndex:i] isEqualToString:@"3"])
 		{
 			NSString* optionString = [NSString stringWithFormat: @"option%d[]", i];
 			NSLog(@"the optionString is: %@" , optionString);
@@ -431,8 +448,10 @@
 			
 			for (int j = 0; j < [option count]; j++)
 			{
-			sqlstatement = [NSString stringWithFormat: @"INSERT INTO manswer (qid, mqid, answer) VALUES (%d, NULL, '%@');", qid, [option objectAtIndex:j]];
-			[DatabaseConnection executeSelect: sqlstatement];
+				NSString* answer = [option objectAtIndex:j];
+				answer = [answer stringByReplacingOccurrencesOfString:@"'" withString:@""];
+				sqlstatement = [NSString stringWithFormat: @"INSERT INTO manswer (qid, mqid, answer) VALUES (%d, NULL, '%@');", qid, answer];
+				[DatabaseConnection executeSelect: sqlstatement];
 			}
 			
 		}
@@ -490,55 +509,62 @@
 	
 	//[dict objectForKey:@"fieldName"];
 	
-	//NSLog(@"The names are: %@", [[data objectForKey:@"sudentname[]"] objectAtIndex:0]);
+	//NSLog(@"The names are: %@", [[data objectForKey:@"studentname[]"] objectAtIndex:0]);
 	NSString* className = [data objectForKey:@"classname"];
+	className = [className stringByReplacingOccurrencesOfString:@"'" withString:@""];
 	
 	//int tid = sqlite3_last_insert_rowid([DatabaseConnection getConnection]);
 	
-	NSString* sqlstatement =  @"DELETE from class;";
-	[DatabaseConnection executeSelect: sqlstatement];
+	//NSString* sqlstatement =  @"DELETE from class;";
+	//[DatabaseConnection executeSelect: sqlstatement];
 	
-	 sqlstatement = [NSString stringWithFormat: @"INSERT INTO class (name, class_id) VALUES ('%@', NULL);", className];
+	 NSString* sqlstatement = [NSString stringWithFormat: @"INSERT INTO class (name, class_id) VALUES ('%@', NULL);", className];
 	[DatabaseConnection executeSelect: sqlstatement];
 	int cid = sqlite3_last_insert_rowid([DatabaseConnection getConnection]);
 	
-	NSArray* classvals = [DatabaseConnection executeSelect:@"SELECT * FROM class WHERE class_id>0"];
-	NSLog(@"classvals: %@", classvals);
+	//NSArray* classvals = [DatabaseConnection executeSelect:@"SELECT * FROM class WHERE class_id>0"];
+	//NSLog(@"classvals: %@", classvals);
 	
 	NSArray* passwords = [data objectForKey:@"password[]"];
-	NSArray* studentFirstNames = [data objectForKey:@"sudentfirstname[]"];
-	NSArray* studentLastNames = [data objectForKey:@"sudentlastname[]"];
-	NSArray* devises = [data objectForKey:@"devise[]"];
+	NSArray* studentFirstNames = [data objectForKey:@"studentfirstname[]"];
+	NSArray* studentLastNames = [data objectForKey:@"studentlastname[]"];
+	NSArray* devices = [data objectForKey:@"device[]"];
 	NSLog(@"classname: %@" , className);
 	
-	sqlstatement =  @"DELETE from student;";
-	[DatabaseConnection executeSelect: sqlstatement];
+	//NSLog( @"********* deleting student from statement *******");
+	//sqlstatement =  @"DELETE from student;";
+	//[DatabaseConnection executeSelect: sqlstatement];
 	
 	for(int i = 0; i < [studentLastNames count]; i++)
 	{
 		NSString* fname = [studentFirstNames objectAtIndex:i];
 		NSString* lname	= [studentLastNames objectAtIndex:i];
-		NSString* password = [passwords objectAtIndex:i];
-		NSString* devise = [devises objectAtIndex:i];
+		NSString* passhash = [Util md5:[passwords objectAtIndex:i]];
+		NSString* device = [devices objectAtIndex:i];
+		//sanitizing strings
+		fname		= [fname stringByReplacingOccurrencesOfString:@"'" withString:@""];
+		lname		= [lname stringByReplacingOccurrencesOfString:@"'" withString:@""];
+		device		= [device stringByReplacingOccurrencesOfString:@"'" withString:@""];
 		
-		//NSLog(@"name, password, device: %@, %@, %@" , name, password, devise);
 		
-		sqlstatement = [NSString stringWithFormat: @"INSERT INTO student (udid, firstname, lastname, passhash, student_id, class_id) VALUES ('%@', '%@', '%@', '%@', NULL, %d);", devise, fname, lname, password, cid];
+		//NSLog(@"name, password, device: %@, %@, %@" , name, password, device);
+		
+		sqlstatement = [NSString stringWithFormat: @"INSERT INTO student (udid, firstname, lastname, passhash, student_id, class_id) VALUES ('%@', '%@', '%@', '%@', NULL, %d);", device, fname, lname, passhash, cid];
 		[DatabaseConnection executeSelect: sqlstatement];
 		
-		NSArray* studentvals = [DatabaseConnection executeSelect:@"SELECT * FROM student WHERE student_id>0"];
-		NSLog(@"studentvals: %@", studentvals);
+		//NSArray* studentvals = [DatabaseConnection executeSelect:@"SELECT * FROM student WHERE student_id>0"];
+		//NSLog(@"studentvals: %@", studentvals);
 		
 	}
 	
 	
 //	if([formtype isEqualToString:@"class"]){
-//		//sudentname
-//		if([field isEqualToString:@"sudentname"]){
+//		//studentname
+//		if([field isEqualToString:@"studentname"]){
 //			//add student to most resently created class 
 //		}
-//		//devise
-//		if([field isEqualToString:@"devise"]){
+//		//device
+//		if([field isEqualToString:@"device"]){
 //			//add device id to most recently created student
 //		}
 //		//password

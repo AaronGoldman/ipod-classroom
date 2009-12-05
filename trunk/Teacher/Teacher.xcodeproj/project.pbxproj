@@ -68,6 +68,10 @@
 		A848EE8510A8C3D400FEABF0 /* NumericQuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A848EE8110A8C3D400FEABF0 /* NumericQuestionViewController.xib */; };
 		A848EE8A10A8CA1100FEABF0 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A848EE8810A8CA1100FEABF0 /* QuestionViewController.m */; };
 		A848EE8C10A8CA1100FEABF0 /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A848EE8810A8CA1100FEABF0 /* QuestionViewController.m */; };
+		A84D20B410CACB6D004A4537 /* DouglassHS.mobileprovision in Resources */ = {isa = PBXBuildFile; fileRef = A84D20B210CACB6D004A4537 /* DouglassHS.mobileprovision */; };
+		A84D20B510CACB6D004A4537 /* DouglassHS_Adhoc.mobileprovision in Resources */ = {isa = PBXBuildFile; fileRef = A84D20B310CACB6D004A4537 /* DouglassHS_Adhoc.mobileprovision */; };
+		A84D20B610CACB6D004A4537 /* DouglassHS.mobileprovision in Resources */ = {isa = PBXBuildFile; fileRef = A84D20B210CACB6D004A4537 /* DouglassHS.mobileprovision */; };
+		A84D20B710CACB6D004A4537 /* DouglassHS_Adhoc.mobileprovision in Resources */ = {isa = PBXBuildFile; fileRef = A84D20B310CACB6D004A4537 /* DouglassHS_Adhoc.mobileprovision */; };
 		A86EF2CD1099291F007DF5DF /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A86EF2CC1099291F007DF5DF /* GameKit.framework */; };
 		A86EF2EF109929E0007DF5DF /* ConnectedDevicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A895B26710867A4E006DE1E6 /* ConnectedDevicesViewController.m */; };
 		A86EF2F0109929E1007DF5DF /* ConnectedDevicesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A895B26810867A4E006DE1E6 /* ConnectedDevicesViewController.xib */; };
@@ -253,6 +257,8 @@
 		A848EE8110A8C3D400FEABF0 /* NumericQuestionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NumericQuestionViewController.xib; sourceTree = "<group>"; };
 		A848EE8710A8CA1100FEABF0 /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
 		A848EE8810A8CA1100FEABF0 /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
+		A84D20B210CACB6D004A4537 /* DouglassHS.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; name = DouglassHS.mobileprovision; path = provisioning/DouglassHS.mobileprovision; sourceTree = "<group>"; };
+		A84D20B310CACB6D004A4537 /* DouglassHS_Adhoc.mobileprovision */ = {isa = PBXFileReference; lastKnownFileType = file; name = DouglassHS_Adhoc.mobileprovision; path = provisioning/DouglassHS_Adhoc.mobileprovision; sourceTree = "<group>"; };
 		A86EF288109926B8007DF5DF /* Student-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Student-Info.plist"; path = "../Student-Info.plist"; sourceTree = "<group>"; };
 		A86EF294109927F7007DF5DF /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		A86EF2CC1099291F007DF5DF /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
@@ -428,6 +434,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				A84D20B110CACB42004A4537 /* provisioning */,
 				A8177E6C10C9AED40051A973 /* dist.plist */,
 				A8D2FB7910ADDCBD008F8516 /* Util.h */,
 				A8D2FB7A10ADDCBD008F8516 /* Util.m */,
@@ -551,6 +558,15 @@
 				A8D2FB9910ADE244008F8516 /* MultipleChoiceQuestionViewController.xib */,
 			);
 			name = "Question UIs";
+			sourceTree = "<group>";
+		};
+		A84D20B110CACB42004A4537 /* provisioning */ = {
+			isa = PBXGroup;
+			children = (
+				A84D20B210CACB6D004A4537 /* DouglassHS.mobileprovision */,
+				A84D20B310CACB6D004A4537 /* DouglassHS_Adhoc.mobileprovision */,
+			);
+			name = provisioning;
 			sourceTree = "<group>";
 		};
 		A86EF44510993391007DF5DF /* Client */ = {
@@ -789,6 +805,8 @@
 				A8DFA38510C7155C00FE8587 /* SupervisorViewController.xib in Resources */,
 				A8DFA39910C715B000FE8587 /* CommTestMainWindow.xib in Resources */,
 				A8177E6E10C9AED40051A973 /* dist.plist in Resources */,
+				A84D20B610CACB6D004A4537 /* DouglassHS.mobileprovision in Resources */,
+				A84D20B710CACB6D004A4537 /* DouglassHS_Adhoc.mobileprovision in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -825,6 +843,8 @@
 				A8DFA38B10C7155C00FE8587 /* SupervisorViewController.xib in Resources */,
 				A8DFA39B10C715B000FE8587 /* CommTestMainWindow.xib in Resources */,
 				A8177E6D10C9AED40051A973 /* dist.plist in Resources */,
+				A84D20B410CACB6D004A4537 /* DouglassHS.mobileprovision in Resources */,
+				A84D20B510CACB6D004A4537 /* DouglassHS_Adhoc.mobileprovision in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

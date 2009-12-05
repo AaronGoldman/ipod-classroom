@@ -58,7 +58,7 @@
 //		if ([[fileDict objectForKey:NSFileType] isEqualToString: @"NSFileTypeDirectory"]) fname = [fname stringByAppendingString:@"/"];
 //		[outdata appendFormat:@"<a href=\"%@\">%@</a>		(%8.1f Kb, %@)<br />\n", fname, fname, [[fileDict objectForKey:NSFileSize] floatValue] / 1024, modDate];
 //    }
-	[outdata appendFormat:@"<a href='student.htm'>Add Students</a>"];
+	[outdata appendFormat:@"<a href='makeClass.htm'>Add Students</a>"];
 	[outdata appendFormat:@"<a href='makeTest.htm'>Create Test</a>"];
 	
     [outdata appendString:@"</p>"];
@@ -79,7 +79,7 @@
 	//generate test list
 	//[outdata appendString:@"<a href=getresponses>getresponses.csv</a><br />\n"];
 	
-	 NSArray* testTaken = [DatabaseConnection executeSelect:@"select * from test inner join question on (test.tid=question.tid) inner join response on (question.qid=response.qid) group by test.tid;"];
+	 NSArray* testTaken = [DatabaseConnection executeSelect:@"select distinct test.tid,test.name from test inner join question on (test.tid=question.tid) inner join response on (question.qid=response.qid);"];
 	for(NSDictionary* row in testTaken){
 		NSString* filename = [row objectForKey:@"name"];
 		NSNumber* tid = [row objectForKey:@"tid"];
@@ -211,9 +211,39 @@
 		
 		
 		NSString* responsestatement = [NSString stringWithFormat: @"select * from test inner join question on (test.tid=question.tid) inner join response on (question.qid=response.qid) inner join student on (student.student_id = response.student_id) where test.tid = %@;", tid];
-		NSArray* testResponse = [DatabaseConnection executeSelect:responsestatement];
+		NSArray* testResponses = [DatabaseConnection executeSelect:responsestatement];
+		NSLog(@"The Responses are: %@", testResponses);
 		
-		NSLog(@"The Responses are: %@", testResponse);
+		
+		NSMutableString* csvString = [NSMutableString new];
+		//[csvString appendFormat:@"Test Response\n%@",testResponse];
+		//[csvString appendString:@"\nfin"];
+		[csvString appendFormat:@"First Name,Last Name, Question text,Response\n",testResponses];
+		for(int i = 0; i < [testResponses count]; i++){
+			NSDictionary* testResponse = [testResponses objectAtIndex:i];
+			//[csvString appendFormat:@"%D, %@\n",i,[testResponse objectForKey:@"firstname"]];	
+			id studentAnswer = [NSKeyedUnarchiver unarchiveObjectWithData:[testResponse objectForKey:@"data"]];
+			if([[testResponse objectForKey:@"type"] intValue] == 4){
+				//True False
+				if ([studentAnswer intValue] == 1)
+					studentAnswer = @"TRUE";
+				else if([studentAnswer intValue] == 0)
+					studentAnswer = @"FALSE";
+			}else if([[testResponse objectForKey:@"type"] intValue] == 3){
+				//multipale choise
+				//select answer from manswer where qid=1 order by mqid ASC;
+				
+				NSString* responsestatement = [NSString stringWithFormat: @"select answer from manswer where qid='%@' order by mqid ASC;",[testResponse objectForKey:@"qid"]];
+				NSArray* mAnswers = [DatabaseConnection executeSelect:responsestatement];
+				studentAnswer = [[mAnswers objectAtIndex:[studentAnswer intValue]] objectForKey:@"answer"]; 
+			}
+			[csvString appendFormat:@"%@,%@,%@,%@\n",[testResponse objectForKey:@"firstname"],[testResponse objectForKey:@"lastname"],[testResponse objectForKey:@"text"],studentAnswer];	
+		}
+		
+		
+		NSData* csvData = [csvString dataUsingEncoding:NSUTF8StringEncoding];
+		NSLog(@"csvData: %@",csvData);
+		return [[[HTTPDataResponse alloc] initWithData:csvData] autorelease];
 		
 	}
 	else
@@ -391,10 +421,8 @@
 		response = [self handleClassSubmit:data];
 	}else if( [fileName isEqual:@"testSubmit.html"]){
 		response = [self handleTestSubtmit:data];
-	}if( [fileName isEqual:@"getresponses"]){
-		response = [self handlegetresponsesSubtmit:data];
 	}
-	
+	self.postDataParams = nil;
 	return response;
 }
 

@@ -54,6 +54,8 @@
 		54BDD18810ADEB4D00F44A84 /* MyHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 54BDD17010ADEB4D00F44A84 /* MyHTTPConnection.m */; };
 		54BDD19510ADEB6200F44A84 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54BDD19410ADEB6200F44A84 /* CFNetwork.framework */; };
 		54BDD19610ADEB6200F44A84 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54BDD19410ADEB6200F44A84 /* CFNetwork.framework */; };
+		A8177E6D10C9AED40051A973 /* dist.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8177E6C10C9AED40051A973 /* dist.plist */; };
+		A8177E6E10C9AED40051A973 /* dist.plist in Resources */ = {isa = PBXBuildFile; fileRef = A8177E6C10C9AED40051A973 /* dist.plist */; };
 		A829658D10A2224500D6F261 /* GKObjectSession.m in Sources */ = {isa = PBXBuildFile; fileRef = A829658C10A2224500D6F261 /* GKObjectSession.m */; };
 		A829658E10A2224500D6F261 /* GKObjectSession.m in Sources */ = {isa = PBXBuildFile; fileRef = A829658C10A2224500D6F261 /* GKObjectSession.m */; };
 		A82965F210A2301600D6F261 /* TextQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A82965F010A2301600D6F261 /* TextQuestionViewController.m */; };
@@ -240,6 +242,7 @@
 		54BDD17010ADEB4D00F44A84 /* MyHTTPConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyHTTPConnection.m; path = ../Project/MyHTTPConnection.m; sourceTree = "<group>"; };
 		54BDD19410ADEB6200F44A84 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = ../../../Downloads/iPhoneHTTPServer3/iphoneos2.2/System/Library/Frameworks/CFNetwork.framework; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* Teacher-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Teacher-Info.plist"; path = "../Teacher-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		A8177E6C10C9AED40051A973 /* dist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dist.plist; sourceTree = "<group>"; };
 		A829658B10A2224500D6F261 /* GKObjectSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKObjectSession.h; sourceTree = "<group>"; };
 		A829658C10A2224500D6F261 /* GKObjectSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKObjectSession.m; sourceTree = "<group>"; };
 		A82965EF10A2301600D6F261 /* TextQuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextQuestionViewController.h; sourceTree = "<group>"; };
@@ -425,6 +428,7 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				A8177E6C10C9AED40051A973 /* dist.plist */,
 				A8D2FB7910ADDCBD008F8516 /* Util.h */,
 				A8D2FB7A10ADDCBD008F8516 /* Util.m */,
 				5463022010BB3E1C00914064 /* database.sqlite */,
@@ -784,6 +788,7 @@
 				A8DFA38310C7155C00FE8587 /* FinishedViewController.xib in Resources */,
 				A8DFA38510C7155C00FE8587 /* SupervisorViewController.xib in Resources */,
 				A8DFA39910C715B000FE8587 /* CommTestMainWindow.xib in Resources */,
+				A8177E6E10C9AED40051A973 /* dist.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -819,6 +824,7 @@
 				A8DFA38910C7155C00FE8587 /* FinishedViewController.xib in Resources */,
 				A8DFA38B10C7155C00FE8587 /* SupervisorViewController.xib in Resources */,
 				A8DFA39B10C715B000FE8587 /* CommTestMainWindow.xib in Resources */,
+				A8177E6D10C9AED40051A973 /* dist.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -994,6 +1000,67 @@
 			};
 			name = Release;
 		};
+		A8177F1410C9C28F0051A973 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_ENTITLEMENTS = dist.plist;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Adrian Smith";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "8B5F8CBB-A8CD-4906-8500-9A9EFD762E2D";
+				SDKROOT = iphoneos3.0;
+			};
+			name = Adhoc;
+		};
+		A8177F1510C9C28F0051A973 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Downloads/iPhoneHTTPServer3/iphoneos2.2/System/Library/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Teacher_Prefix.pch;
+				INFOPLIST_FILE = "Teacher-Info.plist";
+				PRODUCT_NAME = Teacher;
+			};
+			name = Adhoc;
+		};
+		A8177F1610C9C28F0051A973 /* Adhoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Adrian Smith";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Downloads/iPhoneHTTPServer3/iphoneos2.2/System/Library/Frameworks\"",
+				);
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/UIKit.framework/Headers/UIKit.h";
+				INFOPLIST_FILE = "Student-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Student;
+				PROVISIONING_PROFILE = "8B5F8CBB-A8CD-4906-8500-9A9EFD762E2D";
+				SDKROOT = iphoneos3.1.2;
+				ZERO_LINK = NO;
+			};
+			name = Adhoc;
+		};
 		A86EF2EB109929AF007DF5DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1018,6 +1085,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = Student;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos3.0;
 			};
 			name = Debug;
@@ -1060,6 +1128,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos3.0;
 			};
 			name = Debug;
@@ -1085,6 +1154,7 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
+				A8177F1510C9C28F0051A973 /* Adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1094,6 +1164,7 @@
 			buildConfigurations = (
 				A86EF2EB109929AF007DF5DF /* Debug */,
 				A86EF2EC109929AF007DF5DF /* Release */,
+				A8177F1610C9C28F0051A973 /* Adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1103,6 +1174,7 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+				A8177F1410C9C28F0051A973 /* Adhoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

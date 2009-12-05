@@ -27,6 +27,7 @@
 	NSString* baseURL;
 	NSNetServiceBrowser* browser;
 	id <NSObject,WifiClientDelegate> delegate;
+	BOOL foundService;
 }
 
 - (void) authenticateWithFirstName:(NSString*)firstName lastName:(NSString*)lastName password:(NSString*)password;
@@ -39,5 +40,6 @@
 @property (nonatomic , retain) NSNetServiceBrowser* browser;
 @property (nonatomic , retain) id <WifiClientDelegate,NSObject> delegate;
 @property (nonatomic , retain) NSString* baseURL;
+@property (assign) BOOL foundService;
 
 @end

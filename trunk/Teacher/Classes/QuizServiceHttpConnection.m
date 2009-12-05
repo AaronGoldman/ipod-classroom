@@ -89,12 +89,12 @@
 		int time = [[response objectForKey:@"date"] intValue];
 		int qid = [[response objectForKey:@"qid"] intValue];
 		
-		NSString* data = [SBJSON stringWithObject:[response objectForKey:@"responseValue"]];
+		NSData* data = [NSKeyedArchiver archivedDataWithRootObject:[response objectForKey:@"responseValue"]];
 		NSLog(@"responseValue raw:[%@] %@" ,[[response objectForKey:@"responseValue"] class], [response objectForKey:@"responseValue"]);
 		
-		NSString* query = [NSString stringWithFormat:@"insert into response (qid,data,time,student_id) values (%d,%@,%d,%d)",qid,data,time,student_id];
+		NSString* query = [NSString stringWithFormat:@"insert into response (qid,data,time,student_id) values (%d,?,%d,%d)",qid,time,student_id];
 		NSLog(@"submit response query: %@" , query);
-		[DatabaseConnection executeSelect:query];
+		[DatabaseConnection executeSelect:query params:[NSArray arrayWithObject:data]];
 						   
 	}
 	

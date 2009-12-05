@@ -18,10 +18,8 @@
 		5463018510B5FAE500914064 /* jquery.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 5463017F10B5FAE500914064 /* jquery.min.js */; };
 		5463022110BB3E1C00914064 /* database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 5463022010BB3E1C00914064 /* database.sqlite */; };
 		5463022210BB3E1C00914064 /* database.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 5463022010BB3E1C00914064 /* database.sqlite */; };
-		5463027110BC566800914064 /* student.htm in Resources */ = {isa = PBXBuildFile; fileRef = 5463027010BC566800914064 /* student.htm */; };
-		5463027210BC566800914064 /* student.htm in Resources */ = {isa = PBXBuildFile; fileRef = 5463027010BC566800914064 /* student.htm */; };
-		5463027410BC56B300914064 /* submitted.htm in Resources */ = {isa = PBXBuildFile; fileRef = 5463027310BC56B300914064 /* submitted.htm */; };
-		5463027510BC56B300914064 /* submitted.htm in Resources */ = {isa = PBXBuildFile; fileRef = 5463027310BC56B300914064 /* submitted.htm */; };
+		5463027110BC566800914064 /* makeClass.htm in Resources */ = {isa = PBXBuildFile; fileRef = 5463027010BC566800914064 /* makeClass.htm */; };
+		5463027210BC566800914064 /* makeClass.htm in Resources */ = {isa = PBXBuildFile; fileRef = 5463027010BC566800914064 /* makeClass.htm */; };
 		5463027710BC56D400914064 /* makeTest.htm in Resources */ = {isa = PBXBuildFile; fileRef = 5463027610BC56D400914064 /* makeTest.htm */; };
 		5463027810BC56D400914064 /* makeTest.htm in Resources */ = {isa = PBXBuildFile; fileRef = 5463027610BC56D400914064 /* makeTest.htm */; };
 		5463FF3310B3387E00914064 /* HTTPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5463FF3110B3387E00914064 /* HTTPViewController.m */; };
@@ -214,8 +212,7 @@
 		32CA4F630368D1EE00C91783 /* Teacher_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Teacher_Prefix.pch; sourceTree = "<group>"; };
 		5463017F10B5FAE500914064 /* jquery.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = jquery.min.js; path = Project/jquery.min.js; sourceTree = "<group>"; };
 		5463022010BB3E1C00914064 /* database.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = database.sqlite; sourceTree = "<group>"; };
-		5463027010BC566800914064 /* student.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = student.htm; sourceTree = "<group>"; };
-		5463027310BC56B300914064 /* submitted.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = submitted.htm; sourceTree = "<group>"; };
+		5463027010BC566800914064 /* makeClass.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = makeClass.htm; sourceTree = "<group>"; };
 		5463027610BC56D400914064 /* makeTest.htm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = makeTest.htm; sourceTree = "<group>"; };
 		5463FF3010B3387E00914064 /* HTTPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPViewController.h; sourceTree = "<group>"; };
 		5463FF3110B3387E00914064 /* HTTPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPViewController.m; sourceTree = "<group>"; };
@@ -440,11 +437,10 @@
 				A8D2FB7A10ADDCBD008F8516 /* Util.m */,
 				5463022010BB3E1C00914064 /* database.sqlite */,
 				32CA4F630368D1EE00C91783 /* Teacher_Prefix.pch */,
-				5463027010BC566800914064 /* student.htm */,
+				5463027010BC566800914064 /* makeClass.htm */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 				5463017F10B5FAE500914064 /* jquery.min.js */,
 				A86EF294109927F7007DF5DF /* Config.h */,
-				5463027310BC56B300914064 /* submitted.htm */,
 				5463027610BC56D400914064 /* makeTest.htm */,
 				A86EF4AE10994703007DF5DF /* AppDelegate.h */,
 				A86EF4AF10994703007DF5DF /* AppDelegate.m */,
@@ -796,8 +792,7 @@
 				A8D2FB9D10ADE244008F8516 /* MultipleChoiceQuestionViewController.xib in Resources */,
 				5463FF3410B3387E00914064 /* HTTPViewController.xib in Resources */,
 				5463022110BB3E1C00914064 /* database.sqlite in Resources */,
-				5463027110BC566800914064 /* student.htm in Resources */,
-				5463027410BC56B300914064 /* submitted.htm in Resources */,
+				5463027110BC566800914064 /* makeClass.htm in Resources */,
 				5463027710BC56D400914064 /* makeTest.htm in Resources */,
 				5463018210B5FAE500914064 /* jquery.min.js in Resources */,
 				A8DFA38110C7155C00FE8587 /* DoneViewController.xib in Resources */,
@@ -835,8 +830,7 @@
 				A8D2FB9B10ADE244008F8516 /* MultipleChoiceQuestionViewController.xib in Resources */,
 				5463FF3610B3387E00914064 /* HTTPViewController.xib in Resources */,
 				5463022210BB3E1C00914064 /* database.sqlite in Resources */,
-				5463027210BC566800914064 /* student.htm in Resources */,
-				5463027510BC56B300914064 /* submitted.htm in Resources */,
+				5463027210BC566800914064 /* makeClass.htm in Resources */,
 				5463027810BC56D400914064 /* makeTest.htm in Resources */,
 				A8DFA38710C7155C00FE8587 /* DoneViewController.xib in Resources */,
 				A8DFA38910C7155C00FE8587 /* FinishedViewController.xib in Resources */,

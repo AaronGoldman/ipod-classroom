@@ -2,11 +2,11 @@
 <html>
 <head>
     <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
-    <title>student</title>
+    <title>Make Class</title>
     <script src="jquery.min.js" type="text/javascript"></script>
     <script language="JavaScript">
         $(document).ready(function () {
-            document.bgColor = '#FFF68F'
+            document.bgColor = '#EFEFEF'
             var Qnum = 0
             
 
@@ -14,8 +14,8 @@
             $("input#addStudent").click(function () {
                 Qnum = Qnum + 1
                 $('span#Qhere').before(Qnum + ")");
-                $('span#stud:last').clone(false).insertBefore('span#Qhere');
-                $('span#stud:first').show("fast");
+                $('#templateform .stud').clone(false).insertBefore('span#Qhere').show("fast");
+                //$('span#stud:first').show("fast");
             });
 
             $("#results").show();
@@ -42,7 +42,7 @@
     	Class name:
     	<input type="TEXT" name="classname" size="20" style="width: 1.71in; height: 0.25in">
     	<br>
-    	Add students:
+    	Add Sudents:
     	<input type="button" id="addStudent" value="Add" size="20" style="width: .75in; height: 0.25in">
     	<br />
     	<span id="Qhere">Qhere</span>
@@ -53,11 +53,11 @@
     
     <form id="templateform" action="">
     
-    <span id="stud">
-        student First Name:<input type="TEXT" name="studentFirstName[]" size="20" style="width: 6.0in; height: 0.25in"><br>
-		student Last Name:<input type="TEXT" name="studentLastName[]" size="20" style="width: 6.0in; height: 0.25in"><br>
-        student Device ID:<input type="TEXT" name="device[]"  size="20" style="width: 5.75in; height: 0.25in">*<br />
-        student Password:<input type="TEXT" name="Password[]" size="20" style="width: 5.75in; height: 0.25in">*<br />
+    <span class="stud">
+        Sudent First Name:<input type="TEXT" name="SudentFirstName[]" size="20" style="width: 6.0in; height: 0.25in"><br>
+		Sudent Last Name:<input type="TEXT" name="SudentLastName[]" size="20" style="width: 6.0in; height: 0.25in"><br>
+        Sudent Device ID:<input type="TEXT" name="Devise[]"  size="20" style="width: 5.75in; height: 0.25in">*<br />
+        Sudent Password:<input type="TEXT" name="Password[]" size="20" style="width: 5.75in; height: 0.25in">*<br />
         <br />
     </span>
     <p><b>Results:</b><span id="results"> </span></p>

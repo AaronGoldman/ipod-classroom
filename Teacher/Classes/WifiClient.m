@@ -14,13 +14,28 @@
 @synthesize browser;
 @synthesize baseURL;
 @synthesize delegate;
+@synthesize foundService;
 
 - (void) searchForQuizService {
-
+	self.foundService = NO;
 	self.browser = [[NSNetServiceBrowser alloc] init];
 	browser.delegate = self;
 	[browser searchForServicesOfType:@"_http._tcp." inDomain:@""];
 	[browser release];
+
+	[self performSelector:@selector(serviceSearchTimeout) withObject:nil afterDelay:20.0];
+}
+
+- (void)netServiceBrowserWillSearch:(NSNetServiceBrowser *)browser
+{
+    NSLog(@"browsing and searching");
+}
+
+- (void) serviceSearchTimeout{
+	if( !self.foundService){
+		[self.browser stop];
+		[self.delegate wifiClientDidFailToResolveQuizService:self];
+	}
 }
 
 - (void)netServiceBrowser:(NSNetServiceBrowser *)netServiceBrowser didFindService:(NSNetService *)netService moreComing:(BOOL)moreServicesComing{
@@ -29,9 +44,15 @@
 		NSLog(@"found quiz service!");
 		[netService retain];
 		netService.delegate = self;
-		[netService resolveWithTimeout:60];
+		[netService resolveWithTimeout:20];
+		self.foundService = YES;
 	}
 	
+}
+
+- (void)netServiceBrowser:(NSNetServiceBrowser *)netServiceBrowser didNotSearch:(NSDictionary *)errorInfo{
+	NSLog(@"did not start service search!");
+	[self.delegate wifiClientDidFailToResolveQuizService:self];
 }
 
 - (void)netServiceDidResolveAddress:(NSNetService *)sender{
@@ -122,7 +143,11 @@
 }
 
 - (void) sendMessageFail:(PostRequest*)sender{
+	NSString* method = [sender.postValues objectForKey:@"method"];
 	NSLog(@"send message fail: %@", [sender.postValues objectForKey:@"method"]);
+	if ( [method isEqual:@"authenticate"] ){
+		[self.delegate wifiClientDidFailAuthentication:self]; 
+	}
 }
 
 - (void) dealloc{

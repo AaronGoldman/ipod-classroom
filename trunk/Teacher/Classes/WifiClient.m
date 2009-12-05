@@ -147,6 +147,8 @@
 	NSLog(@"send message fail: %@", [sender.postValues objectForKey:@"method"]);
 	if ( [method isEqual:@"authenticate"] ){
 		[self.delegate wifiClientDidFailAuthentication:self]; 
+	}else if ( [method isEqual:@"submitResponses"]){
+		[self.delegate wifiClientSendResponsesDidFail:self];
 	}
 }
 

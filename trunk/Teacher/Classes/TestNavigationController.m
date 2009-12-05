@@ -26,6 +26,7 @@
 @synthesize lastName;
 @synthesize client;
 @synthesize passWord;
+@synthesize statusAlertView;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -199,6 +200,20 @@
 - (void) finish{
 	[client submitResponses:responses];
 	
+	self.statusAlertView = [[UIAlertView alloc] initWithTitle:@"Sending Responses" 
+													  message:nil
+													 delegate:nil
+											cancelButtonTitle:nil
+											otherButtonTitles:nil];
+	[statusAlertView show];
+	[statusAlertView release];
+
+	
+}
+
+- (void) wifiClientDidSuccessfullySendResponses:(WifiClient*)client{
+	NSLog(@"successfully sent responses");
+	[statusAlertView dismissWithClickedButtonIndex:0 animated:YES];
 	
 	DoneViewController* vc = [[DoneViewController alloc] initWithNibName:@"DoneViewController" 
 																  bundle:nil];
@@ -209,12 +224,9 @@
 	[self clean];
 }
 
-- (void) wifiClientDidSuccessfullySendResponses:(WifiClient*)client{
-	NSLog(@"successfully sent responses");
-}
-
 - (void) wifiClientSendResponsesDidFail:(WifiClient*)client{
-	[Util showAlertWithTitle:@"Erroneous!" message:@"Could not send responses. Please check you connection and try again"];
+	[statusAlertView dismissWithClickedButtonIndex:0 animated:NO];
+	[Util showAlertWithTitle:@"Erroneous!" message:@"Could not send responses. Please check you connection and try again."];
 	NSLog(@"could not send responses successfully");
 }
 
@@ -256,6 +268,7 @@
 	[responses release];
 	[connectingViewController release];
 	[currentQuestionViewController release];
+	[statusAlertView release];
     [super dealloc];
 }
 

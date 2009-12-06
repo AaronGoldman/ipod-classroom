@@ -35,18 +35,32 @@
             //    $.post("http:\\post", formData, callback,"json");
             //});
         });
+		
+		function checkForm(){
+			var badNodes = $("input[required=1]:visible").each(function(){
+				$(this).css("border","solid black 1px");
+			}).filter(function(){
+				return $(this).val() == "";
+			});
+			if ( badNodes.length > 0){
+				badNodes.css("border","red solid 2px");
+				return false;
+			}else{
+				return true;
+			}
+		}
     </script>
 </head>
 <body lang="en-US" dir="LTR">
-    <form id="Sform" action="classSubmit.html" method="post">
-    	Class name:
+    <form id="Sform" action="classSubmit.html" method="post" onsubmit="return checkForm();">
+    	<!-- Class name:
     	<input type="TEXT" name="classname" size="20" style="width: 1.71in; height: 0.25in">
-    	<br>
+    	<br> -->
     	Add Students:
     	<input type="button" id="addStudent" value="Add" size="20" style="width: .75in; height: 0.25in">
     	<br />
     	<span id="Qhere">Qhere</span>
-    	* = optional
+    	* = Required
     	<br />
     	<input type="submit" id="send" action="http:\\post" method="post" value="Submit" style="width: 0.71in; height: 0.37in">
     </form>
@@ -54,10 +68,10 @@
     <form id="templateform" action="">
     
     <span class="stud">
-        Student First Name:<input type="TEXT" name="StudentFirstName[]" size="20" style="width: 6.0in; height: 0.25in"><br>
-		Student Last Name:<input type="TEXT" name="StudentLastName[]" size="20" style="width: 6.0in; height: 0.25in"><br>
-        Student Device ID:<input type="TEXT" name="Device[]"  size="20" style="width: 5.75in; height: 0.25in">*<br />
-        Student Password:<input type="TEXT" name="Password[]" size="20" style="width: 5.75in; height: 0.25in">*<br />
+        Student First Name:<input type="TEXT" name="StudentFirstName[]" required="1" size="20" style="width: 6.0in; height: 0.25in">*<br>
+		Student Last Name:<input type="TEXT" name="StudentLastName[]" required="1" size="20" style="width: 6.0in; height: 0.25in">*<br>
+        Student Device ID:<input type="TEXT" name="Device[]"  size="20" style="width: 5.75in; height: 0.25in"><br />
+        Student Password:<input type="TEXT" name="Password[]" size="20" style="width: 5.75in; height: 0.25in"><br />
         <br />
     </span>
     <p><b>Results:</b><span id="results"> </span></p>

@@ -58,7 +58,7 @@
 //		if ([[fileDict objectForKey:NSFileType] isEqualToString: @"NSFileTypeDirectory"]) fname = [fname stringByAppendingString:@"/"];
 //		[outdata appendFormat:@"<a href=\"%@\">%@</a>		(%8.1f Kb, %@)<br />\n", fname, fname, [[fileDict objectForKey:NSFileSize] floatValue] / 1024, modDate];
 //    }
-	[outdata appendFormat:@"<a href='makeClass.htm'>Add Students</a>"];
+	[outdata appendFormat:@"<a href='makeClass.htm'>Add Students</a><br>"];
 	[outdata appendFormat:@"<a href='makeTest.htm'>Create Test</a>"];
 	
     [outdata appendString:@"</p>"];
@@ -237,7 +237,7 @@
 				NSArray* mAnswers = [DatabaseConnection executeSelect:responsestatement];
 				studentAnswer = [[mAnswers objectAtIndex:[studentAnswer intValue]] objectForKey:@"answer"]; 
 			}
-			[csvString appendFormat:@"%@,%@,%@,%@\n",[testResponse objectForKey:@"firstname"],[testResponse objectForKey:@"lastname"],[testResponse objectForKey:@"text"],studentAnswer];	
+			[csvString appendFormat:@"\"%@\",\"%@\",\"%@\",\"%@\"\n",[testResponse objectForKey:@"firstname"],[testResponse objectForKey:@"lastname"],[testResponse objectForKey:@"text"],studentAnswer];	
 		}
 		
 		
@@ -538,14 +538,18 @@
 	//[dict objectForKey:@"fieldName"];
 	
 	//NSLog(@"The names are: %@", [[data objectForKey:@"studentname[]"] objectAtIndex:0]);
+	
+	/*//uncoment for class inport
 	NSString* className = [data objectForKey:@"classname"];
 	className = [className stringByReplacingOccurrencesOfString:@"'" withString:@""];
+	*/
 	
 	//int tid = sqlite3_last_insert_rowid([DatabaseConnection getConnection]);
 	
 	//NSString* sqlstatement =  @"DELETE from class;";
 	//[DatabaseConnection executeSelect: sqlstatement];
 	
+	NSString* className = @"plase holder"; //coment out for class inport
 	 NSString* sqlstatement = [NSString stringWithFormat: @"INSERT INTO class (name, class_id) VALUES ('%@', NULL);", className];
 	[DatabaseConnection executeSelect: sqlstatement];
 	int cid = sqlite3_last_insert_rowid([DatabaseConnection getConnection]);

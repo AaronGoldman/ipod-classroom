@@ -17,6 +17,7 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
 	NSLog(@"app dir: %@" , [Util appDir]); 
+
 	
     // Override point for customization after app launch    
     [window addSubview:viewController.view];

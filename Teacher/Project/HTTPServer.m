@@ -332,7 +332,9 @@
 - (void)netServiceDidPublish:(NSNetService *)ns
 {
 	// Override me to do something here...
-	
+	if ( [delegate respondsToSelector:@selector(netServiceDidPublish:)]){
+		[delegate netServiceDidPublish:ns];
+	}
 	NSLog(@"Bonjour Service Published: domain(%@) type(%@) name(%@) hostname(%@)", [ns domain], [ns type], [ns name], [ns hostName]);
 }
 
@@ -344,6 +346,9 @@
 {
 	// Override me to do something here...
 	
+	if( [delegate respondsToSelector:@selector(netService:didNotPublish:)]){
+		[self.delegate netService:ns didNotPublish:errorDict];
+	}
 	NSLog(@"Failed to Publish Service: domain(%@) type(%@) name(%@) hostname(%@)", [ns domain], [ns type], [ns name], [ns hostName]);
 	NSLog(@"Error Dict: %@", errorDict);
 }

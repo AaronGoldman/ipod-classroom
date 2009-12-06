@@ -20,12 +20,17 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	if ( defaultValue != nil){
+		int row = [defaultValue intValue];
+		[pickerView selectRow:row inComponent:0 animated:NO];
+	}
 }
-*/
+
 
 /*
 // Override to allow orientations other than the default portrait orientation.

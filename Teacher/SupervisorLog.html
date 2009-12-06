@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+    <title>Supervisor Log</title>
+    <script src="jquery.min.js" type="text/javascript"></script>
+	<link rel="StyleSheet" href="SupervisorLog.css" type="text/css" />
+    <script language="JavaScript">
+		 function prependEventLog(event_name,event_description,event_class){
+			if ( !event_class) event_class = "general_event";
+		 
+			var html	=  "<span class='event_name'>"+event_name+":</span> ";
+			html		+= "<span class='event_description'>"+event_description+"</span>";
+			$('body').prepend("<div class='"+ event_class + "'>"+html+"</div>");
+			
+		 }
+
+			 
+    </script>
+</head>
+<body lang="en-US" dir="LTR">
+</body>
+</html>

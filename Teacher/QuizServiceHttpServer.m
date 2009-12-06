@@ -13,6 +13,7 @@
 @synthesize tid;
 @synthesize authenticated,completed;
 @synthesize acceptNew;
+@synthesize quizDelegate;
 
 - (id) initWithTid:(int)_tid{
 	if ( self = [super init]){
@@ -42,6 +43,7 @@
 }
 
 - (void) dealloc{
+	[quizDelegate release];
 	[authenticated release];
 	[completed release];
 	[super dealloc];

@@ -91,16 +91,15 @@
 	if (!localIP)
 		info = @"Wifi: No Connection!\n";
 	else{
-		info = [NSString stringWithFormat:@"http://iphone.local:%d		http://%@:%d\n", port, localIP, port];
-		//[self enableBonjourWithDomain:@"app" applicationProtocol:@"teacher" name:@"Teaching"];
+		info = [NSString stringWithFormat:@"http://%@:%d\n", localIP, port];
 	}
 	
-	NSString *wwwIP = [addresses objectForKey:@"www"];
-	
-	if (wwwIP)
-		info = [info stringByAppendingFormat:@"Web: %@:%d\n", wwwIP, port];
-	else
-		info = [info stringByAppendingString:@"Web: Unable to determine external IP\n"];
+//	NSString *wwwIP = [addresses objectForKey:@"www"];
+//	
+//	if (wwwIP)
+//		info = [info stringByAppendingFormat:@"Web: %@:%d\n", wwwIP, port];
+//	else
+//		info = [info stringByAppendingString:@"Web: Unable to determine external IP\n"];
 	
 	displayInfo.text = info;
 }

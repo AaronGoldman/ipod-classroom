@@ -17,7 +17,6 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
 	NSLog(@"app dir: %@" , [Util appDir]); 
-	NSLog(@"%@",[DatabaseConnection executeSelect:@"select * from response"]);
 	
     // Override point for customization after app launch    
     [window addSubview:viewController.view];
@@ -30,6 +29,7 @@
 	}
 	//Copy all, html, js, and htm files to the server directory
 	NSMutableArray* pathsForServerFiles = [NSMutableArray arrayWithCapacity:50];
+	[pathsForServerFiles addObjectsFromArray:[[NSBundle mainBundle] pathsForResourcesOfType:@"css" inDirectory:nil]];
 	[pathsForServerFiles addObjectsFromArray:[[NSBundle mainBundle] pathsForResourcesOfType:@"html" inDirectory:nil]];
 	[pathsForServerFiles addObjectsFromArray:[[NSBundle mainBundle] pathsForResourcesOfType:@"js" inDirectory:nil]];
 	[pathsForServerFiles addObjectsFromArray:[[NSBundle mainBundle] pathsForResourcesOfType:@"htm" inDirectory:nil]];

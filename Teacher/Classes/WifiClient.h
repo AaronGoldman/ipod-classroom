@@ -13,7 +13,7 @@
 @protocol WifiClientDelegate
 
 - (void) wifiClientDidAuthenticate:(WifiClient*)client;
-- (void) wifiClientDidFailAuthentication:(WifiClient*)client;
+- (void) wifiClientDidFailAuthentication:(WifiClient*)client message:(NSString*)message;
 - (void) wifiClient:(WifiClient*)client didReceiveQuestions:(NSArray*)questions;
 - (void) wifiClientDidSuccessfullySendResponses:(WifiClient*)client;
 - (void) wifiClientSendResponsesDidFail:(WifiClient*)client;

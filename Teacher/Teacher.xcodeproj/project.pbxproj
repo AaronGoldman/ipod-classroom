@@ -128,6 +128,16 @@
 		A87DAC401098E86B00F93F02 /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = A87DAC3F1098E86B00F93F02 /* Response.m */; };
 		A87DAC431098EE2C00F93F02 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = A87DAC421098EE2C00F93F02 /* Question.m */; };
 		A87DAC461098EEE000F93F02 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = A87DAC451098EEE000F93F02 /* Test.m */; };
+		A892991810CC121A003265AE /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A892991610CC121A003265AE /* ResultsViewController.m */; };
+		A892991A10CC121A003265AE /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A892991610CC121A003265AE /* ResultsViewController.m */; };
+		A892992C10CC14ED003265AE /* QuestionResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A892992A10CC14ED003265AE /* QuestionResultsViewController.m */; };
+		A892992E10CC14ED003265AE /* QuestionResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A892992A10CC14ED003265AE /* QuestionResultsViewController.m */; };
+		A892993A10CC1924003265AE /* ResponseResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A892993810CC1924003265AE /* ResponseResultsViewController.m */; };
+		A892993C10CC1924003265AE /* ResponseResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A892993810CC1924003265AE /* ResponseResultsViewController.m */; };
+		A892DA8810CB18EB001F1641 /* SupervisorLog.html in Resources */ = {isa = PBXBuildFile; fileRef = A892DA8710CB18EB001F1641 /* SupervisorLog.html */; };
+		A892DA8910CB18EB001F1641 /* SupervisorLog.html in Resources */ = {isa = PBXBuildFile; fileRef = A892DA8710CB18EB001F1641 /* SupervisorLog.html */; };
+		A892DA8B10CB2C2C001F1641 /* SupervisorLog.css in Resources */ = {isa = PBXBuildFile; fileRef = A892DA8A10CB2C2C001F1641 /* SupervisorLog.css */; };
+		A892DA8C10CB2C2C001F1641 /* SupervisorLog.css in Resources */ = {isa = PBXBuildFile; fileRef = A892DA8A10CB2C2C001F1641 /* SupervisorLog.css */; };
 		A895B23A1086763F006DE1E6 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A895B2381086763F006DE1E6 /* TestViewController.m */; };
 		A895B23B1086763F006DE1E6 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A895B2391086763F006DE1E6 /* TestViewController.xib */; };
 		A895B26910867A4E006DE1E6 /* ConnectedDevicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A895B26710867A4E006DE1E6 /* ConnectedDevicesViewController.m */; };
@@ -295,6 +305,14 @@
 		A87DAC421098EE2C00F93F02 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 		A87DAC441098EEE000F93F02 /* Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
 		A87DAC451098EEE000F93F02 /* Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
+		A892991510CC121A003265AE /* ResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsViewController.h; sourceTree = "<group>"; };
+		A892991610CC121A003265AE /* ResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsViewController.m; sourceTree = "<group>"; };
+		A892992910CC14ED003265AE /* QuestionResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionResultsViewController.h; sourceTree = "<group>"; };
+		A892992A10CC14ED003265AE /* QuestionResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionResultsViewController.m; sourceTree = "<group>"; };
+		A892993710CC1924003265AE /* ResponseResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseResultsViewController.h; sourceTree = "<group>"; };
+		A892993810CC1924003265AE /* ResponseResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseResultsViewController.m; sourceTree = "<group>"; };
+		A892DA8710CB18EB001F1641 /* SupervisorLog.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = SupervisorLog.html; sourceTree = "<group>"; };
+		A892DA8A10CB2C2C001F1641 /* SupervisorLog.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = SupervisorLog.css; sourceTree = "<group>"; };
 		A895B2371086763F006DE1E6 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		A895B2381086763F006DE1E6 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		A895B2391086763F006DE1E6 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
@@ -444,6 +462,8 @@
 				5463027610BC56D400914064 /* makeTest.htm */,
 				A86EF4AE10994703007DF5DF /* AppDelegate.h */,
 				A86EF4AF10994703007DF5DF /* AppDelegate.m */,
+				A892DA8710CB18EB001F1641 /* SupervisorLog.html */,
+				A892DA8A10CB2C2C001F1641 /* SupervisorLog.css */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -684,6 +704,12 @@
 				28D7ACF60DDB3853001CB0EB /* TeacherViewController.h */,
 				28D7ACF70DDB3853001CB0EB /* TeacherViewController.m */,
 				2899E5210DE3E06400AC0155 /* TeacherViewController.xib */,
+				A892991510CC121A003265AE /* ResultsViewController.h */,
+				A892991610CC121A003265AE /* ResultsViewController.m */,
+				A892992910CC14ED003265AE /* QuestionResultsViewController.h */,
+				A892992A10CC14ED003265AE /* QuestionResultsViewController.m */,
+				A892993710CC1924003265AE /* ResponseResultsViewController.h */,
+				A892993810CC1924003265AE /* ResponseResultsViewController.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -802,6 +828,8 @@
 				A8177E6E10C9AED40051A973 /* dist.plist in Resources */,
 				A84D20B610CACB6D004A4537 /* DouglassHS.mobileprovision in Resources */,
 				A84D20B710CACB6D004A4537 /* DouglassHS_Adhoc.mobileprovision in Resources */,
+				A892DA8910CB18EB001F1641 /* SupervisorLog.html in Resources */,
+				A892DA8C10CB2C2C001F1641 /* SupervisorLog.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -839,6 +867,8 @@
 				A8177E6D10C9AED40051A973 /* dist.plist in Resources */,
 				A84D20B410CACB6D004A4537 /* DouglassHS.mobileprovision in Resources */,
 				A84D20B510CACB6D004A4537 /* DouglassHS_Adhoc.mobileprovision in Resources */,
+				A892DA8810CB18EB001F1641 /* SupervisorLog.html in Resources */,
+				A892DA8B10CB2C2C001F1641 /* SupervisorLog.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -908,6 +938,9 @@
 				A8DFA3C510C71E3600FE8587 /* PostRequest.m in Sources */,
 				A8DFA3C910C7208A00FE8587 /* WifiClient.m in Sources */,
 				A8DFA57D10C7563800FE8587 /* QuizServiceHttpServer.m in Sources */,
+				A892991810CC121A003265AE /* ResultsViewController.m in Sources */,
+				A892992C10CC14ED003265AE /* QuestionResultsViewController.m in Sources */,
+				A892993A10CC1924003265AE /* ResponseResultsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -974,6 +1007,9 @@
 				A8DFA3C310C71E3600FE8587 /* PostRequest.m in Sources */,
 				A8DFA3C810C7208A00FE8587 /* WifiClient.m in Sources */,
 				A8DFA57C10C7563800FE8587 /* QuizServiceHttpServer.m in Sources */,
+				A892991A10CC121A003265AE /* ResultsViewController.m in Sources */,
+				A892992E10CC14ED003265AE /* QuestionResultsViewController.m in Sources */,
+				A892993C10CC1924003265AE /* ResponseResultsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -44,7 +44,7 @@
     [super viewDidLoad];
 	NSLog(@"viewDidLoad");
 	
-	self.responses = [NSMutableArray arrayWithCapacity:20];
+	self.responses = [NSMutableDictionary dictionaryWithCapacity:20];
 	
 	self.client = [[WifiClient alloc] init];
 	client.delegate = self;
@@ -100,9 +100,9 @@
 	[self failAndClose:@"Could not resolve teacher device."];
 }
 
-- (void) wifiClientDidFailAuthentication:(WifiClient*)client{
+- (void) wifiClientDidFailAuthentication:(WifiClient*)client message:(NSString*)message{
 	NSLog(@"failed authentication");
-	[self failAndClose:@"Incorrect username or password."];
+	[self failAndClose:message];
 }
 
 - (void) wifiClientDidAuthenticate:(WifiClient*)_client{
@@ -165,6 +165,8 @@
 	
 	currentQuestionViewController.question = question;
 	currentQuestionViewController.delegate = self;
+	currentQuestionViewController.defaultValue = [[responses objectForKey:[question objectForKey:@"qid"]] objectForKey:@"responseValue"];
+	NSLog(@"defaultValue: %@" , currentQuestionViewController.defaultValue);
 	[self.view addSubview:currentQuestionViewController.view];
 	
 	if ( index -1 < 0){
@@ -198,7 +200,7 @@
 }
 
 - (void) finish{
-	[client submitResponses:responses];
+	[client submitResponses:[responses allValues]];
 	
 	self.statusAlertView = [[UIAlertView alloc] initWithTitle:@"Sending Responses" 
 													  message:nil
@@ -239,7 +241,7 @@
 							  [qvc.question objectForKey:@"qid"],@"qid",
 							  nil];
 	
-	[responses addObject:response];
+	[responses setObject:response forKey:[qvc.question objectForKey:@"qid"]];
 }
 
 - (void) failAndClose:(NSString*)message{	
@@ -249,7 +251,7 @@
 	[Util showAlertWithTitle:@"Erroneous!" message:message];
 	[self.parentViewController performSelector:@selector(dismissModalViewControllerAnimated:) 
 	 withObject:[NSNumber numberWithBool:YES]
-	 afterDelay:0.2];
+	 afterDelay:0.5];
 	
 	[self clean];
 }

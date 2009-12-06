@@ -7,21 +7,29 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Supervisor.h"
 #import "QuizServiceHttpServer.h"
 
-@interface SupervisorViewController : UIViewController <SupervisorDelegate>{
-	IBOutlet UILabel* connectedLabel;
+@interface SupervisorViewController : UIViewController <QuizServiceHttpServerDelegate,UIWebViewDelegate>{
+	IBOutlet UILabel* completedLabel;
 	IBOutlet UILabel* disconnectedLabel;
 	IBOutlet UILabel* authenticatedLabel;
 	IBOutlet UISwitch* acceptNewSwitch;
+	IBOutlet UIWebView* webView;
 	
 	QuizServiceHttpServer* httpServer;
 	int tid;
+	
+	
 }
 
 
 - (IBAction) valueChanged:(id)component;
+
+- (void) showEvent:(NSString*)eventName description:(NSString*)eventDescription class:(NSString*)eventClass;
+- (void) showAuthenticatedEvent:(NSString*) studentName;
+- (void) showCompletedEvent:(NSString*) studentName;
+- (void) showGeneralEvent:(NSString*)eventName description:(NSString*)eventDescription;
+- (void) showFailureEvent:(NSString*) eventName description:(NSString*)eventDescription;
 
 @property (nonatomic , retain) QuizServiceHttpServer* httpServer;
 @property (nonatomic , assign) int tid;

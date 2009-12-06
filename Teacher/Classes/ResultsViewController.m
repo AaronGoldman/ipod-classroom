@@ -1,17 +1,17 @@
 //
-//  TestViewController.m
+//  ResultsViewController.m
 //  Teacher
 //
-//  Created by Adrian Smith on 10/14/09.
+//  Created by Adrian Smith on 12/6/09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-#import "TestViewController.h"
-#import "ConnectedDevicesViewController.h"
-#import "SupervisorViewController.h"
+#import "ResultsViewController.h"
+#import "Util.h"
 #import "DatabaseConnection.h"
+#import "QuestionResultsViewController.h"
 
-@implementation TestViewController
+@implementation ResultsViewController
 @synthesize tests;
 
 /*
@@ -23,15 +23,14 @@
 }
 */
 
-
+/*
 - (void)viewDidLoad {
     [super viewDidLoad];
-	
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
+*/
 
 /*
 - (void)viewWillAppear:(BOOL)animated {
@@ -41,7 +40,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-	self.tests = [DatabaseConnection executeSelect:@"Select * from test"];
+	self.tests = [DatabaseConnection executeSelect:@"select * from test"];
 	[self.tableView reloadData];
 }
 
@@ -81,6 +80,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
+	
 }
 
 
@@ -112,10 +112,21 @@
 	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
 	// [self.navigationController pushViewController:anotherViewController];
 	// [anotherViewController release];
-	SupervisorViewController* vc = [[SupervisorViewController alloc] initWithNibName:@"SupervisorViewController" bundle:nil];
-	vc.tid = [[[tests objectAtIndex:indexPath.row] objectForKey:@"tid"] intValue];
-	[self.navigationController pushViewController:vc animated:YES];
-	[vc release];
+	
+	int selectedTid = [[[tests objectAtIndex:indexPath.row] objectForKey:@"tid"] intValue];
+	NSString* query = [NSString stringWithFormat:@"select count(*) as `count` from question where tid=%d" , selectedTid];
+	NSArray* results = [DatabaseConnection executeSelect:query];
+	int count = [[[results objectAtIndex:0] objectForKey:@"count"] intValue];
+	
+	if( count > 0){
+	
+		QuestionResultsViewController* vc = [[QuestionResultsViewController alloc] initWithStyle:UITableViewStylePlain];
+		vc.tid = selectedTid;
+		[self.navigationController pushViewController:vc animated:YES];
+		[vc release];
+	}else{
+		[Util showAlertWithTitle:@"Erroneous!" message:@"This test has no results yet."];
+	}
 }
 
 

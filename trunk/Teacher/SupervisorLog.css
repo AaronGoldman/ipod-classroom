@@ -1,0 +1,32 @@
+.event_general .event_name, .event_general .event_description{
+	color:#888888;
+}
+
+.event_authenticated .event_name{
+	color: blue;
+}
+
+.event_authenticated .event_description{
+	color: black;
+	font-weight: bold;
+}
+
+.event_completed .event_name{
+	color: green;
+}
+
+.event_completed .event_description{
+	color: black;
+	font-weight: bold;
+}
+
+.event_failure .event_description{
+	font-weight:bold;
+}
+
+.event_failure .event_name{
+	color:red;
+}
+
+
+

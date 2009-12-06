@@ -1,18 +1,18 @@
 //
-//  TestViewController.m
+//  ResponseResultsViewController.m
 //  Teacher
 //
-//  Created by Adrian Smith on 10/14/09.
+//  Created by Adrian Smith on 12/6/09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-#import "TestViewController.h"
-#import "ConnectedDevicesViewController.h"
-#import "SupervisorViewController.h"
+#import "ResponseResultsViewController.h"
 #import "DatabaseConnection.h"
 
-@implementation TestViewController
-@synthesize tests;
+
+@implementation ResponseResultsViewController
+@synthesize qid;
+@synthesize responses;
 
 /*
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -23,15 +23,14 @@
 }
 */
 
-
+/*
 - (void)viewDidLoad {
     [super viewDidLoad];
-	
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
+*/
 
 /*
 - (void)viewWillAppear:(BOOL)animated {
@@ -41,8 +40,49 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-	self.tests = [DatabaseConnection executeSelect:@"Select * from test"];
+	
+	NSString* query = [NSString stringWithFormat:@"Select type,(firstname||' '||substr(lastname,0,1)||'.') as name,data from response inner join student on (student.student_id=response.student_id) inner join question on (question.qid=response.qid) where response.qid=%d", qid];
+	NSArray* results = [DatabaseConnection executeSelect:query];
+	NSLog(@"results: %@" , results);
+	
+	self.responses = [NSMutableArray arrayWithCapacity:[results count]];
+	for( NSDictionary* result in results){
+		id responseValue = [NSKeyedUnarchiver unarchiveObjectWithData:[result objectForKey:@"data"]];
+		NSString* studentName = [result objectForKey:@"name"];
+
+		int type = [[result objectForKey:@"type"] intValue];
+		
+		NSString* responseText = nil;
+		int answerIndex;
+		NSArray* possibleAnswers;
+		switch (type) {
+
+			case 1: //text
+			case 2: //numeric
+				responseText = [responseValue description];
+				break;
+			case 3://multiple choice
+				answerIndex = [responseValue intValue];
+				query = [NSString stringWithFormat:@"select * from manswer where qid=%d",qid];
+				possibleAnswers = [DatabaseConnection executeSelect:query];
+				responseText = [[[possibleAnswers objectAtIndex:answerIndex] objectForKey:@"answer"] description];
+				break;
+			case 4://True,false
+				responseText = [responseValue boolValue] ? @"True" : @"False";
+				break;
+			default:
+				NSLog(@"invalid question type");
+				break;
+		}
+		
+		responseText = [NSString stringWithFormat:@"%@- %@", studentName, responseText];
+		[responses addObject:responseText];
+		
+	}
+
+	NSLog(@"responses: %@" ,responses);
 	[self.tableView reloadData];
+	
 }
 
 /*
@@ -86,7 +126,7 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [tests count];
+    return [responses count];
 }
 
 
@@ -101,7 +141,7 @@
     }
     
     // Set up the cell...
-	cell.textLabel.text = [[tests objectAtIndex:indexPath.row] objectForKey:@"name"];
+	cell.textLabel.text = [responses objectAtIndex:indexPath.row];
 	
     return cell;
 }
@@ -112,10 +152,6 @@
 	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
 	// [self.navigationController pushViewController:anotherViewController];
 	// [anotherViewController release];
-	SupervisorViewController* vc = [[SupervisorViewController alloc] initWithNibName:@"SupervisorViewController" bundle:nil];
-	vc.tid = [[[tests objectAtIndex:indexPath.row] objectForKey:@"tid"] intValue];
-	[self.navigationController pushViewController:vc animated:YES];
-	[vc release];
 }
 
 
@@ -160,7 +196,7 @@
 
 
 - (void)dealloc {
-	[tests release];
+	[responses release];
     [super dealloc];
 }
 

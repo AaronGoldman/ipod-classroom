@@ -23,6 +23,8 @@
 	IBOutlet UITextView* questionText;
 	IBOutlet UIButton* nextButton;
 	IBOutlet UIButton* prevButton;
+	
+	id defaultValue;
 }
 
 - (QuestionResponseType) questionResponseType;
@@ -35,5 +37,6 @@
 @property (nonatomic , retain) NSObject <QuestionViewControllerDelegate> *delegate;
 @property (nonatomic , readonly) UIButton* nextButton;
 @property (nonatomic , readonly) UIButton* prevButton;
+@property (nonatomic , retain) id defaultValue;
 
 @end

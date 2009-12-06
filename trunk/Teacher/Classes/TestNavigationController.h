@@ -17,7 +17,7 @@
 	NSMutableArray* questions;
 	QuestionViewController* currentQuestionViewController;
 	int currentQuestionIndex;
-	NSMutableArray* responses;
+	NSMutableDictionary* responses;
 	NSString* firstName;
 	NSString* lastName;
 	NSString* passWord;
@@ -36,7 +36,7 @@
 @property (nonatomic , retain) ConnectingViewController* connectingViewController;
 @property (nonatomic , retain) NSMutableArray* questions;
 @property (nonatomic , retain) QuestionViewController* currentQuestionViewController;
-@property (nonatomic , retain) NSMutableArray* responses;
+@property (nonatomic , retain) NSMutableDictionary* responses;
 @property (nonatomic , retain) NSString* firstName;
 @property (nonatomic , retain) NSString* lastName;
 @property (nonatomic , retain) NSString* passWord;

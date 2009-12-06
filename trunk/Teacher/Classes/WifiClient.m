@@ -124,7 +124,7 @@
 			[self.delegate wifiClientDidAuthenticate:self]; 
 		}else{
 			NSLog(@"failed authentication");
-			[self.delegate wifiClientDidFailAuthentication:self]; 
+			[self.delegate wifiClientDidFailAuthentication:self message:@"Incorrect username or password."]; 
 		}
 		
 	}else if ( [method isEqual:@"getQuestions"]){
@@ -148,7 +148,7 @@
 	NSString* method = [sender.postValues objectForKey:@"method"];
 	NSLog(@"send message fail: %@", [sender.postValues objectForKey:@"method"]);
 	if ( [method isEqual:@"authenticate"] ){
-		[self.delegate wifiClientDidFailAuthentication:self]; 
+		[self.delegate wifiClientDidFailAuthentication:self message:@"Authentication failed. Please check you connection and try again."]; 
 	}else if ( [method isEqual:@"submitResponses"]){
 		[self.delegate wifiClientSendResponsesDidFail:self];
 	}

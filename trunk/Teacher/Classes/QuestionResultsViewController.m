@@ -1,18 +1,19 @@
 //
-//  TestViewController.m
+//  QuestionResultsViewController.m
 //  Teacher
 //
-//  Created by Adrian Smith on 10/14/09.
+//  Created by Adrian Smith on 12/6/09.
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
-#import "TestViewController.h"
-#import "ConnectedDevicesViewController.h"
-#import "SupervisorViewController.h"
+#import "QuestionResultsViewController.h"
+#import "Util.h"
 #import "DatabaseConnection.h"
+#import "ResponseResultsViewController.h"
 
-@implementation TestViewController
-@synthesize tests;
+@implementation QuestionResultsViewController
+@synthesize tid;
+@synthesize questions;
 
 /*
 - (id)initWithStyle:(UITableViewStyle)style {
@@ -23,15 +24,14 @@
 }
 */
 
-
+/*
 - (void)viewDidLoad {
     [super viewDidLoad];
-	
 
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
+*/
 
 /*
 - (void)viewWillAppear:(BOOL)animated {
@@ -41,8 +41,10 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-	self.tests = [DatabaseConnection executeSelect:@"Select * from test"];
+	NSString* query = [NSString stringWithFormat:@"Select * from question where tid=%d",tid];
+	self.questions = [DatabaseConnection executeSelect:query];
 	[self.tableView reloadData];
+	
 }
 
 /*
@@ -86,7 +88,7 @@
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [tests count];
+    return [questions count];
 }
 
 
@@ -101,7 +103,7 @@
     }
     
     // Set up the cell...
-	cell.textLabel.text = [[tests objectAtIndex:indexPath.row] objectForKey:@"name"];
+	cell.textLabel.text = [[questions objectAtIndex:indexPath.row] objectForKey:@"text"];
 	
     return cell;
 }
@@ -112,10 +114,19 @@
 	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
 	// [self.navigationController pushViewController:anotherViewController];
 	// [anotherViewController release];
-	SupervisorViewController* vc = [[SupervisorViewController alloc] initWithNibName:@"SupervisorViewController" bundle:nil];
-	vc.tid = [[[tests objectAtIndex:indexPath.row] objectForKey:@"tid"] intValue];
-	[self.navigationController pushViewController:vc animated:YES];
-	[vc release];
+	int qid = [[[questions objectAtIndex:indexPath.row] objectForKey:@"qid"] intValue];
+	NSString* query = [NSString stringWithFormat:@"select count(*) as `count` from response where qid=%d",qid];
+	NSArray* results = [DatabaseConnection executeSelect:query];
+	int count = [[[results objectAtIndex:0] objectForKey:@"count"] intValue];
+	
+	if ( count > 0){
+		ResponseResultsViewController* vc = [[ResponseResultsViewController alloc] initWithStyle:UITableViewStylePlain];
+		vc.qid = qid;
+		[self.navigationController pushViewController:vc animated:YES];
+		[vc release];
+	}else{
+		[Util showAlertWithTitle:@"Erroneous!" message:@"This question has no responses yet."];
+	}
 }
 
 
@@ -160,7 +171,7 @@
 
 
 - (void)dealloc {
-	[tests release];
+	[questions release];
     [super dealloc];
 }
 

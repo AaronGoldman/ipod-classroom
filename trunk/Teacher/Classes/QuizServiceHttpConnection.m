@@ -59,6 +59,7 @@
 	
 	NSString* lastname = [params objectForKey:@"lastname"];
 	lastname = [lastname stringByReplacingOccurrencesOfString:@"'" withString:@""];
+	NSString* studentName = [NSString stringWithFormat:@"%@ %@" , firstname,lastname];
 	
 	NSString* passhash = [params objectForKey:@"passhash"];
 	passhash = [passhash stringByReplacingOccurrencesOfString:@"'" withString:@""];
@@ -66,27 +67,48 @@
 	NSString* udid = [params objectForKey:@"udid"];
 	udid = [udid stringByReplacingOccurrencesOfString:@"'" withString:@""];
 	
-	NSString* query = [NSString stringWithFormat:@"Select * from student where firstname='%@' collate nocase and lastname='%@' collate nocase and passhash='%@' and udid='%@'",
+	NSString* query = [NSString stringWithFormat:@"Select * from student where firstname='%@' collate nocase and lastname='%@' collate nocase and (passhash='%@' or passhash='') and (udid='%@' or udid='')",
 					   firstname,lastname,passhash,udid];
 	NSLog(@"authentication query: %@" , query);
 	
 	NSArray* results = [DatabaseConnection executeSelect:query];
 	BOOL authenticated = [results count] > 0;
 	if ( authenticated ){
+		if ( [[[results objectAtIndex:0] objectForKey:@"passhash"] isEqual:@""]){
+			NSString* query = [NSString stringWithFormat:@"update student set passhash='%@' where firstname='%@' collate nocase and lastname='%@' collate nocase",passhash,firstname,lastname];
+			[DatabaseConnection executeSelect:query];
+		}
+		if ( [[[results objectAtIndex:0] objectForKey:@"udid"] isEqual:@""]){
+			NSString* query = [NSString stringWithFormat:@"update student set udid='%@' where firstname='%@' collate nocase and lastname='%@' collate nocase",udid,firstname,lastname];
+			[DatabaseConnection executeSelect:query];
+		}
+		
+		
 		[self.quizServiceHttpServer.authenticated setObject:[results objectAtIndex:0] forKey:udid];
 	}else if ( self.quizServiceHttpServer.acceptNew && [firstname length] > 0 && [lastname length] > 0 && [passhash length] > 0 && [udid length] > 0){
 		authenticated = YES;
 		query = [NSString stringWithFormat:@"insert into student (firstname,lastname,udid,passhash) values ('%@','%@','%@','%@');",firstname,lastname,udid,passhash];
 		[DatabaseConnection executeSelect:query];
 		NSNumber* student_id = [NSNumber numberWithInt:sqlite3_last_insert_rowid([DatabaseConnection getConnection])];
-		NSDictionary* studentInfo = [NSDictionary dictionaryWithObjectsAndKeys: 
+		NSDictionary* studentInfo = [NSMutableDictionary dictionaryWithObjectsAndKeys: 
 									 student_id,@"student_id",
 									 firstname,@"firstname",
 									 lastname,@"lastname",
 									 udid,@"udid",
 									 passhash,@"passhash",
+									 
 									 nil];
 		[self.quizServiceHttpServer.authenticated setObject:studentInfo forKey:udid];
+		
+	}
+	
+	if ( authenticated ){
+		NSMutableDictionary* studentInfo = [self.quizServiceHttpServer.authenticated objectForKey:udid];
+		[studentInfo setObject:studentName forKey:@"name"];
+		[self.quizServiceHttpServer.quizDelegate studentAuthenticated:studentName];
+	}else{
+		
+		[self.quizServiceHttpServer.quizDelegate studentFailedAuthentication:studentName];
 	}
 	
 	
@@ -117,6 +139,10 @@
 	
 	NSLog(@"handling Submit responses");
 	NSDictionary* response = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:YES] forKey:@"success"];
+	
+	[self.quizServiceHttpServer.completed setObject:student forKey:udid];
+	[self.quizServiceHttpServer.quizDelegate studentCompleted:[student objectForKey:@"name"]];
+	
 	return [SBJSON stringWithObject:response];
 	
 	

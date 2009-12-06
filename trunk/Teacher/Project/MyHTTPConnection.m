@@ -79,7 +79,7 @@
 	//generate test list
 	//[outdata appendString:@"<a href=getresponses>getresponses.csv</a><br />\n"];
 	
-	 NSArray* testTaken = [DatabaseConnection executeSelect:@"select distinct test.tid,test.name from test inner join question on (test.tid=question.tid) inner join response on (question.qid=response.qid);"];
+	NSArray* testTaken = [DatabaseConnection executeSelect:@"select distinct test.tid,test.name from test inner join question on (test.tid=question.tid) inner join response on (question.qid=response.qid);"];
 	for(NSDictionary* row in testTaken){
 		NSString* filename = [row objectForKey:@"name"];
 		NSNumber* tid = [row objectForKey:@"tid"];
@@ -450,7 +450,7 @@
 	for(int i = 0; i < [question count]; i++)
 	{
 		NSString* text = [question objectAtIndex:i];
-		text = [text stringByReplacingOccurrencesOfString:@"''" withString:@""];
+		text = [text stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
 		
 		NSString* type = [questionType objectAtIndex:i];
 		type = [type stringByReplacingOccurrencesOfString:@"'" withString:@""];
@@ -567,8 +567,12 @@
 	{
 		NSString* fname = [studentFirstNames objectAtIndex:i];
 		NSString* lname	= [studentLastNames objectAtIndex:i];
-		NSString* passhash = [Util md5:[passwords objectAtIndex:i]];
 		NSString* device = [devices objectAtIndex:i];
+		NSString* passhash = [passwords objectAtIndex:i];
+		if ( ![passhash isEqual:@""] ){
+			passhash = [Util md5:passhash];
+		}
+		
 		//sanitizing strings
 		fname		= [fname stringByReplacingOccurrencesOfString:@"'" withString:@""];
 		lname		= [lname stringByReplacingOccurrencesOfString:@"'" withString:@""];
